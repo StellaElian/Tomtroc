@@ -10,7 +10,7 @@
         <?php if (isset($user) && $user !== null): ?>
             <p>Bravo ! Le MVC fonctionne. L'utilisateur trouvé est : 
             <strong><?= htmlspecialchars($user->getPseudo()) ?></strong>
-            <strong><?= htmlspecialchars($php_errormsgil->getEmail()) ?></strong>
+            <strong><?= htmlspecialchars($email->getEmail()) ?></strong>
         </p>
         <?php else: ?>
             <p>La connexion fonctionne, mais je n'ai pas trouvé d'utilisateur dans ta table 'users'.</p>
