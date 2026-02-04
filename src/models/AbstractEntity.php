@@ -13,7 +13,7 @@ abstract class AbstractEntity
 
     public function __construct(array $data = [])
     {
-        if (!emmpty($data)){
+        if (!empty($data)){
             // on appelle la machine à ranger(hydratation)
             // "prends les informations du panier et ranges les dans les bons tiroirs"
             $this->hydrate($data);
@@ -42,7 +42,7 @@ abstract class AbstractEntity
     public function setId(int $id) : self 
     {
         $this->id = $id;
-        return $id;
+        return $this;
     }
 
     //Getter pour l'id.

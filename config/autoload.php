@@ -12,7 +12,7 @@ spl_autoload_register(function ($className)
         require_once $managers;
     }
     if (file_exists($models)) {
-        require_once $modls;
+        require_once $models;
     }
 
     if (file_exists($controllers)) {
