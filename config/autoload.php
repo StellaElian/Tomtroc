@@ -10,6 +10,7 @@ spl_autoload_register(function ($className)
     $managers = '../src/managers/' . $className . '.php';
     $models = '../src/models/' . $className . '.php';
     $controllers = '../src/controllers/' . $className . '.php';
+    $services = '../src/services/' . $className . '.php';
     if (file_exists($managers)) {
         require_once $managers;
     }
@@ -19,5 +20,9 @@ spl_autoload_register(function ($className)
 
     if (file_exists($controllers)) {
         require_once $controllers;
+    }
+
+    if(file_exists($services)){
+        require_once $services;
     }
 });
