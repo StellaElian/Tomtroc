@@ -5,6 +5,8 @@ class User extends AbstractEntity
     private string $pseudo;
     private string $email;
     private string $password;
+    private string $avatar;
+    private string $createdAt;
 
     // pseudo: ranger et afficher
     public function setPseudo(string $pseudo): void
@@ -47,12 +49,12 @@ class User extends AbstractEntity
         return $this->avatar;
     }
 
-    public function setCreatedAt(string $created_at): void
+    public function setCreatedAt(string $createdAt): void
     {
-       $this->created_at = $created_at;
+       $this->createdAt = $createdAt;
     }
 
     public function getCreatedAt(): string {
-        return $this->created_at;
+        return $this->createdAt;
     }
 }
