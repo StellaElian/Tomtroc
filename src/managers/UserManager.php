@@ -23,4 +23,15 @@ class UserManager extends AbstractEntityManager
             return null;
         }
     }
+
+    public function createUser(User $user): void
+    {
+        $sql = "INSERT INTO users (pseudo, email, password, avatar, created_at) VALUES (:pseudo, :email, :password, :avatar, NOW())";
+        $this->db->query($sql, [
+            'pseudo' => $user->getPseudo,
+            'email' => $email->getEmail,
+            'password' => $password->getPassword,
+            'avatar' => $avatar->getAvatar
+        ]);
+    }
 }
