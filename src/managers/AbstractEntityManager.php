@@ -13,6 +13,7 @@ abstract class AbstractEntityManager
 
     public function __construct()
     {
+        // Tous les managers auront accés à la base grâce à cette classe
         $this->db =  DBManager::getInstance();
     }
 }

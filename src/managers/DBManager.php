@@ -8,7 +8,7 @@
 */
 class DBManager
 {
-    //boîte où on garde la connexion une fois qu'elle est ouverte
+    //boîte où on garde la connexion une fois qu'elle est ouverte, on stocke 1 seule connexion
     private static $instance = null;
     //variable qui contient l'outil de connexion (PDO)
     private $db;

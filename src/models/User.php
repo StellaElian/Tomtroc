@@ -37,5 +37,4 @@ class User extends AbstractEntity
     public function getpassword(): string {
         return $this->password;
     }
-
 }

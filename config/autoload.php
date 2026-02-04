@@ -3,8 +3,10 @@
     elle va chercher automatiquement le fichier correspondant dans les dossiers.
     ----> petit robot détecteur 
 */
+// Quand on écrit new quelques chose, je vais chercher son fichier
 spl_autoload_register(function ($className) 
 {
+    // prépare les chemins possibles 
     $managers = '../src/managers/' . $className . '.php';
     $models = '../src/models/' . $className . '.php';
     $controllers = '../src/controllers/' . $className . '.php';
