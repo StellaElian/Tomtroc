@@ -1,7 +1,6 @@
 <?php
 require_once '../config/_config.php';
 require_once '../config/autoload.php';
-require_once '../src/managers/DBManager.php';
 
-$userController = new UserController();
-$userCcontroller->showFirstUser();
+$controller = new UserController();
+$controller->showFirstUser();

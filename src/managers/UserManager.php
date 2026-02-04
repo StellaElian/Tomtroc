@@ -1,7 +1,8 @@
 <?php
-
-class User extends AbstactEntityManager{
-    public function getFirstUser() : ?User {
+class UserManager extends AbstractEntityManager
+{
+    public function getFirstUser(): ?User 
+    {
         $sql = "SELECT * FROM users LIMIT 1";
         $squery = $this->db->query($sql);
         $data = $query->fetch();

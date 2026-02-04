@@ -1,6 +1,6 @@
 <?php
-class UserController{
-    public function showFirstUser(): void{
+class UserController {
+    public function showFirstUser(): void {
         //creation du manager pour chercher l'utilisateur
         $userManager = new UserManager();
         $user = $userManager->getFirstUser();
