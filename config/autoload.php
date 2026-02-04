@@ -5,15 +5,17 @@
 */
 spl_autoload_register(function ($className) 
 {
-    if (file_exists('../src/managers/' . $className . '.php')) {
-        require_once '../src/managers/' . $className . '.php';
+    $managers = '../src/managers/' . $className . '.php';
+    $models = '../src/models' . $className . '.php';
+    $controllers = '../src/controllers' . $className . '.php';
+    if (file_exists($managers)) {
+        require_once $managers;
+    }
+    if (file_exists($models)) {
+        require_once $modls;
     }
 
-    if (file_exists('../src/models/' . $className . '.php')) {
-        require_once '../src/models' . $className . '.php';
-    }
-
-    if (file_exists('../src/controllers/' . $className . '.php')) {
-        require_once '../src/controllers' . $className . '.php';
+    if (file_exists($controllers)) {
+        require_once $controllers;
     }
 });
