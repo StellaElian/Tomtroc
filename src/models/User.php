@@ -12,7 +12,7 @@ class User extends AbstractEntity
        $this->pseudo = $pseudo;
     }
 
-    public function getpseudo(): string {
+    public function getPseudo(): string {
         return $this->pseudo;
     }
 
@@ -34,7 +34,25 @@ class User extends AbstractEntity
        $this->password = $password;
     }
 
-    public function getpassword(): string {
+    public function getPassword(): string {
         return $this->password;
+    }
+
+    public function setAvatar(string $avatar): void
+    {
+       $this->avatar = $avatar;
+    }
+
+    public function getAvatar(): string {
+        return $this->avatar;
+    }
+
+    public function setCreatedAt(string $created_at): void
+    {
+       $this->created_at = $created_at;
+    }
+
+    public function getCreatedAt(): string {
+        return $this->created_at;
     }
 }

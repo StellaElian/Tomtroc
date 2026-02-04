@@ -19,5 +19,4 @@ class UserController
         echo "Tu es connecté user 1";
         echo "<br><ahref='index.php?action=ptofile'>Voir mon profil</a>";
     }
-
 }
