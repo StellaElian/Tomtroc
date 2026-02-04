@@ -8,7 +8,7 @@
         <h1>Initialisation TomTroc réussie !</h1>
 
         <?php if (isset($user) && $user !== null): ?>
-            <p>Bravo ! Le MVC fonctionne. L'utilisateur trouvé est : 
+            <p>Bravo ! Le MVC fonctionne. L'utilisateur trouvé est : <br><br>
             <strong><?= htmlspecialchars($user->getPseudo()) ?></strong><br><br>
             <strong><?= htmlspecialchars($user->getEmail()) ?></strong>
         </p>
