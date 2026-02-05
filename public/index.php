@@ -22,6 +22,9 @@ switch($action){
     case 'profile' : //profil utilisateur
         $userController->showProfile();
         break;
+    case 'updateProfile' :
+        $userController->updateProfile();
+        break;
     default:
         $userController->showHome();
         break;
