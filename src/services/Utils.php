@@ -9,16 +9,12 @@ class Utils
     // redirection vers une URL 
     public static function redirect(string $action): void
     {
-        $url = "index.php?action=$action";
-        foreach ($params as $paramName => $paramValue) {
-            $url .= "&$paramName=$paramValue";
-        }
-        header("Location: $url");
+        header("Location: index.php?action=" . $action);
         exit();
     }
     //Vérifiez si l'utilisateur est connecté , utile pour protéger les pages " Mon compte"
     public function isUserConnected(): bool
     {
-        return isset($_SESSION['user']);
+        return isset($_SESSION['user_id']);
     }
 }
