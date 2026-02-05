@@ -25,6 +25,9 @@ switch($action){
     case 'updateProfile' :
         $userController->updateProfile();
         break;
+    case 'logout' :
+        $userController->logout();
+        break;
     default:
         $userController->showHome();
         break;

@@ -109,4 +109,10 @@ class UserController
             //exit;
         }
     }
+
+    public function logout(): void
+    {
+        session_destroy();
+        Utils::redirect('home');
+    }
 }

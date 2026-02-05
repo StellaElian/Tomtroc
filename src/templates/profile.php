@@ -7,7 +7,8 @@
     <body>
         <nav>
             <a href="index.php?action=home">Acceuil</a>
-            <a href="index.php?action=login">Se connecter</a>
+            <a href="index.php?action=login">Connexion</a>
+            <a href="index.php?action=logout">Se déconnecter</a>
         </nav>
         <h1>Mon compte</h1>
         <div class="infos">
