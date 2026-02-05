@@ -12,6 +12,28 @@ class UserController
         }
     }
 
+    public function showRegister(): void
+    {
+        require_once '../src/templates/register.php';
+    }
+
+    public function registerUser(): void
+    {
+        if(!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password'])){
+            $userManager = new Usermanager();
+            $userManager->createUser($_POST['pesudo'], $_POST['email'], $_POST['password']);
+            header('Location: index.php');
+        }else{
+            echo "Veuillez remplir tous les champs ou réessayer";
+            require_once '../src/templates/register.php';
+        }
+    }
+
+    //redirection vers la page d'acceuil
+    public function showHome(): void
+    {
+        require_once '../src/templates/home.php';
+    }
     //test rapide 
     public function testLogin(): void 
     {
