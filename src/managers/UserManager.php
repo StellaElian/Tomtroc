@@ -34,4 +34,15 @@ class UserManager extends AbstractEntityManager
             'avatar' => $user->getAvatar()
         ]);
     }
+
+    public function updateUser(User $user): void
+    {
+        $sql = "UPDATE users SET pseudo = :pseudo, email = :email, password = :password, avatar = :avatar WHERE id = :id";
+        $this->db->query($sql,[
+            'pseudo' => $user->getPseudo(),
+            'email' => $user->getEmail(),
+            'password' => $user->getPassword(),
+            'avatar' => $user->getAvatar()
+        ]);
+    }
 }

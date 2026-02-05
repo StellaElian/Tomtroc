@@ -13,8 +13,9 @@ class Utils
         exit();
     }
     //Vérifiez si l'utilisateur est connecté , utile pour protéger les pages " Mon compte"
-    public function isUserConnected(): bool
+    public static function isUserConnected(): bool
     {
+        //vérification si la variable 'user_id' existe dans la session
         return isset($_SESSION['user_id']);
     }
 }

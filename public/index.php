@@ -19,6 +19,9 @@ switch($action){
     case 'connectUser': //Vérification password
         $userController->connect();
         break;
+    case 'profile' : //profil utilisateur
+        $userController->showProfile();
+        break;
     default:
         $userController->showHome();
         break;

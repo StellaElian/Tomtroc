@@ -1,17 +1,6 @@
 <?php
 class UserController
 {
-    public function showProfile(): void
-    {
-        if(isset($_SESSION['user_id'])){
-            $userManager = new UserManager();
-            $user = $userManager->getUserById($_SESSION['user_id']);
-            require_once '../src/templates/profile.php';
-        }else{
-            header('Location: index.php?action=register');
-        }
-    }
-
     // page d'inscription 
     public function showRegister(): void
     {
@@ -70,15 +59,54 @@ class UserController
                     // mdp bon donc on enregistre l'id de l'user dans la session
                     $_SESSION['user_id'] = $user->getId();
                     Utils::redirect('profile');
-                }else{
+                }else {
                     echo "Mauvais mot de passe";
                     require_once '../src/templates/login.php';
                 }     
-            }else{
+            }else {
                 echo " Cet Email n'existe pas.";
                 require_once "../src/templates/login.php";
             }
         }
-        
+    }
+
+    public function showProfile(): void
+    {
+        if (Utils::isUserConnected()){
+            //recuperation des infos stockées grâce à son id
+            $userManager = new UserManager();
+            $userId = $_SESSION['user_id'];
+            $user = $userManager->getUserById($userId);
+            // affichage de la page profil
+            require_once '../src/templates/profile.php';
+        }else {
+            Utils::redirect('login');
+        }
+    }
+
+    public function updateProfile(): void
+    {
+        if (!Utils::isUserConnect()){
+            Utils::redirect('login');
+        }
+        $userManager = new UserManager();
+        // recuperation de l'id acturl pour modifier 
+        $user = $userManager->getUserById($_SESSION['user_id']);
+        if (!empty($_POST['email'] && !empty($_POST['pseudo']))){
+            $user->setPseudo($_POST['pseudo']);
+            $user->setEmail($_POST['email']);
+            // si mdp rempli on change sinon on y touche pas
+            if(!empty($_POST['password'])){
+                $user->setPassword(password_hash($_POST['password'], PASSWORD_DEFAULT));
+            }
+            // on enregistre via le Manager
+            $userManager->updateUser($user);
+            //on recharge la page profile pour voir les modifications
+            Utils::redirect('profile');
+        }else{
+            echo "Email et Psaudo obligaoires !";
+            $this->showProfile();
+            //exit;
+        }
     }
 }
