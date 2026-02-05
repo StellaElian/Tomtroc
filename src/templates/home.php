@@ -2,18 +2,11 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>TomTroc - Test MVC</title>
+        <title>TomTroc - Acceuil</title>
     </head>
     <body>
-        <h1>Initialisation TomTroc réussie !</h1>
-
-        <?php if (isset($user) && $user !== null): ?>
-            <p>Bravo ! Le MVC fonctionne. L'utilisateur trouvé est : <br><br>
-            <strong><?= htmlspecialchars($user->getPseudo()) ?></strong><br><br>
-            <strong><?= htmlspecialchars($user->getEmail()) ?></strong>
-        </p>
-        <?php else: ?>
-            <p>La connexion fonctionne, mais je n'ai pas trouvé d'utilisateur dans ta table 'users'.</p>
-        <?php endif; ?>
+        <h1>IBienvenue sur TomTroc !</h1>
+        <p>Le site d'échange de livres . </p>
+        <a href="index.php?action=register">Créer un compte</a>
     </body>
 </html>

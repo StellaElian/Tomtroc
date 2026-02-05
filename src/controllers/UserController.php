@@ -12,11 +12,13 @@ class UserController
         }
     }
 
+    // page d'inscription 
     public function showRegister(): void
     {
         require_once '../src/templates/register.php';
     }
 
+    //Formulaire d'inscription
     public function registerUser(): void
     {
         if(!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password'])){
