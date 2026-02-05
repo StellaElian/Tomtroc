@@ -5,7 +5,7 @@
         <title>TomTroc - Acceuil</title>
     </head>
     <body>
-        <h1>IBienvenue sur TomTroc !</h1>
+        <h1>Bienvenue sur TomTroc !</h1>
         <p>Le site d'échange de livres . </p>
         <a href="index.php?action=register">Créer un compte</a>
     </body>
