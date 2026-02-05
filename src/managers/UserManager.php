@@ -33,7 +33,5 @@ class UserManager extends AbstractEntityManager
             'password' => $user->getPassword(),
             'avatar' => $user->getAvatar()
         ]);
-        echo "INSERT OK";
-        exit;
     }
 }

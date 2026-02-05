@@ -56,8 +56,4 @@ class DBManager
         }
         return $query;
     }
-
-    //test 
-    echo "Connecté à la base : " . DB_NAME;
-    exit;
 }
