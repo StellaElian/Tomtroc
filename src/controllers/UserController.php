@@ -19,12 +19,23 @@ class UserController
     }
 
     //Formulaire d'inscription
-    public function registerUser(): void
+    public function register(): void
     {
         if(!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password'])){
-            $userManager = new Usermanager();
-            $userManager->createUser($_POST['pesudo'], $_POST['email'], $_POST['password']);
-            header('Location: index.php');
+            //instanciation de user
+            $user = new User();
+            // remplissage éléments du formulaire 
+            $user->setPseudo($_POST['pesudo']);
+            $user->setEmail($_POST['email']) ;
+            //transformation du mdp en code secret pour la sécurité
+            $passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $user->setPassword($_POST['password']);
+            //on appelle le manager ranger en bdd
+            $userManager = new UserManager();
+            $usermanager->createUser($user);
+            //on utilise utils pour rediriger vers l'acceuil
+            utils::redirect('home');
+        
         }else{
             echo "Veuillez remplir tous les champs ou réessayer";
             require_once '../src/templates/register.php';
