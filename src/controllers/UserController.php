@@ -49,11 +49,5 @@ class UserController
     {
         require_once '../src/templates/home.php';
     }
-    //test rapide 
-    public function testLogin(): void 
-    {
-        $_SESSION['user_id'] = 1;
-        echo "Tu es connecté user 1";
-        echo "<br><a href='index.php?action=profile'>Voir mon profil</a>";
-    }
+    
 }
