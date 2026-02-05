@@ -6,7 +6,7 @@
     </head>
     <body>
         <nav>
-            <a href="index.php?action=login">Acceuil</a>
+            <a href="index.php?action=home">Acceuil</a>
         </nav>
         <div class="login-container">
             <h1>Se connecter</h1>
