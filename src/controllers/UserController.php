@@ -61,15 +61,15 @@ class UserController
     {
         //si les champs sont remplis, on appelle le manager pour chercher l'utilisateur avec cet email
         if (!empty($_POST['email']) && !empty($_POST['password'])){
+            // demande si l'email existe dans la bdd 
             $userManager = new UserManager();
             $user = $userManager->getUserByEmail($_POST['email']);
             if ($user !== null){
                 //verification password
                 if (password_verify($_POST['password'], $user->getPassword())){
-                    // on enregistre l'id de l'user dans la session
+                    // mdp bon donc on enregistre l'id de l'user dans la session
                     $_SESSION['user_id'] = $user->getId();
-                    $_SESSION['user'] = $user;
-                    Utils::redirect('home');
+                    Utils::redirect('profile');
                 }else{
                     echo "Mauvais mot de passe";
                     require_once '../src/templates/login.php';
