@@ -4,11 +4,11 @@ class UserController
     public function showProfile(): void
     {
         if(isset($_SESSION['user_id'])){
-            $usermanager = new UserManager();
-            $user = $userManager->getUserById(['user_id']);
+            $userManager = new UserManager();
+            $user = $userManager->getUserById($_SESSION['user_id']);
             require_once '../src/templates/profile.php';
         }else{
-            header(Location:'index.php?action=register');
+            header('Location: index.php?action=register');
         }
     }
 

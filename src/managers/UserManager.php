@@ -3,8 +3,8 @@ class UserManager extends AbstractEntityManager
 {
     public function getUserById(int $id): ?User 
     {
-        $sql = "SELECT * FROM users WHERE $id = :id";
-        $query = $this->db->query($sql);
+        $sql = "SELECT * FROM users WHERE id = :id";
+        $query = $this->db->query($sql, ['id' => $id]);
         $data = $query->fetch();
         if ($data){
             return new User($data);
@@ -14,8 +14,8 @@ class UserManager extends AbstractEntityManager
     }
     public function getUserByEmail(string $email): ?User
     {
-        $sql = "SELECT * FROM users WHERE $email = :email";
-        $query = $this->db->query($sql);
+        $sql = "SELECT * FROM users WHERE email = :email";
+        $query = $this->db->query($sql, ['email' => $email]);
         $data = $query->fetch();
         if ($data){
             return new User($data);
@@ -29,9 +29,9 @@ class UserManager extends AbstractEntityManager
         $sql = "INSERT INTO users (pseudo, email, password, avatar, created_at) VALUES (:pseudo, :email, :password, :avatar, NOW())";
         $this->db->query($sql, [
             'pseudo' => $user->getPseudo,
-            'email' => $email->getEmail,
-            'password' => $password->getPassword,
-            'avatar' => $avatar->getAvatar
+            'email' => $user->getEmail,
+            'password' => $user->getPassword,
+            'avatar' => $user->getAvatar
         ]);
     }
 }
