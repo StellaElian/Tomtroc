@@ -10,7 +10,7 @@
         </nav>
         <div class="register-container">
             <h1>Créer un compte</h1>
-            <form action="index.php?action=registeruser" method="POSt">
+            <form action="index.php?action=registerUser" method="POSt">
                 <label>Pseudo</label><br>
                 <input type="text" name="pseudo"><br><br>
 
