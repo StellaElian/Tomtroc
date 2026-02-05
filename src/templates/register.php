@@ -10,7 +10,7 @@
         </nav>
         <div class="register-container">
             <h1>Créer un compte</h1>
-            <form action="index.php?action=registerUser" method="POSt">
+            <form action="index.php?action=registerUser" method="POST">
                 <label>Pseudo</label><br>
                 <input type="text" name="pseudo"><br><br>
 
@@ -22,11 +22,8 @@
 
                 <button type="submit">S'inscrire</button>
 
-                <p>
-                    Déja inscrit ?
-                    <a href="index.php?page=login" style="test-decoration: underline; color: black;">Connectez-vous</a>
-                </p>
-            </div>
-        </form>
+                <p>Déja inscrit ? <a href="index.php?action=login" style="test-decoration: underline; color: black;">Connectez-vous</a></p>
+            </form>
+        </div>
     </body>
 </html>
