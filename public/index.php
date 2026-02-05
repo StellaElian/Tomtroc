@@ -12,6 +12,12 @@ switch($action){
     case 'registerUser': // traite le formulaire 
         $userController->register();
         break;
+    case 'login': //Affichage connexion
+        $userController->showLogin();
+        break;
+    case 'connectUser': //Vérification password
+        $userController->connect();
+        break;
     default:
         $userController->showHome();
         break;
