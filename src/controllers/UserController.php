@@ -50,4 +50,35 @@ class UserController
         require_once '../src/templates/home.php';
     }
     
+    // afficher la page de connexion
+    public function showLogin(): void
+    {
+        require_once '../src/templates/login.php';
+    }
+
+    //verification de l'email et du password pour connecter l'utilisateur 
+    public function connect(): void
+    {
+        //si les champs sont remplis, on appelle le manager pour chercher l'utilisateur avec cet email
+        if (!empty($_POST['email']) && !empty($_POST['password'])){
+            $userManager = new UserManager();
+            $user = $userManager->getUserByEmail($_POST['email']);
+            if ($user !== null){
+                //verification password
+                if (password_verify($_POST['password'], $user->getPassword())){
+                    // on enregistre l'id de l'user dans la session
+                    $_SESSION['user_id'] = $user->getId();
+                    $_SESSION['user'] = $user;
+                    Utils::redirect('home');
+                }else{
+                    echo "Mauvais mot de passe";
+                    require_once '../src/templates/login.php';
+                }     
+            }else{
+                echo " Cet Email n'existe pas.";
+                require_once "../src/templates/login.php";
+            }
+        }
+        
+    }
 }
