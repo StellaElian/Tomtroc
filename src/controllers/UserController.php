@@ -25,16 +25,18 @@ class UserController
             //instanciation de user
             $user = new User();
             // remplissage éléments du formulaire 
-            $user->setPseudo($_POST['pesudo']);
+            $user->setPseudo($_POST['pseudo']);
             $user->setEmail($_POST['email']) ;
             //transformation du mdp en code secret pour la sécurité
             $passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $user->setPassword($_POST['password']);
+            $user->setPassword($passwordHash);
+            // on lui donne une image par défault
+            $user->setAvatar('default-avatar.png');
             //on appelle le manager ranger en bdd
             $userManager = new UserManager();
-            $usermanager->createUser($user);
+            $userManager->createUser($user);
             //on utilise utils pour rediriger vers l'acceuil
-            utils::redirect('home');
+            Utils::redirect('home');
         
         }else{
             echo "Veuillez remplir tous les champs ou réessayer";
@@ -50,8 +52,8 @@ class UserController
     //test rapide 
     public function testLogin(): void 
     {
-        $_SESSION['user_ifd'] = 1;
+        $_SESSION['user_id'] = 1;
         echo "Tu es connecté user 1";
-        echo "<br><ahref='index.php?action=ptofile'>Voir mon profil</a>";
+        echo "<br><a href='index.php?action=profile'>Voir mon profil</a>";
     }
 }
