@@ -2,23 +2,13 @@
 
 class Book extends AbstractEntity
 {
-    protected int $id;
+   
     private int $userId;
     private string $author;
     private string $title;
     private string $description;
     private string $image;
     private string $disponibilite;
-
-    //id
-    public function getId(): int 
-    {
-        return $this->id;
-    }
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
 
     //user_id
     public function getUserId(): int 
