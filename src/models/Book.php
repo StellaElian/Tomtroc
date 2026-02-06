@@ -2,7 +2,7 @@
 
 class Book extends AbstractEntity
 {
-    private int $id;
+    protected int $id;
     private int $userId;
     private string $author;
     private string $title;
