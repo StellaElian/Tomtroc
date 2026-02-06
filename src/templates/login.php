@@ -11,7 +11,7 @@
         <div class="login-container">
             <h1>Se connecter</h1>
 
-            <form action="index.php?action=login" method="POST">
+            <form action="index.php?action=connectUser" method="post">
                 <label>Email</label><br>
                 <input type="email" name="email"><br><br>
             

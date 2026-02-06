@@ -67,6 +67,10 @@ class UserController
                 echo " Cet Email n'existe pas.";
                 require_once "../src/templates/login.php";
             }
+        }else{
+            //si champs vides
+            echo "Veuillez remplir tous les champs";
+            require_once '../src/templates/login.php';
         }
     }
 
@@ -81,12 +85,12 @@ class UserController
             require_once '../src/templates/profile.php';
         }else {
             Utils::redirect('login');
-        }
+        }  
     }
 
     public function updateProfile(): void
     {
-        if (!Utils::isUserConnect()){
+        if (!Utils::isUserConnected()){
             Utils::redirect('login');
         }
         $userManager = new UserManager();
