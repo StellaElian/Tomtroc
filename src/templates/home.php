@@ -10,7 +10,6 @@
             <section class="hero">
                 <h1>Bienvenue sur TomTroc !</h1>
                 <p>Le site d'échange de livres entre passionnés. </p>
-                <a href="index.php?action=register">Créer un compte</a>
                 <a href="index.php?action=login">Se connecter</a>
                 <?php if (!Utils::isUserConnected()): ?>
                     <a href="index.php?action=register" class="btn-primary">Créer un compte</a>
