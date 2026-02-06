@@ -40,6 +40,7 @@ class User extends AbstractEntity
         return $this->password;
     }
 
+    // Avatar
     public function setAvatar(string $avatar): void
     {
        $this->avatar = $avatar;
@@ -49,6 +50,7 @@ class User extends AbstractEntity
         return $this->avatar;
     }
 
+    //date création
     public function setCreatedAt(string $createdAt): void
     {
        $this->createdAt = $createdAt;
