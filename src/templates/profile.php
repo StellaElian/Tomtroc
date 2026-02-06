@@ -16,7 +16,7 @@
             
             <div class="library-count">
                 <strong>BIBLIOTHEQUE</strong><br>
-                0 livres
+                <?php echo " 4 livres ";//nombre de livres (compteur)  ?>
             </div>
         </div>
 
