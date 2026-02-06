@@ -79,8 +79,12 @@ class UserController
         if (Utils::isUserConnected()){
             //recuperation des infos stockées grâce à son id
             $userManager = new UserManager();
+            $bookManager = new BookManager();
             $userId = $_SESSION['user_id'];
+            //récupération utilisateur
             $user = $userManager->getUserById($userId);
+            //récupération de ses livres
+            $books = $bookManager->getBooksByUser($userId);
             // affichage de la page profil
             require_once '../src/templates/profile.php';
         }else {
