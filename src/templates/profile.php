@@ -63,4 +63,4 @@
     </div>
 </div>
 
-<?php require_once '../src/templates/footer.php'; ?>
+<?php require_once '../src/templates/_footer.php'; ?>
