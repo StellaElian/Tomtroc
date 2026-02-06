@@ -1,7 +1,9 @@
 <?php require_once '../src/templates/_header.php'; ?>
 
 <div class="profile-page">
-    <h1>Mon compte</h1>
+    <div class="page-title">
+        <h1>Mon compte</h1>
+    </div>
 
     <div class="profile-content">
         <div class="profile-card">
@@ -12,11 +14,11 @@
             </div>
             <hr>
             <h2><?= htmlspecialchars($user->getPseudo()) ?></h2>
-            <p>Membre depuis <?= Utils::format($user->getCreatedAt()) // Il faudra formater la date ?></p>
+            <p>Membre depuis <?= Utils::format($user->getCreatedAt()) ?></p>
             
             <div class="library-count">
                 <strong>BIBLIOTHEQUE</strong><br>
-                <?php echo " 4 livres ";//nombre de livres (compteur)  ?>
+                <?= count($books) ?> livres
             </div>
         </div>
 
@@ -55,9 +57,37 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td colspan="6">Vous n'avez pas encore de livres (Fonctionnalité à venir à l'étape 4)</td>
-                </tr>
+                <?php if (empty($books)): ?>
+                    <tr>
+                        <td colspan="6" style="text-align: center; padding: 20px;">
+                            Vous n'avez pas encore ajouté de livres.
+                        </td>
+                    </tr>
+                <?php else: ?>
+                    <?php foreach ($books as $book): ?>
+                        <tr>
+                            <td>
+                                <img src="../public/img/books/<?= htmlspecialchars($book->getImage()) ?>" alt="Cover" width="50">
+                            </td>
+                            <td><?= htmlspecialchars($book->getTitle()) ?></td>
+                            <td><?= htmlspecialchars($book->getAuthor()) ?></td>
+                            <td>
+                                <div class="description-text">
+                                    <?= htmlspecialchars(substr($book->getDescription(), 0, 50)) ?>...
+                                </div>
+                            </td>
+                            <td>
+                                <span class="tag <?= $book->getDisponibilite() === 'disponible' ? 'green' : 'red' ?>">
+                                    <?= htmlspecialchars($book->getDisponibilite()) ?>
+                                </span>
+                            </td>
+                            <td>
+                                <a href="#" class="edit-link">Éditer</a> 
+                                <a href="#" class="delete-link">Supprimer</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </tbody>
         </table>
     </div>

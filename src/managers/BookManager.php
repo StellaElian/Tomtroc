@@ -6,7 +6,7 @@ class BookManager extends AbstractEntityManager
     public function getBooksByUser(int $userId): array
 {
     //tous les livres de l'utilisateur connecté
-    $sql = "SELECT $ FROM books where user_id = :userId";
+    $sql = "SELECT * FROM books where user_id = :userId";
     $query = $this->db->query($sql, ['userId' => $userId]);
     $books =[];
     while($data = $query->fetch()){
