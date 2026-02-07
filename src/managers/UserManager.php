@@ -28,10 +28,10 @@ class UserManager extends AbstractEntityManager
     {
         $sql = "INSERT INTO users (pseudo, email, password, avatar, created_at) VALUES (:pseudo, :email, :password, :avatar, NOW())";
         $this->db->query($sql, [
-            'pseudo' => $user->getPseudo(),
-            'email' => $user->getEmail(),
-            'password' => $user->getPassword(),
-            'avatar' => $user->getAvatar()
+            'pseudo' => $_POST['pseudo'],
+            'email' => $_POST['email'],
+            'password' => $_POST['password'],
+            'avatar' => $_POST['avatar']
         ]);
     }
 
@@ -39,10 +39,10 @@ class UserManager extends AbstractEntityManager
     {
         $sql = "UPDATE users SET pseudo = :pseudo, email = :email, password = :password, avatar = :avatar WHERE id = :id";
         $this->db->query($sql,[
-            'pseudo' => $user->getPseudo(),
-            'email' => $user->getEmail(),
-            'password' => $user->getPassword(),
-            'avatar' => $user->getAvatar()
+            'pseudo' => $_POST['pseudo'],
+            'email' => $_POST['email'],
+            'password' => $_POST['password'],
+            'avatar' => $_POST['avatar']
         ]);
     }
 }
