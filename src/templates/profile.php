@@ -88,7 +88,7 @@
                             </td>
                             <td>
                                 <a href="#" class="edit-link">Éditer</a> 
-                                <a href="#" class="delete-link">Supprimer</a>
+                                <a href="index.php?action=deleteBook&id=<?= $book->getId() ?>" class="delete-link" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?');">Supprimer</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

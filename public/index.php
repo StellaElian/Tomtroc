@@ -29,11 +29,14 @@ switch($action){
     case 'logout' :
         $userController->logout();
         break;
-    case 'addBook' :
+    case 'addBook' : //Affichage du formulaire
         $bookController->showAddBook();
         break;
-    case 'addBookPost' :
+    case 'addBookPost' :  
         $bookController->addBookPost();
+        break;
+    case 'deleteBook' :
+        $bookController->deleteBook();
         break;
     default:
         $userController->showHome();

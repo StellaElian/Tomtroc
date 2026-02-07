@@ -14,7 +14,7 @@ class BookController
     // formumlaire d'ajout de livres
     public function addBookPost(): void 
     {
-        if (Utils::isUserConnected()){
+        if (!Utils::isUserConnected()){
             Utils::redirect('login');
         }
         if (!empty($_POST['title']) && !empty($_POST['author'] && !empty($_POST['description']) && !empty($_POST['disponibilite']))){
@@ -48,4 +48,22 @@ class BookController
             Utils::redirect('addBook');
         }
     }
-}
+
+    public function deleteBook(): void
+    {
+        if (!Utils::isUserConnected()){
+            Utils::redirect('login');
+        }
+        //rrécupération l'ID de l'URL
+        $id = $_GET['id'] ;
+        if($id){
+            $bookManager = new BookManager();
+            $bookManager->deleteBook($id);
+        }
+        // si le livre existe et s'il appartient à un utilisateur 
+        if ($book && $book->getUserId() === $_SESSION['user_id']){
+            $bookManager->deleteBook($id);
+        }
+        Utils::redirect('profile');
+    }
+}    
