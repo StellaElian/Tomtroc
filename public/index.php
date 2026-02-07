@@ -3,6 +3,7 @@ require_once '../config/_config.php';
 require_once '../config/autoload.php';
 
 $userController = new UserController();
+$bookController = new BookController();
 
 $action = $_GET['action'] ?? 'home';
 
@@ -27,6 +28,12 @@ switch($action){
         break;
     case 'logout' :
         $userController->logout();
+        break;
+    case 'addBook' :
+        $bookController->showAddBook();
+        break;
+    case 'addBookPost' :
+        $bookController->addBookPost();
         break;
     default:
         $userController->showHome();
