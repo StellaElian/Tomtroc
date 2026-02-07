@@ -20,7 +20,7 @@ class UserController
             $passwordHash = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $user->setPassword($passwordHash);
             // on lui donne une image par défault
-            $user->setAvatar('default-avatar.png');
+            $user->setAvatar('Avatar_default.png');
             //on appelle le manager ranger en bdd
             $userManager = new UserManager();
             $userManager->createUser($user);

@@ -8,7 +8,7 @@
     <div class="profile-content">
         <div class="profile-card">
             <div class="avatar-display">
-                <img src="../public/img/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="Avatar" width="150">
+                <img src="/Mission_tomtroc/public/img/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="Avatar" width="150">
                 <br>
                 <a href="#">modifier</a>
             </div>
