@@ -10,7 +10,8 @@
             <div class="avatar-display">
                 <img src="/Mission_tomtroc/public/img/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="Avatar" width="150">
                 <br>
-                <a href="#">modifier</a>
+                <label for="avatar">modifier</label>
+                <input type="file" name="avatar" id="avatar" accept="image/png, image/jpg">
             </div>
             <hr>
             <h2><?= htmlspecialchars($user->getPseudo()) ?></h2>
@@ -45,6 +46,10 @@
     </div>
 
     <div class="user-books">
+        <div class="user-books-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h2>Ma bibliothèque</h2>
+            <a href="index.php?action=addBook" class="btn-save" style="text-decoration: none; padding: 10px 20px; color: black;">Ajouter un livre</a>
+        </div>
         <table>
             <thead>
                 <tr>

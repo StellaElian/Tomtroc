@@ -11,7 +11,7 @@ class BookController
         }
     }
 
-    // formumlaire d'ajput de livres
+    // formumlaire d'ajout de livres
     public function addBookPost(): void 
     {
         if (Utils::isUserConnected()){
