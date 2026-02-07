@@ -67,7 +67,7 @@
                     <?php foreach ($books as $book): ?>
                         <tr>
                             <td>
-                                <img src="../public/img/books/<?= htmlspecialchars($book->getImage()) ?>" alt="Cover" width="50">
+                                <img src="/Mission_tomtroc/public/img/books/<?= htmlspecialchars($book->getImage()) ?>" alt="Cover" width="50">
                             </td>
                             <td><?= htmlspecialchars($book->getTitle()) ?></td>
                             <td><?= htmlspecialchars($book->getAuthor()) ?></td>
