@@ -13,6 +13,11 @@
                 <?php else: ?>
                     <div style="width:150px; height:150px; background:#ccc; border-radius:50%;"></div>
                 <?php endif; ?>
+                <br>
+                <label for="avatarUpload" style="cursor: pointer; color: grey; text-decoration: underline; margin-top: 10px; display: inline-block;">
+                    modifier
+                </label>
+                <input type="file" name="avatar" id="avatarUpload" accept="image/png, image/jpeg" style="display: none;" form="profileForm">
             </div>
             <hr>
             <h2><?= htmlspecialchars($user->getPseudo()) ?></h2>
