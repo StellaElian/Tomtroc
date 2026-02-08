@@ -31,7 +31,7 @@
 
         <div class="profile-form">
             <h3>Vos informations personnelles</h3>
-            <form action="index.php?action=updateProfile" method="post" enctype="multipart/form-data">
+            <form action="index.php?action=updateProfile" method="post" enctype="multipart/form-data" id="profileForm">
                 <label for="email">Adresse email</label><br>
                 <input type="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>" required>
                 <br><br>
