@@ -61,8 +61,17 @@ class BookController
         if ($id) {
             $bookManager = new BookManager();
             $book = $bookManager->getBookById($id);
-            // si le livre existe et s'il appartient à un utilisateur 
+            // si le livre existe et s'il appartient à l'utilisateur connecté
             if ($book && $book->getUserId() === $_SESSION['user_id']) {
+                //nettoyage image 
+                $imageName = $book->getImage();
+                if ($imageName !== 'Book_default.png'){
+                    $imagePath = '../public/img/books/' . $imageName;
+                    if(file_exists($imagePath)) {
+                        unlink($imagePath); //Supprime le fichier du disque
+                    }
+                } 
+                //suppression en bdd
                 $bookManager->deleteBook($id);
             }
         }
