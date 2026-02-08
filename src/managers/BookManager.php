@@ -8,23 +8,30 @@ class BookManager extends AbstractEntityManager
         //tous les livres de l'utilisateur connecté
         $sql = "SELECT * FROM books where user_id = :userId";
         $query = $this->db->query($sql, ['userId' => $userId]);
-        $books =[];
-        while($data = $query->fetch()){
-            $books[] = new Book($data);
-        }
-        return $books;
+        return $query->fetchAll();
     }
 
-    public function addBook( Book $book): void
+    public function getBookById(int $id): ?Book
+    {
+        $sql = "SELECT * FROM books WHERE id = :id";
+        $query = $this->db->query($sql, ['id' => $id]);
+        $data = $query->fetch();
+        if ($data) {
+            return new Book($data);
+        }
+        return null;
+    }
+
+    public function addBook(Book $book): void
     {
         $sql = "INSERT INTO books( user_id, title, author, description, image, disponibilite) VALUES (:user_id, :title, :author, :description, :image; :disponibilite)";
         $this->db->query($sql, [
-            'user_id' => $_POST['user_id'],
-            'title' => $_POST['title'],
-            'author' => $_POST['author'],
-            'description' => $_POST['description'],
-            'image' => $_POST['image'],
-            'disponibilite' => $_POST['disponibilite']
+            'user_id' => $book->getUserId(),
+            'title' => $book->getTitle(),
+            'author' => $book->getAuthor(),
+            'description' => $book->getDescription(),
+            'image' => $book->getImage(),
+            'disponibilite' => $book->getDisponibilite()
         ]);
     }
 
