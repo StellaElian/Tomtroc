@@ -17,18 +17,13 @@ class BookController
         if (!Utils::isUserConnected()) {
             Utils::redirect('login');
         }
-        if (
-            empty($_POST['title']) ||
-            empty($_POST['author']) ||
-            empty($_POST['description']) ||
-            empty($_POST['disponibilite'])
-            ) {
+        if (empty($_POST['title']) || empty($_POST['author']) || empty($_POST['description']) || empty($_POST['disponibilite'])) {
             Utils::redirect('addBook');
             return;
         }
         //image par défaut
-            $fileName = "Book_default.png";
-            //si une image a été envoyé
+        $fileName = "Book_default.png";
+        //si une image a été envoyé
         if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
             //on récupère l'extension .png ...
             $extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
@@ -39,22 +34,21 @@ class BookController
                 $_FILES['image']['tmp_name'],
                 '../public/img/books/' . $fileName
             );
-
-            //créaton objet
-            $book = new Book();
-            $book->setUserId($_SESSION['user_id']);
-            $book->setTitle($_POST['title']);
-            $book->setAuthor($_POST['author']);
-            $book->setDescription($_POST['description']);
-            $book->setDisponibilite($_POST['disponibilite']);
-            $book->setImage($fileName);
-
-            //save en bdd
-            $bookManager = new BookManager();
-            $bookManager->addBook($book);
-            Utils::redirect('profile');
         }
-        Utils::redirect('addBook');
+
+        //créaton objet
+        $book = new Book();
+        $book->setUserId($_SESSION['user_id']);
+        $book->setTitle($_POST['title']);
+        $book->setAuthor($_POST['author']);
+        $book->setDescription($_POST['description']);
+        $book->setDisponibilite($_POST['disponibilite']);
+        $book->setImage($fileName);
+
+        //save en bdd
+        $bookManager = new BookManager();
+        $bookManager->addBook($book);
+        Utils::redirect('profile');
     }
 
     public function deleteBook(): void
@@ -64,15 +58,13 @@ class BookController
         }
         //rrécupération l'ID de l'URL
         $id = $_GET['id']  ?? null;
-        if (!$id) {
-            Utils::redirect('profile');
-        }
-    
-        $bookManager = new BookManager();
-        $book = $bookManager->getBookById($id);
-        // si le livre existe et s'il appartient à un utilisateur 
-        if ($book && $book->getUserId() === $_SESSION['user_id']) {
-            $bookManager->deleteBook($id);
+        if ($id) {
+            $bookManager = new BookManager();
+            $book = $bookManager->getBookById($id);
+            // si le livre existe et s'il appartient à un utilisateur 
+            if ($book && $book->getUserId() === $_SESSION['user_id']) {
+                $bookManager->deleteBook($id);
+            }
         }
         Utils::redirect('profile');
     }

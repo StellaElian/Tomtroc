@@ -8,7 +8,12 @@ class BookManager extends AbstractEntityManager
         //tous les livres de l'utilisateur connecté
         $sql = "SELECT * FROM books where user_id = :userId";
         $query = $this->db->query($sql, ['userId' => $userId]);
-        return $query->fetchAll();
+        $books = [];
+        while ($data = $query->fetch()){
+            //On transforme le tableau $data en objet Book
+            $books[] = new Book($data);
+        }
+        return $books;
     }
 
     public function getBookById(int $id): ?Book

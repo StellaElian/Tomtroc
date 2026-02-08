@@ -8,10 +8,11 @@
     <div class="profile-content">
         <div class="profile-card">
             <div class="avatar-display">
-                <img src="/Mission_tomtroc/public/img/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="Avatar" width="150">
-                <br>
-                <label for="avatar">modifier</label>
-                <input type="file" name="avatar" id="avatar" accept="image/png, image/jpg">
+                <?php if ($user->getAvatar()): ?>
+                    <img src="/Mission_tomtroc/public/img/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="Avatar" width="150" style="object-fit:cover; border-radius:50%; height:150px; width:150px;">
+                <?php else: ?>
+                    <div style="width:150px; height:150px; background:#ccc; border-radius:50%;"></div>
+                <?php endif; ?>
             </div>
             <hr>
             <h2><?= htmlspecialchars($user->getPseudo()) ?></h2>
@@ -25,7 +26,6 @@
 
         <div class="profile-form">
             <h3>Vos informations personnelles</h3>
-            
             <form action="index.php?action=updateProfile" method="post" enctype="multipart/form-data">
                 <label for="email">Adresse email</label><br>
                 <input type="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>" required>
@@ -39,6 +39,10 @@
                 <label for="pseudo">Pseudo</label><br>
                 <input type="text" name="pseudo" value="<?= htmlspecialchars($user->getPseudo()) ?>" required>
                 <br><br>
+                
+                <label for="avatar">Changer d'avatar</label><br>
+                <input type="file" name="avatar" id="avatar" accept="image/png, image/jpeg">
+                <br><br>
 
                 <button type="submit" class="btn-save">Enregistrer</button>
             </form>
@@ -48,17 +52,18 @@
     <div class="user-books">
         <div class="user-books-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
             <h2>Ma bibliothèque</h2>
-            <a href="index.php?action=addBook" class="btn-save" style="text-decoration: none; padding: 10px 20px; color: black;">Ajouter un livre</a>
+            <a href="index.php?action=addBook" style="padding: 10px 20px; background-color: #009900; color: white; text-decoration: none; border-radius: 5px;">Ajouter un livre</a>
         </div>
-        <table>
+        
+        <table style="width: 100%; border-collapse: collapse;">
             <thead>
-                <tr>
-                    <th>PHOTO</th>
-                    <th>TITRE</th>
-                    <th>AUTEUR</th>
-                    <th>DESCRIPTION</th>
-                    <th>DISPONIBILITÉ</th>
-                    <th>ACTION</th>
+                <tr style="border-bottom: 1px solid #ccc; background-color: #f9f9f9;">
+                    <th style="padding: 10px; text-align: left;">PHOTO</th>
+                    <th style="padding: 10px; text-align: left;">TITRE</th>
+                    <th style="padding: 10px; text-align: left;">AUTEUR</th>
+                    <th style="padding: 10px; text-align: left;">DESCRIPTION</th>
+                    <th style="padding: 10px; text-align: left;">DISPONIBILITÉ</th>
+                    <th style="padding: 10px; text-align: left;">ACTION</th>
                 </tr>
             </thead>
             <tbody>
@@ -70,25 +75,23 @@
                     </tr>
                 <?php else: ?>
                     <?php foreach ($books as $book): ?>
-                        <tr>
-                            <td>
-                                <img src="/Mission_tomtroc/public/img/books/<?= htmlspecialchars($book->getImage()) ?>" alt="Cover" width="50">
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 10px;">
+                                <img src="/Mission_tomtroc/public/img/books/<?= htmlspecialchars($book->getImage()) ?>" alt="Cover" width="50" height="70" style="object-fit: cover;">
                             </td>
-                            <td><?= htmlspecialchars($book->getTitle()) ?></td>
-                            <td><?= htmlspecialchars($book->getAuthor()) ?></td>
-                            <td>
-                                <div class="description-text">
-                                    <?= htmlspecialchars(substr($book->getDescription(), 0, 50)) ?>...
-                                </div>
+                            <td style="padding: 10px; font-weight:bold;"><?= htmlspecialchars($book->getTitle()) ?></td>
+                            <td style="padding: 10px;"><?= htmlspecialchars($book->getAuthor()) ?></td>
+                            <td style="padding: 10px;">
+                                <small><?= htmlspecialchars(substr($book->getDescription(), 0, 50)) ?>...</small>
                             </td>
-                            <td>
-                                <span class="tag <?= $book->getDisponibilite() === 'disponible' ? 'green' : 'red' ?>">
+                            <td style="padding: 10px;">
+                                <span style="padding: 5px 10px; border-radius: 15px; background-color: <?= $book->getDisponibilite() === 'disponible' ? '#d4edda' : '#f8d7da' ?>; color: <?= $book->getDisponibilite() === 'disponible' ? '#155724' : '#721c24' ?>;">
                                     <?= htmlspecialchars($book->getDisponibilite()) ?>
                                 </span>
                             </td>
-                            <td>
-                                <a href="#" class="edit-link">Éditer</a> 
-                                <a href="index.php?action=deleteBook=<?= $book->getId() ?>" class="delete-link" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?');">Supprimer</a>
+                            <td style="padding: 10px;">
+                                <a href="#" style="color: grey;">Éditer</a> <br>
+                                <a href="index.php?action=deleteBook&id=<?= $book->getId() ?>" style="color: red;" onclick="return confirm('Supprimer ?');">Supprimer</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
