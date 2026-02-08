@@ -17,14 +17,14 @@
 
         <p>
             <label for="description">Description</label><br>
-            <textarea name="description" id="description" rows="5" required></textarea>
+            <textarea name="description" id="description"  required></textarea>
         </p>
 
         <p>
             <label for="disponibilite">Disponibilité</label><br>
             <select name="disponibilite" id="disponibilite">
                 <option value="disponible">Disponible</option>
-                <option value="non dispo">Non disponible</option>
+                <option value="non disponible">Non disponible</option>
             </select>
         </p>
 

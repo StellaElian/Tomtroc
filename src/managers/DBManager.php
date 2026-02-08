@@ -1,11 +1,12 @@
-<?php 
+<?php
+
 /**
  * Classe qui permet de se connecter à la base de données.
  * Cette classe est un singleton. Cela signifie qu'il n'est pas possible de créer plusieurs instances de cette classe.
  * Pour récupérer une instance de cette classe, il faut utiliser la méthode getInstance().
  * Création d'une classe singleton qui permet de se connecter à la base de données.
  * On crée une instance de la classe DBConnect qui permet de se connecter à la base de données.
-*/
+ */
 class DBManager
 {
     //boîte où on garde la connexion une fois qu'elle est ouverte, on stocke 1 seule connexion
@@ -13,8 +14,9 @@ class DBManager
     //variable qui contient l'outil de connexion (PDO)
     private $db;
 
-    private function __construct(){
-        $this->db = new PDO('mysql:host=' . DB_HOST . ';dbname='. DB_NAME . ';charset=utf8', DB_USER, DB_PASS );
+    private function __construct()
+    {
+        $this->db = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         // On demande de recevoir les données sous forme de tableau
         $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
@@ -26,8 +28,9 @@ class DBManager
      * sinon : elle ouvre la porte
      */
 
-    public static function getInstance(){
-        if(self::$instance===null){
+    public static function getInstance()
+    {
+        if (self::$instance === null) {
             self::$instance = new DBManager();
         }
         return self::$instance;
@@ -35,7 +38,8 @@ class DBManager
 
     //Récupérer l'outil PDO pour faire la requête 
 
-    public function getPDO(){
+    public function getPDO()
+    {
         return $this->db;
     }
 
@@ -46,7 +50,7 @@ class DBManager
      * @param array|null $params : les paramètres de la requête SQL.
      * @return PDOStatement : le résultat de la requête SQL.
      */
-    public function query(string $sql, ?array $params = null) : PDOStatement
+    public function query(string $sql, ?array $params = null): PDOStatement
     {
         if ($params == null) {
             $query = $this->db->query($sql);
