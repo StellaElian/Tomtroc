@@ -19,9 +19,9 @@ class BookController
         }
         if (
             empty($_POST['title']) ||
-            empty($_POST['author'] ||
+            empty($_POST['author']) ||
             empty($_POST['description']) ||
-            empty($_POST['disponibilite']))
+            empty($_POST['disponibilite'])
             ) {
             Utils::redirect('addBook');
             return;

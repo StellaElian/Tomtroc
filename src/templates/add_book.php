@@ -16,13 +16,13 @@
         </p>
 
         <p>
-            <label for="description">Commentaire / Description</label><br>
+            <label for="description">Description</label><br>
             <textarea name="description" id="description" rows="5" required></textarea>
         </p>
 
         <p>
-            <label for="available">Disponibilité</label><br>
-            <select name="available" id="available">
+            <label for="disponibilite">Disponibilité</label><br>
+            <select name="disponibilite" id="disponibilite">
                 <option value="disponible">Disponible</option>
                 <option value="non dispo">Non disponible</option>
             </select>
