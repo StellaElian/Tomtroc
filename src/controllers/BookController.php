@@ -77,4 +77,23 @@ class BookController
         }
         Utils::redirect('profile');
     }
+
+    public function showEditBook(): void
+    {
+        if(!Utils::isUserConnected()) {
+            Utils::redirect('login');
+        }
+        // Récupérer l'Id
+        $id = $_GET['id'] ?? null;
+        if (!$id){
+            Utils::redirect('profile');
+        }
+        //Récupération le livre
+        $bookManager = new BookManager();
+        $book = $bookManager->getBookById($id);
+        if (!$book || $book->getUserId() !== $_SESSION['user_id']){
+            Utils::redirect('profile');
+        }
+        require_once '../src/templates/edit_book.php';
+    }
 }

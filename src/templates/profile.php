@@ -90,8 +90,8 @@
                                 </span>
                             </td>
                             <td style="padding: 10px;">
-                                <a href="#" style="color: grey;">Éditer</a> <br>
-                                <a href="index.php?action=deleteBook&id=<?= $book->getId() ?>" style="color: red;" onclick="return confirm('Voulez-vous vraiment supprimer ce livre ?');">Supprimer</a>
+                                <a href="index.php?action=editBook&id=<?=  $book->getId() ?>" class="edit-link" style="color: grey;">Éditer</a> <br>
+                                <a href="index.php?action=deleteBook&id=<?= $book->getId() ?>" class="delete-link" style="color: red;" onclick="return confirm('Voulez-vous vraiment supprimer ce livre ?');">Supprimer</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
