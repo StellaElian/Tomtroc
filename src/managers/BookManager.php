@@ -69,7 +69,7 @@ class BookManager extends AbstractEntityManager
     // Récupérer les derniers livres ajoutés
     public function getRecentBooks(int $limit = 4): array
     {
-        $sql = "SELECT * FROM books ORDER BY id DESC LIMIT :limit";
+        $sql = "SELECT * FROM books ORDER BY id DESC LIMIT $limit";
         $query = $this->db->query($sql);
         $books = [];
         while ($data = $query->fetch()) {
