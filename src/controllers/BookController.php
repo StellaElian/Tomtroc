@@ -158,6 +158,5 @@ class BookController
 
         //Redirection au profil
         Utils::redirect('profile');
-    
     }
 }

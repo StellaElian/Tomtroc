@@ -16,7 +16,20 @@
                 <?php endif; ?>
             </section>
         </div>
+        <div class="books-grid">
+            <?php foreach ($books as $book): ?>
+                <article class="book-card">
+                    <div class="book-image">
+                        <img src="/Mission_tomtroc/public/img/books/<?=  htmlspecialchars($book->getImage()) ?>" alt="<?= htmlspecialchars($book->getTitle()) ?>">
+                    </div>
+                    <div class="book-info"> 
+                        <h3 class=" book-title"><?= htmlspecialchars($book->getTitle()) ?></h3>
+                        <p class="book-author">par <?= htmlspecialchars($book->getAuthor()) ?></p>
+                        <p class="book-seller">Vendu par : par <?= htmlspecialchars($book->getUserId()) ?></p>
+                    </div>
+                </article>
+            <?php endforeach; ?>
+        </div>
         <?php require_once '../src/templates/_footer.php'; ?>
-
     </body>
 </html>

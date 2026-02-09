@@ -64,6 +64,17 @@ class BookManager extends AbstractEntityManager
             'image'=> $book->getImage(),
             'disponibilite'=> $book->getDisponibilite()
         ]);
+    }
 
+    // Récupérer les derniers livres ajoutés
+    public function getRecentBooks(int $limit = 4): array
+    {
+        $sql = "SELECT * FROM books ORDER BY id DESC LIMIT :limit";
+        $query = $this->db->query($sql);
+        $books = [];
+        while ($data = $query->fetch()) {
+            $books[] = $data;
+        }
+        return $books;
     }
 }
