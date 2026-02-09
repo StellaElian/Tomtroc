@@ -72,8 +72,10 @@ class BookManager extends AbstractEntityManager
         $sql = "SELECT * FROM books ORDER BY id DESC LIMIT $limit";
         $query = $this->db->query($sql);
         $books = [];
-        while ($data = $query->fetch()) {
-            $books[] = $data;
+        if($sql){
+            while ($data = $query->fetch()) {
+                $books[] = new Book ($data);
+            }
         }
         return $books;
     }
