@@ -45,4 +45,25 @@ class BookManager extends AbstractEntityManager
         $sql = "DELETE FROM books WHERE id = :id";
         $this->db->query($sql, ['id' => $id]);
     }
+
+    public function updateBook(Book $book): void
+    {
+        $sql = "UPDATE books
+                SET title = :title,
+                    author = :author,
+                    description = :description,
+                    image = :image,
+                    disponibilite = :disponibilite
+                    WHERE id = :id";
+
+        $this->db->query($sql, [
+            'id' => $book->getId(),
+            'title' => $book->getTitle(),
+            'author' => $book->getAuthor(),
+            'description'=> $book->getDescription(),
+            'image'=> $book->getImage(),
+            'disponibilite'=> $book->getDisponibilite()
+        ]);
+
+    }
 }

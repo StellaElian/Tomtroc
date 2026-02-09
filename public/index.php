@@ -41,6 +41,9 @@ switch($action){
     case 'editBook' :
         $bookController->showEditBook();
         break;
+    case 'editBookPost':
+        $bookController->editBookPost();
+        break;
     default:
         $userController->showHome();
         break;
