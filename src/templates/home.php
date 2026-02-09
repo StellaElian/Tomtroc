@@ -17,8 +17,8 @@
             </section>
         </div>
         <div class="books-grid">
-            <?php $booksList = isset($book) ? $books : []; ?>
-            <?php if(isset($booksList)): ?>
+            <?php $booksList = isset($books) ? $books : []; ?>
+            <?php if(empty($booksList)): ?>
                 <p>Aucun Livre pour le moment</p>
             <?php endif; ?>
             <?php foreach ($books as $book): ?>
