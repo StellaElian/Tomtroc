@@ -21,7 +21,7 @@
             <?php if(empty($booksList)): ?>
                 <p>Aucun Livre pour le moment</p>
             <?php endif; ?>
-            <?php foreach ($books as $book): ?>
+            <?php foreach ($booksList as $book): ?>
                 <article class="book-card">
                     <div class="book-image">
                         <img src="/Mission_tomtroc/public/img/books/<?=  htmlspecialchars($book->getImage()) ?>" alt="<?= htmlspecialchars($book->getTitle()) ?>">
