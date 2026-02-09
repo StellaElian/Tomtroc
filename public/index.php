@@ -1,9 +1,11 @@
 <?php
 require_once '../config/_config.php';
 require_once '../config/autoload.php';
+require_once '../src/controllers/HomeController.php';
 
 $userController = new UserController();
 $bookController = new BookController();
+$homeController = new HomeController();
 
 $action = $_GET['action'] ?? 'home';
 
@@ -45,6 +47,6 @@ switch($action){
         $bookController->editBookPost();
         break;
     default:
-        $userController->showHome();
+        $homeController->index();
         break;
 }

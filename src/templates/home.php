@@ -17,6 +17,10 @@
             </section>
         </div>
         <div class="books-grid">
+            <?php $booksList = isset($book) ? $books : []; ?>
+            <?php if(isset($booksList)): ?>
+                <p>Aucun Livre pour le moment</p>
+            <?php endif; ?>
             <?php foreach ($books as $book): ?>
                 <article class="book-card">
                     <div class="book-image">
@@ -25,7 +29,7 @@
                     <div class="book-info"> 
                         <h3 class=" book-title"><?= htmlspecialchars($book->getTitle()) ?></h3>
                         <p class="book-author">par <?= htmlspecialchars($book->getAuthor()) ?></p>
-                        <p class="book-seller">Vendu par : par <?= htmlspecialchars($book->getUserId()) ?></p>
+                        <p class="book-seller" style="font-style: italic; color: grey;">Vendu par : par <?= htmlspecialchars($book->getUserId()) ?></p>
                     </div>
                 </article>
             <?php endforeach; ?>
