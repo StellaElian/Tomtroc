@@ -92,30 +92,62 @@ class UserController
         }  
     }
 
-    public function updateProfile(): void
+     public function updateProfile(): void
     {
-        if (!Utils::isUserConnected()){
+        if (!Utils::isUserConnected()) {
             Utils::redirect('login');
         }
-        $userManager = new UserManager();
-        // recuperation de l'id acturl pour modifier 
-        $user = $userManager->getUserById($_SESSION['user_id']);
-        if (!empty($_POST['email'] && !empty($_POST['pseudo']))){
-            $user->setPseudo($_POST['pseudo']);
-            $user->setEmail($_POST['email']);
-            // si mdp rempli on change sinon on y touche pas
-            if(!empty($_POST['password'])){
-                $user->setPassword(password_hash($_POST['password'], PASSWORD_DEFAULT));
-            }
-            // on enregistre via le Manager
-            $userManager->updateUser($user);
-            //on recharge la page profile pour voir les modifications
+        
+        if (empty($_POST['email']) || empty($_POST['pseudo'])) {
             Utils::redirect('profile');
-        }else{
-            echo "Email et Psaudo obligaoires !";
-            $this->showProfile();
-            //exit;
         }
+
+        $userManager = new UserManager();
+        $user = $userManager->getUserById($_SESSION['user_id']);
+
+        $user->setPseudo($_POST['pseudo']);
+        $user->setEmail($_POST['email']);
+
+        if (!empty($_POST['password'])) {
+            $user->setPassword(password_hash($_POST['password'], PASSWORD_DEFAULT));
+        }
+            
+        // --- GESTION DE L'AVATAR RENFORCÉE ---
+        if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === 0) {
+            
+            // Définir le dossier de destination
+            $uploadDir = 'img/avatars/';
+            
+            // Vérifier si le dossier existe, sinon le créer !
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0777, true); // Crée le dossier avec tous les droits
+            }
+
+            // Préparer le nom du fichier
+            $extension = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
+            $fileName = uniqid('avatar_') . '.' . $extension;
+            $destinationPath = $uploadDir . $fileName;
+            
+            //Déplacer le fichier et VÉRIFIER si ça a marché
+            if (move_uploaded_file($_FILES['avatar']['tmp_name'], $destinationPath)) {
+                // Ça a marché ! On supprime l'ancien
+                $oldAvatar = $user->getAvatar();
+                if ($oldAvatar && $oldAvatar !== 'Avatar_default.png') {
+                    $oldPath = $uploadDir . $oldAvatar;
+                    if (file_exists($oldPath)) {
+                        unlink($oldPath);
+                    }
+                }
+                // On met à jour l'objet User
+                $user->setAvatar($fileName);
+                
+            } else {
+                // ERREUR D'ÉCRITURE
+                die("Erreur : Impossible d'enregistrer l'image dans le dossier $uploadDir. Vérifiez les permissions.");
+            }
+        }
+        $userManager->updateUser($user);
+        Utils::redirect('profile');
     }
 
     public function logout(): void

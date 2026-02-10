@@ -39,10 +39,11 @@ class UserManager extends AbstractEntityManager
     {
         $sql = "UPDATE users SET pseudo = :pseudo, email = :email, password = :password, avatar = :avatar WHERE id = :id";
         $this->db->query($sql,[
-            'pseudo' => $_POST['pseudo'],
-            'email' => $_POST['email'],
-            'password' => $_POST['password'],
-            'avatar' => $_POST['avatar']
+            'pseudo' => $user->getPseudo(),
+            'email' => $user->getEmail(),
+            'password' => $user->getPassword(),
+            'avatar' => $user->getAvatar(),
+            'id'=> $user->getId()
         ]);
     }
 }

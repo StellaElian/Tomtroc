@@ -7,7 +7,7 @@ $userController = new UserController();
 $bookController = new BookController();
 $homeController = new HomeController();
 
-$action = $_GET['action'] ?? 'home';
+$action = $_GET['action'] ?? $_POST['action'] ?? 'home';
 
 switch($action){
     case 'register': //Affichage de la page 
