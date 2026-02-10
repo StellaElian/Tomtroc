@@ -1,0 +1,59 @@
+.books-grid {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;       /* Espace entre les cartes */
+    justify-content: center; /* Centre les livres dans la page */
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* La carte individuelle du livre */
+.book-card {
+    width: 250px;    
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Petite ombre  */
+    overflow: hidden; /* Empêche l'image de dépasser des bords ronds */
+    transition: transform 0.2s; /* effet au survol */
+}
+
+/* Effet au survol de la souris */
+.book-card:hover {
+    transform: translateY(-5px); /* La carte monte un peu */
+}
+
+/* La zone de l'image */
+.book-image {
+    height: 350px;   /* Hauteur fixe pour l'image */
+    width: 100%;
+    background-color: #f0f0f0;
+}
+
+/* L'image elle-même */
+.book-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* L'image remplit tout le cadre sans être déformée */
+}
+
+/* Les textes en dessous */
+.book-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.book-title {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.book-author {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.book-seller {
+    font-size: 0.8rem;
+    color: #999;
+}
