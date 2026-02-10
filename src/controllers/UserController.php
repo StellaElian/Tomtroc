@@ -73,7 +73,7 @@ class UserController
             require_once '../src/templates/login.php';
         }
     }
-
+    
     public function showProfile(): void
     {
         if (Utils::isUserConnected()){

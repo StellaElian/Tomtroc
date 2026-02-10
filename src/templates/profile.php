@@ -8,18 +8,34 @@
     <div class="profile-content">
         <div class="profile-card">
             <div class="avatar-display">
+                <div style="
+                    width: 150 px;
+                    height: 150 px;
+                    min-width: 150px;
+                    max-width: 150px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    background-color: #f0f0f0;
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                    margin: 0 auto;
+                ">
                 <?php if ($user->getAvatar()): ?>
-                    <img src="/Mission_tomtroc/public/img/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="Avatar" width="150" height="150" style="object-fit:cover; border-radius:50%;">
+                    <img src="/Mission_tomtroc/public/img/avatars/<?= htmlspecialchars($user->getAvatar()) ?>" alt="Avatar" style="
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        display: block;
+                    ">
                 <?php else: ?>
-                    <div style="width:150px; height:150px; background:#ccc; border-radius:50%;"></div>
+                    <div style="width:100; height:100%; background:#ccc"></div>
                 <?php endif; ?>
+                    </div>
                 <br>
-                
+                </div>
                 <label for="file-upload" style="cursor: pointer; color: grey; text-decoration: underline; margin-top: 10px; display: inline-block;">
                     modifier
                 </label>
             </div>
-            <hr>
             <h2><?= htmlspecialchars($user->getPseudo()) ?></h2>
             <p>Membre depuis <?= Utils::format($user->getCreatedAt()) ?></p>
             
