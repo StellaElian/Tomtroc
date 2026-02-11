@@ -1,77 +1,106 @@
 <?php require_once '../src/templates/_header.php'; ?>
 
-<div class="profile-page" style="padding: 40px 20px; max-width: 1200px; margin: 0 auto;">
+<link rel="stylesheet" href="css/profile.css">
 
-    <div class="profile-header" style="background-color: #f4f4f4; padding: 40px; border-radius: 8px; display: flex; align-items: center; gap: 40px; margin-bottom: 40px;">
-        <div style="width: 150px; height: 150px; background-color: #ddd; border-radius: 50%; overflow: hidden;">
-            <img src="img/avatars/avatar_default.png" alt="Avatar" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
+<div class="profile-page">
+    <h1 class="main-title">Mon compte</h1>
+
+    <div class="profile-top-section">
         
-        <div style="flex: 1;">
-            <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px;">
-                <?= htmlspecialchars($_SESSION['user_pseudo'] ?? 'Mon Compte') ?>
-            </h1>
-            <p style="color: #666; font-size: 1.1rem; margin-bottom: 20px;">
-                Membre depuis le <?= Utils::format($_SESSION['user_creation_date'] ?? null) ?>
-            </p>
+        <div class="profile-card">
+            <div class="profile-avatar">
+                <img src="img/avatars/avatar_default.png" alt="Avatar">
+                <a href="#" class="edit-avatar-link">modifier</a>
+            </div>
             
-            <div style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #666; font-weight: bold;">
-                Bibliothèque
-            </div>
-            <div style="font-size: 1.2rem;">
-                <?= count($books) ?> livre<?= count($books) > 1 ? 's' : '' ?>
+            <h2 class="profile-pseudo"><?= htmlspecialchars($_SESSION['user_pseudo'] ?? 'Membre') ?></h2>
+            <p class="profile-member-date">Membre depuis 1 an</p>
+            
+            <div class="profile-library-stats">
+                <span class="library-label">BIBLIOTHEQUE</span>
+                <span class="library-count"><?= count($books) ?> livres</span>
             </div>
         </div>
-        
-        <div>
-             <a href="index.php?action=addBook" class="btn-main" style="background-color: #00AC66; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
-                Ajouter un livre
-            </a>
+
+        <div class="profile-form-container">
+            <h3 class="form-title">Vos informations personnelles</h3>
+            
+            <form action="index.php?action=updateProfile" method="POST" class="personal-info-form">
+                <div class="form-group">
+                    <label for="email">Adresse email</label>
+                    <input type="email" id="email" name="email" value="nathalie@mail.com" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" value="********" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="pseudo">Pseudo</label>
+                    <input type="text" id="pseudo" name="pseudo" value="<?= htmlspecialchars($_SESSION['user_pseudo'] ?? '') ?>" class="form-input">
+                </div>
+
+                <button type="submit" class="btn-save">Enregistrer</button>
+            </form>
         </div>
     </div>
 
-    <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 20px;">Ma bibliothèque</h2>
-
-    <div class="books-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 30px;">
+    <div class="profile-bottom-section">
         
-        <?php if (empty($books)): ?>
-            <p>Vous n'avez pas encore ajouté de livres.</p>
-        <?php else: ?>
-            <?php foreach ($books as $book): ?>
-                <article class="book-card" style="width: 100%;">
-                    
-                    <div class="book-image" style="margin-bottom: 10px; position: relative;">
-                        <img src="img/books/<?= htmlspecialchars($book->getImage()) ?>" 
-                             alt="<?= htmlspecialchars($book->getTitle()) ?>"
-                             style="width: 100%; aspect-ratio: 2/3; object-fit: cover; border-radius: 4px;">
-                             
-                        <?php if($book->getDisponibilite() === 'non dispo'): ?>
-                            <span style="position: absolute; top: 10px; right: 10px; background: #d9534f; color: white; padding: 2px 8px; font-size: 0.8rem; border-radius: 4px;">Échangé</span>
-                        <?php else: ?>
-                            <span style="position: absolute; top: 10px; right: 10px; background: #00AC66; color: white; padding: 2px 8px; font-size: 0.8rem; border-radius: 4px;">Disponible</span>
-                        <?php endif; ?>
-                    </div>
-
-                    <h3 style="font-size: 1.1rem; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                        <?= htmlspecialchars($book->getTitle()) ?>
-                    </h3>
-                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 15px;">
-                        <?= htmlspecialchars($book->getAuthor()) ?>
-                    </p>
-                    
-                    <div style="display: flex; gap: 10px; font-size: 0.9rem;">
-                        <a href="index.php?action=editBook&id=<?= $book->getId() ?>" style="color: #666; text-decoration: underline;">Modifier</a>
-                        
-                        <a href="index.php?action=deleteBook&id=<?= $book->getId() ?>" 
-                           style="color: #d9534f; text-decoration: none;"
-                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?');">
-                           Supprimer
-                        </a>
-                    </div>
-
-                </article>
-            <?php endforeach; ?>
-        <?php endif; ?>
+        <table class="books-table">
+            <thead>
+                <tr>
+                    <th>PHOTO</th>
+                    <th>TITRE</th>
+                    <th>AUTEUR</th>
+                    <th class="col-desc">DESCRIPTION</th>
+                    <th>DISPONIBILITE</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (empty($books)): ?>
+                    <tr>
+                        <td colspan="6" style="text-align:center; padding: 20px;">Votre bibliothèque est vide.</td>
+                    </tr>
+                <?php else: ?>
+                    <?php foreach ($books as $book): ?>
+                        <tr>
+                            <td>
+                                <img src="img/books/<?= htmlspecialchars($book->getImage()) ?>" 
+                                     alt="Cover" class="table-book-img">
+                            </td>
+                            
+                            <td class="book-title-cell"><?= htmlspecialchars($book->getTitle()) ?></td>
+                            
+                            <td class="book-author-cell"><?= htmlspecialchars($book->getAuthor()) ?></td>
+                            
+                            <td class="book-desc-cell">
+                                <div class="desc-content">
+                                    <?= htmlspecialchars(substr($book->getDescription() ?? '', 0, 100)) ?>...
+                                </div>
+                            </td>
+                            
+                            <td>
+                                <?php if($book->getDisponibilite() === 'non dispo'): ?>
+                                    <span class="badge badge-not-available">non dispo</span>
+                                <?php else: ?>
+                                    <span class="badge badge-available">disponible</span>
+                                <?php endif; ?>
+                            </td>
+                            
+                            <td class="actions-cell">
+                                <a href="index.php?action=editBook&id=<?= $book->getId() ?>" class="action-link edit">Éditer</a>
+                                <a href="index.php?action=deleteBook&id=<?= $book->getId() ?>" 
+                                   class="action-link delete"
+                                   onclick="return confirm('Supprimer ce livre ?');">Supprimer</a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </tbody>
+        </table>
     </div>
 </div>
 
