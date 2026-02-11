@@ -31,7 +31,7 @@
             <form action="index.php?action=updateProfile" method="POST" class="personal-info-form">
                 <div class="form-group">
                     <label for="email">Adresse email</label>
-                    <input type="email" id="email" name="email" value="nathalie@mail.com" class="form-input">
+                    <input type="email" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>" class="form-input">
                 </div>
 
                 <div class="form-group">
@@ -41,7 +41,7 @@
 
                 <div class="form-group">
                     <label for="pseudo">Pseudo</label>
-                    <input type="text" id="pseudo" name="pseudo" value="<?= htmlspecialchars($_SESSION['user_pseudo'] ?? '') ?>" class="form-input">
+                    <input type="text" id="pseudo" name="pseudo" value="<?= htmlspecialchars($user->getPseudo()) ?>" class="form-input">
                 </div>
 
                 <button type="submit" class="btn-save">Enregistrer</button>

@@ -242,7 +242,7 @@
 
 .action-link.delete {
     color: #D9534F;
-    text-decoration: none;
+    text-decoration: underline;
 }
 .action-link.delete:hover {
     text-decoration: underline;
