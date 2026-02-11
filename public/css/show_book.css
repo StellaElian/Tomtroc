@@ -1,70 +1,73 @@
 .book-details-page {
-    max-width: 1000px; /* J'ai augmenté un peu pour laisser respirer l'image */
+    max-width: 1440px; /* Largeur max pour grands écrans */
     margin: 0 auto;
-    padding: 50px 20px;
-    font-family: sans-serif;
-    color: #292929;
+    padding: 40px;
+    font-family: 'Inter', sans-serif;
+    color: #222;
 }
 
-/* --- Fil d'ariane --- */
+/* Fil d'ariane */
 .breadcrumb {
     margin-bottom: 40px;
     font-size: 0.95rem;
     color: #999;
 }
-.breadcrumb a {
-    text-decoration: none;
-    color: inherit;
-}
+.breadcrumb a { text-decoration: none; color: inherit; }
 
-/* --- CONTENEUR PRINCIPAL (2 Colonnes) --- */
+/* --- LE CONTENEUR PRINCIPAL (C'est lui qui force le côte-à-côte) --- */
 .book-container {
-    display: flex; 
-    align-items: flex-start; /* Aligne en haut */
-    gap: 60px; /* Espace entre Image et Texte */
+    display: flex !important; /* On force l'alignement horizontal */
+    flex-direction: row;      /* Image à gauche, Texte à droite */
+    align-items: flex-start;  /* Calé en haut */
+    gap: 60px;                /* Espace entre les deux colonnes */
+    width: 100%;
 }
 
-/* --- Colonne Gauche : IMAGE --- */
+/* --- COLONNE GAUCHE : IMAGE --- */
 .book-image {
-    flex: 1; /* Prend une part flexible */
-    max-width: 50%; /* IMPORTANT : On limite la largeur à 50% pour laisser de la place au texte */
+    width: 720px;       
+    max-width: 720px; 
+    height: 863px;
+    overflow: hidden;
+    
 }
 
 .book-image img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 720 / 863; /* Ratio Figma respecté */
-    object-fit: cover;
+    height: 100%;
     display: block;
+    object-fit: cover;
+    /* Ratio exact Figma (720px / 863px) */
+    aspect-ratio: 720 / 863; 
 }
 
-/* --- Colonne Droite : INFOS --- */
+/* --- COLONNE DROITE : INFOS --- */
 .book-info {
-    flex: 1; /* Prend le reste de l'espace */
+    width: 50%; /* L'autre moitié */
     text-align: left;
+    padding-top: 10px;
 }
 
-/* Titre */
+/* Typographie */
 .book-title {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     line-height: 1.1;
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     color: #222;
 }
 
-/* Auteur */
 .book-author {
     color: #666;
     font-size: 1.1rem;
     margin-bottom: 30px;
 }
 
-/* Ligne séparatrice */
+/* Ligne séparatrice (Image) */
 .separator-img {
     display: block;
-    width: 27px;
+    width: 27px; /* Donnée Figma */
     height: auto;
     margin-bottom: 30px;
 }
@@ -72,60 +75,70 @@
 /* Titres de section */
 .section-title {
     font-size: 0.75rem;
-    font-weight: 700; /* Gras */
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 15px;
+    margin-top: 40px; /* Espace avant le titre */
     color: #222;
 }
 
-/* Description */
 .description-text {
     line-height: 1.6;
     color: #444;
-    margin-bottom: 40px;
     font-size: 1rem;
 }
 
-/* --- BLOC PROPRIÉTAIRE (Le Rond Parfait) --- */
+/* --- BLOC PROPRIÉTAIRE (Données Figma Respectées) --- */
 .owner-card {
     display: flex;
     align-items: center;
-    gap: 12px;
     
-    /* Dimensions Figma */
-    width: fit-content;
-    height: 60px;
-    padding: 6px 17px 6px 6px;
+    /* Vos données Figma exactes : */
+    width: fit-content;         /* Largeur : Enserrer (157px) */
+    height: 60px;               /* Hauteur : Enserrer (60px) */
+    padding: 6px 17px 6px 6px;  /* Marges internes : H6 D17 B6 G6 */
+    gap: 12px;                  /* Espace : 12px */
+    border-radius: 114px;       /* Rayon : 114px */
     
-    /* Pillule */
-    border-radius: 114px;
-    background-color: transparent; /* Pas de fond gris autour du bloc */
-    /* Si tu veux le fond blanc visible sur un fond de page gris, mets : background-color: white; */
+    background-color: white;  
 }
 
 .avatar-container {
+  
     width: 48px;
     height: 48px;
-    
-    /* C'EST ICI QUE LA MAGIE OPÈRE POUR LE ROND */
-    border-radius: 50%; 
-    overflow: hidden; /* Coupe tout ce qui dépasse (les coins gris !) */
-    background-color: #eee; /* Fond gris clair SEULEMENT si l'image charge mal */
-    
-    flex-shrink: 0; /* Empêche l'avatar de s'écraser */
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #eee;
+    flex-shrink: 0;
 }
 
 .avatar-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* L'image remplit le rond */
-    display: block;
+    object-fit: cover;
 }
 
 .owner-name {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
+    font-weight: 400; /* Regular */
     color: #292929;
-    font-weight: 400;
+    white-space: nowrap;
 }
+
+/* Bouton Vert */
+.btn-message {
+    display: block;
+    background-color: #00AC66;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 4px;
+    margin-top: 40px;
+    width: 100%;
+}
+.btn-message:hover { background-color: #008f55; }
