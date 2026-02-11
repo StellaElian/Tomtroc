@@ -79,4 +79,18 @@ class BookManager extends AbstractEntityManager
         }
         return $books;
     }
+
+     public function getAllBooks(): array
+    {
+        // du plus vieux au plus récent 
+        $sql = "SELECT * FROM books ORDER BY id DESC";
+        $query = $this->db->query($sql);
+        $books = [];
+        if ($query) {
+            while ($data = $query->fetch()) {
+                $books[] = new Book($data);
+            }
+        }
+        return $books;
+    }
 }

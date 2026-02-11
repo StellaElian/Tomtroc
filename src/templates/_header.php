@@ -14,7 +14,7 @@
         
         <nav>
             <a href="index.php?action=home">Accueil</a>
-            <a href="#">Nos livres à l'échange</a>
+            <a href="index.php?action=exchange">Nos livres à l'échange</a>
             
             <?php if (Utils::isUserConnected()): ?>
                 <a href="#">Messagerie</a>

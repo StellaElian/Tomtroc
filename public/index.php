@@ -46,6 +46,9 @@ switch($action){
     case 'editBookPost':
         $bookController->editBookPost();
         break;
+    case 'exchange':
+        $bookController->showCatalog();
+        break;
     default:
         $homeController->index();
         break;

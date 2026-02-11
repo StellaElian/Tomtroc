@@ -159,4 +159,11 @@ class BookController
         //Redirection au profil
         Utils::redirect('profile');
     }
+
+    public function showCatalog(): void
+    {
+        $bookManager = new BookManager();
+        $books = $bookManager->getAllBooks();
+        require_once '../src/templates/exchange.php';
+    }
 }
