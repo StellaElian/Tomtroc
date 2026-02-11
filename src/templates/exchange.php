@@ -25,7 +25,7 @@
                         <h3 class="book-title"><?= htmlspecialchars($book->getTitle()) ?></h3>
                         <p class="book-author">par <?= htmlspecialchars($book->getAuthor()) ?></p>
                         <p class="book-seller" style="font-style: italic; color: grey; font-size: 0.9rem;">
-                            Vendu par : User n°<?= htmlspecialchars($book->getUserId()) ?>
+                            Vendu par : <?= htmlspecialchars($book->getSeller()) ?>
                         </p>
                     </div>
                 </article>

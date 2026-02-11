@@ -8,6 +8,7 @@ class Book extends AbstractEntity
     private string $description;
     private string $image;
     private string $disponibilite;
+    private ?string $seller = null;
 
     //user_id
     public function getUserId(): int 
@@ -68,4 +69,15 @@ class Book extends AbstractEntity
     {
         $this->disponibilite = $disponibilite;
     } 
+
+    // Seller
+    public function getSeller(): string
+    {
+        return $this->seller;
+    }
+    public function setSeller(string $seller): void
+    {
+        $this->seller = $seller;
+    }
+
 }

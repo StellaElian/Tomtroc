@@ -9,13 +9,12 @@ class BookManager extends AbstractEntityManager
         $sql = "SELECT * FROM books where user_id = :userId";
         $query = $this->db->query($sql, ['userId' => $userId]);
         $books = [];
-        while ($data = $query->fetch()){
+        while ($data = $query->fetch()) {
             //On transforme le tableau $data en objet Book
             $books[] = new Book($data);
         }
         return $books;
     }
-
     public function getBookById(int $id): ?Book
     {
         $sql = "SELECT * FROM books WHERE id = :id";
@@ -39,7 +38,6 @@ class BookManager extends AbstractEntityManager
             'disponibilite' => $book->getDisponibilite()
         ]);
     }
-
     public function deleteBook(int $id): void
     {
         $sql = "DELETE FROM books WHERE id = :id";
@@ -60,9 +58,9 @@ class BookManager extends AbstractEntityManager
             'id' => $book->getId(),
             'title' => $book->getTitle(),
             'author' => $book->getAuthor(),
-            'description'=> $book->getDescription(),
-            'image'=> $book->getImage(),
-            'disponibilite'=> $book->getDisponibilite()
+            'description' => $book->getDescription(),
+            'image' => $book->getImage(),
+            'disponibilite' => $book->getDisponibilite()
         ]);
     }
 
@@ -72,18 +70,21 @@ class BookManager extends AbstractEntityManager
         $sql = "SELECT * FROM books ORDER BY id DESC LIMIT $limit";
         $query = $this->db->query($sql);
         $books = [];
-        if($sql){
+        if ($sql) {
             while ($data = $query->fetch()) {
-                $books[] = new Book ($data);
+                $books[] = new Book($data);
             }
         }
         return $books;
     }
 
-     public function getAllBooks(): array
+    public function getAllBooks(): array
     {
         // du plus vieux au plus récent 
-        $sql = "SELECT * FROM books ORDER BY id DESC";
+        $sql = "SELECT b.*, u.pseudo AS seller
+                FROM books b
+                INNER JOIN users u ON b.user_id = u.id
+                ORDER BY b.id DESC";
         $query = $this->db->query($sql);
         $books = [];
         if ($query) {
