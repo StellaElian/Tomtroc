@@ -40,19 +40,21 @@
             <p style="text-align: center;">Aucun livre disponible pour le moment.</p>
         <?php else: ?>
             <?php foreach ($booksList as $book): ?>
-                <article class="book-card">
-                    <div class="book-image">
-                        <img src="/Mission_tomtroc/public/img/books/<?= htmlspecialchars($book->getImage()) ?>"
-                            alt="<?= htmlspecialchars($book->getTitle()) ?>">
-                    </div>
-                    <div class="book-info">
-                        <h3 class="book-title"><?= htmlspecialchars($book->getTitle()) ?></h3>
-                        <p class="book-author">par <?= htmlspecialchars($book->getAuthor()) ?></p>
-                        <p class="book-seller" style="font-style: italic; color: grey; font-size: 0.9rem;">
-                            Vendu par : <?= htmlspecialchars($book->getSeller()) ?>
-                        </p>
-                    </div>
-                </article>
+                <a href="index.php?action=showBook&id=<?= htmlspecialchars($book->getId())  ?>" style="text-decoration: none; color: inherit;">
+                    <article class="book-card">
+                        <div class="book-image">
+                            <img src="../public/img/books/<?= htmlspecialchars($book->getImage()) ?>"
+                                alt="<?= htmlspecialchars($book->getTitle()) ?>">
+                        </div>
+                        <div class="book-info">
+                            <h3 class="book-title"><?= htmlspecialchars($book->getTitle()) ?></h3>
+                            <p class="book-author">par <?= htmlspecialchars($book->getAuthor()) ?></p>
+                            <p class="book-seller" style="font-style: italic; color: grey; font-size: 0.9rem;">
+                                Vendu par : <?= htmlspecialchars($book->getSeller()) ?>
+                            </p>
+                        </div>
+                    </article>
+                </a>
             <?php endforeach; ?>
         <?php endif; ?>
     </div>

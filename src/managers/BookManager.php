@@ -15,9 +15,14 @@ class BookManager extends AbstractEntityManager
         }
         return $books;
     }
+
+    //modif avec jointure pour récupérer le nom du propriétaire
     public function getBookById(int $id): ?Book
     {
-        $sql = "SELECT * FROM books WHERE id = :id";
+        $sql = "SELECT b.*, u.pseudo AS seller 
+                FROM books b 
+                INNER JOIN users u ON b.user_id = u.id 
+                WHERE b.id = :id";
         $query = $this->db->query($sql, ['id' => $id]);
         $data = $query->fetch();
         if ($data) {
