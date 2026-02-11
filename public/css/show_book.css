@@ -1,140 +1,131 @@
-/* On centre la page et on met une marge */
 .book-details-page {
-    max-width: 900px;
-    margin: 0 auto; /* Centre le bloc au milieu de l'écran */
+    max-width: 1000px; /* J'ai augmenté un peu pour laisser respirer l'image */
+    margin: 0 auto;
     padding: 50px 20px;
     font-family: sans-serif;
-    /*color: #FAF9F7;*/
+    color: #292929;
 }
 
-/* --- Le Fil d'ariane (Le lien retour) --- */
+/* --- Fil d'ariane --- */
 .breadcrumb {
-    margin-bottom: 30px;
-    color: grey;
+    margin-bottom: 40px;
+    font-size: 0.95rem;
+    color: #999;
 }
 .breadcrumb a {
     text-decoration: none;
-    color: grey;
+    color: inherit;
 }
 
-/* --- LE CONTENEUR PRINCIPAL --- */
-/* C'est ici que la magie opère : display flex met les éléments côte à côte */
+/* --- CONTENEUR PRINCIPAL (2 Colonnes) --- */
 .book-container {
     display: flex; 
-    gap: 50px; /* Espace de 50px entre l'image et le texte */
+    align-items: flex-start; /* Aligne en haut */
+    gap: 60px; /* Espace entre Image et Texte */
 }
 
-/* --- Colonne Gauche : L'image du livre --- */
+/* --- Colonne Gauche : IMAGE --- */
 .book-image {
-    flex: 1;
-    width: 720px;
+    flex: 1; /* Prend une part flexible */
+    max-width: 50%; /* IMPORTANT : On limite la largeur à 50% pour laisser de la place au texte */
 }
 
 .book-image img {
-    width: 100%; /* L'image remplit son bloc */
-    aspect-ratio: 720 / 863;
-    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 720 / 863; /* Ratio Figma respecté */
     object-fit: cover;
+    display: block;
 }
 
-/* --- Colonne Droite : Les infos --- */
+/* --- Colonne Droite : INFOS --- */
 .book-info {
-    width: 60%; /* Le texte prend le reste (60%) */
+    flex: 1; /* Prend le reste de l'espace */
+    text-align: left;
 }
 
+/* Titre */
 .book-title {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
+    line-height: 1.1;
     margin-top: 0;
-    margin-bottom: 10px;
-    color: #292929;
+    margin-bottom: 15px;
+    color: #222;
 }
 
+/* Auteur */
 .book-author {
-    color: grey;
-    margin-bottom: 30px;
+    color: #666;
     font-size: 1.1rem;
+    margin-bottom: 30px;
 }
 
-.owner-name{
-    font-family: 'Inter', sans-serif;
-    font-size: 14px ;
-    font-weight: 400;
-    color: #292929;
-    line-height: 100%;
-    white-space: nowrap;
-}
-
-/* Petite ligne de séparation */
+/* Ligne séparatrice */
 .separator-img {
     display: block;
     width: 27px;
     height: auto;
-    margin-top: 20px;
     margin-bottom: 30px;
 }
 
-.box-info {
-    flex: 1;
-    text-align: left;
-}
-/* Titres (Description / Propriétaire) */
+/* Titres de section */
 .section-title {
-    font-weight: bold;
+    font-size: 0.75rem;
+    font-weight: 700; /* Gras */
     text-transform: uppercase;
-    font-size: 0.8rem;
-    margin-bottom: 10px;
     letter-spacing: 1px;
+    margin-bottom: 15px;
+    color: #222;
 }
 
+/* Description */
 .description-text {
-    line-height: 1.6; /* Espace entre les lignes pour que ce soit lisible */
+    line-height: 1.6;
+    color: #444;
     margin-bottom: 40px;
-    text-align: justify;
+    font-size: 1rem;
 }
 
-/* --- LE BLOC PROPRIÉTAIRE (C'est ici qu'on répare l'avatar géant) --- */
+/* --- BLOC PROPRIÉTAIRE (Le Rond Parfait) --- */
 .owner-card {
     display: flex;
-    align-items: center; /* Aligne verticalement */
+    align-items: center;
     gap: 12px;
-    height: 60px;
+    
+    /* Dimensions Figma */
     width: fit-content;
-    padding : 6px 17px 6px 6px;
+    height: 60px;
+    padding: 6px 17px 6px 6px;
+    
+    /* Pillule */
     border-radius: 114px;
-    background-color: #FFFFFF;
+    background-color: transparent; /* Pas de fond gris autour du bloc */
+    /* Si tu veux le fond blanc visible sur un fond de page gris, mets : background-color: white; */
 }
 
-/* On force la taille de l'avatar ICI */
 .avatar-container {
-    width: 48px;   /* Largeur fixe */
-    height: 48px;  /* Hauteur fixe */
-    border-radius: 50%; /* Ça fait un rond */
-    overflow: hidden; /* Coupe ce qui dépasse du rond */
-    background-color: #FFFFFF;
+    width: 48px;
+    height: 48px;
+    
+    /* C'EST ICI QUE LA MAGIE OPÈRE POUR LE ROND */
+    border-radius: 50%; 
+    overflow: hidden; /* Coupe tout ce qui dépasse (les coins gris !) */
+    background-color: #eee; /* Fond gris clair SEULEMENT si l'image charge mal */
+    
+    flex-shrink: 0; /* Empêche l'avatar de s'écraser */
 }
 
 .avatar-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    overflow: hidden;
+    object-fit: cover; /* L'image remplit le rond */
     display: block;
 }
 
-/* --- Le bouton vert --- */
-.btn-message {
-    display: block;
-    background-color: #00AC66; /* Vert TomTroc */
-    color: white;
-    text-align: center;
-    padding: 15px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 4px;
-    width: 100%;
-}
-
-.btn-message:hover {
-    background-color: #008f55; /* Un peu plus foncé quand on passe la souris */
+.owner-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #292929;
+    font-weight: 400;
 }

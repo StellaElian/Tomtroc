@@ -1,6 +1,6 @@
 <?php require_once '../src/templates/_header.php'; ?>
 
-<link rel="stylesheet" href="/Mission_tomtroc/public/css/show_book.css">
+<link rel="stylesheet" href="css/show_book.css">
 
 <div class="book-details-page">
 
@@ -9,14 +9,13 @@
     </div>
 
     <div class="book-container">
-
+        
         <div class="book-image">
-            <img src="../public/img/books/<?= htmlspecialchars($book->getImage()) ?>"
+            <img src="img/books/<?= htmlspecialchars($book->getImage()) ?>"
                 alt="<?= htmlspecialchars($book->getTitle()) ?>">
         </div>
 
         <div class="book-info">
-
             <h1 class="book-title">
                 <?= htmlspecialchars($book->getTitle()) ?>
             </h1>
@@ -28,18 +27,16 @@
             <img src="img/line.png" alt="séparateur" class="separator-img">
 
             <h3 class="section-title">Description</h3>
-
             <p class="description-text">
                 <?= !empty($book->getDescription()) ? nl2br(htmlspecialchars($book->getDescription())) : "Aucune description fournie." ?>
             </p>
 
             <h3 class="section-title">Propriétaire</h3>
-
+            
             <div class="owner-card">
                 <div class="avatar-container">
-                    <img src="../public/img/avatars/avatar_default.png" alt="Avatar">
+                    <img src="img/avatars/avatar_default.png" alt="Avatar">
                 </div>
-
                 <span class="owner-name">
                     <?= htmlspecialchars($book->getSeller()) ?>
                 </span>
