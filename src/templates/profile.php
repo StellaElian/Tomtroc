@@ -18,7 +18,10 @@
             
             <div class="profile-library-stats">
                 <span class="library-label">BIBLIOTHEQUE</span>
-                <span class="library-count"><?= count($books) ?> livres</span>
+                <span class="library-count">
+                    <img src="img/livres.svg" alt="" style="width: 15px; height: auto; vertical-align: middle; margin-right: 5px;">
+                    <?= count($books) ?> livres
+                </span>
             </div>
         </div>
 
