@@ -163,7 +163,12 @@ class BookController
     public function showCatalog(): void
     {
         $bookManager = new BookManager();
-        $books = $bookManager->getAllBooks();
+        // Y'a t'il une recherche dans l'url ?
+        if(isset($_GET['search']) && !empty($_GET['search']))  {
+            $books = $bookManager->getBooksBySearch($_GET['search']);
+        } else {
+            $books = $bookManager->getAllBooks();
+        }
         require_once '../src/templates/exchange.php';
     }
 }
