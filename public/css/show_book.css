@@ -1,142 +1,140 @@
-/* Configuration globale de la page détail d'un livre  */
+/* On centre la page et on met une marge */
 .book-details-page {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto; /* Centre le bloc au milieu de l'écran */
+    padding: 50px 20px;
+    font-family: sans-serif;
+    /*color: #FAF9F7;*/
 }
 
-/* Fil d'ariane (Breadcrumb) */
+/* --- Le Fil d'ariane (Le lien retour) --- */
 .breadcrumb {
     margin-bottom: 30px;
-    font-size: 0.9rem;
-    color: #666;
+    color: grey;
 }
-
 .breadcrumb a {
     text-decoration: none;
-    color: inherit;
+    color: grey;
 }
 
-.breadcrumb a:hover {
-    text-decoration: underline;
-}
-
-/* Conteneur principal (Flexbox) */
+/* --- LE CONTENEUR PRINCIPAL --- */
+/* C'est ici que la magie opère : display flex met les éléments côte à côte */
 .book-container {
-    display: flex;
-    gap: 60px;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    display: flex; 
+    gap: 50px; /* Espace de 50px entre l'image et le texte */
 }
 
-/* Colonne Image */
+/* --- Colonne Gauche : L'image du livre --- */
 .book-image {
     flex: 1;
-    min-width: 300px;
+    width: 720px;
 }
 
 .book-image img {
-    width: 100%;
+    width: 100%; /* L'image remplit son bloc */
+    aspect-ratio: 720 / 863;
     display: block;
     object-fit: cover;
-    /* Optionnel : Ajoute une petite ombre ou des bords arrondis si tu veux */
-    border-radius: 4px;
 }
 
-/* Colonne Informations */
+/* --- Colonne Droite : Les infos --- */
 .book-info {
-    flex: 1;
-    min-width: 300px;
+    width: 60%; /* Le texte prend le reste (60%) */
 }
 
-/* Titre du livre */
 .book-title {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     margin-top: 0;
     margin-bottom: 10px;
-    color: #222;
+    color: #292929;
 }
 
-/* Auteur */
 .book-author {
-    color: #666;
+    color: grey;
+    margin-bottom: 30px;
     font-size: 1.1rem;
+}
+
+.owner-name{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px ;
+    font-weight: 400;
+    color: #292929;
+    line-height: 100%;
+    white-space: nowrap;
+}
+
+/* Petite ligne de séparation */
+.separator-img {
+    display: block;
+    width: 27px;
+    height: auto;
+    margin-top: 20px;
     margin-bottom: 30px;
 }
 
-.book-author span {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 2px;
+.box-info {
+    flex: 1;
+    text-align: left;
 }
-
-/* Ligne de séparation */
-.separator-line {
-    width: 40px;
-    height: 1px;
-    background-color: #ddd;
-    margin-bottom: 30px;
-}
-
-/* Titres de sections (Description / Propriétaire) */
+/* Titres (Description / Propriétaire) */
 .section-title {
-    font-size: 0.75rem;
     font-weight: bold;
     text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
     letter-spacing: 1px;
-    margin-bottom: 15px;
-    color: #222;
 }
 
-/* Texte de description */
 .description-text {
-    line-height: 1.6;
-    color: #444;
+    line-height: 1.6; /* Espace entre les lignes pour que ce soit lisible */
     margin-bottom: 40px;
-    font-size: 0.95rem;
+    text-align: justify;
 }
 
-/* Bloc Propriétaire */
+/* --- LE BLOC PROPRIÉTAIRE (C'est ici qu'on répare l'avatar géant) --- */
 .owner-card {
     display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 40px;
+    align-items: center; /* Aligne verticalement */
+    gap: 12px;
+    height: 60px;
+    width: fit-content;
+    padding : 6px 17px 6px 6px;
+    border-radius: 114px;
+    background-color: #FFFFFF;
 }
 
+/* On force la taille de l'avatar ICI */
 .avatar-container {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: #eee;
+    width: 48px;   /* Largeur fixe */
+    height: 48px;  /* Hauteur fixe */
+    border-radius: 50%; /* Ça fait un rond */
+    overflow: hidden; /* Coupe ce qui dépasse du rond */
+    background-color: #FFFFFF;
 }
 
 .avatar-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    overflow: hidden;
+    display: block;
 }
 
-.owner-name {
-    font-weight: 500;
-    color: #222;
-}
-
-/* Bouton Envoyer un message */
+/* --- Le bouton vert --- */
 .btn-message {
-    background-color: #00AC66;
+    display: block;
+    background-color: #00AC66; /* Vert TomTroc */
     color: white;
-    padding: 15px 0;
-    width: 100%;
     text-align: center;
+    padding: 15px;
     text-decoration: none;
-    border-radius: 4px;
-    display: inline-block;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    width: 100%;
 }
 
 .btn-message:hover {
-    background-color: #008f55; /* Devient un peu plus foncé au survol */
+    background-color: #008f55; /* Un peu plus foncé quand on passe la souris */
 }

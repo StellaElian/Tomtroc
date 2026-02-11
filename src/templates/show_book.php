@@ -1,6 +1,6 @@
 <?php require_once '../src/templates/_header.php'; ?>
 
-<link rel="stylesheet" href="/public/css/show_book.css">
+<link rel="stylesheet" href="/Mission_tomtroc/public/css/show_book.css">
 
 <div class="book-details-page">
 
@@ -25,7 +25,7 @@
                 par <span><?= htmlspecialchars($book->getAuthor()) ?></span>
             </p>
 
-            <div class="separator-line"></div>
+            <img src="img/line.png" alt="séparateur" class="separator-img">
 
             <h3 class="section-title">Description</h3>
 
