@@ -4,17 +4,18 @@
 
 <div class="profile-page">
     <h1 class="main-title">Mon compte</h1>
-    <form action="index.php?action=updateProfile" method="post" enctype="multipart/form-data" class="profile-top-section">
+    <form action="index.php?action=updateProfile" method="POST" enctype="multipart/form-data" class="profile-top-section">
 
         <div class="profile-top-section">
 
             <div class="profile-card">
                 <div class="profile-avatar">
-                    <img src="/Mission_tomtroc/public/img/avatars/" <?= htmlspecialchars($user->getAvatar() ?? 'avatar_default.png') ?> alt="Avatar">
+                   
+                    <img src="img/avatars/<?= htmlspecialchars($user->getAvatar() ?? 'avatar_default.png' ) ?>" alt="Avatar">
+                    
                 </div>
-                <label for="avatar_upload" class="edit-avatar-link" style="cursor: pointer;">modifier</label>
-                <input type="file" id="avatar_upload" name="avatar" accept="image/*" style="display: none;">
-
+                <label for="file_upload" class="edit-avatar-link">modifier</label>
+                <input type="file" id="file_upload" name="avatar" accept="image/png, image/jpeg" style="display: none;">
 
                 <h2 class="profile-pseudo"><?= htmlspecialchars($user->getPseudo()) ?></h2>
                 <p class="profile-member-date">Membre depuis <?= Utils::format($user->getCreatedAt()) ?></p>

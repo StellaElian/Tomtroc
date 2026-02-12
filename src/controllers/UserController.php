@@ -112,7 +112,7 @@ class UserController
             $user->setPassword(password_hash($_POST['password'], PASSWORD_DEFAULT));
         }
             
-        // --- GESTION DE L'AVATAR RENFORCÉE ---
+        // --- GESTION DE L'AVATAR ---
         if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === 0) {
             
             // Définir le dossier de destination
