@@ -2,48 +2,55 @@
 
 <link rel="stylesheet" href="css/show_book.css">
 
-<div class="book-details-page">
+<div class="book-page-wrapper">
+    
     <div class="breadcrumb">
-        <a href="index.php?action=exchange">Nos livres</a> > <?= htmlspecialchars($book->getTitle()) ?>
+        <a href="index.php?action=catalog">Nos livres > </a>
+        <span class="current-page"><?= htmlspecialchars($book->getTitle()) ?></span>
     </div>
-    <div class="book-container">
-        <div class="book-image">
-            <img src="img/books/<?= htmlspecialchars($book->getImage()) ?>"
-                alt="<?= htmlspecialchars($book->getTitle()) ?>">
+
+    <div class="book-content-container">
+        
+        <div class="book-cover-section">
+            <img src="img/books/<?= htmlspecialchars($book->getImage()) ?>" 
+                 alt="Couverture de <?= htmlspecialchars($book->getTitle()) ?>" 
+                 class="main-book-image">
         </div>
-        <div class="book-info">
-            <h1 class="book-title">
-                <?= htmlspecialchars($book->getTitle()) ?>
-            </h1>
 
-            <p class="book-author">
-                par <span><?= htmlspecialchars($book->getAuthor()) ?></span>
-            </p>
-
-            <img src="img/line.png" alt="séparateur" class="separator-img">
+        <div class="book-info-section">
+            
+            <h1 class="book-main-title"><?= htmlspecialchars($book->getTitle()) ?></h1>
+            <p class="book-main-author">par <?= htmlspecialchars($book->getAuthor()) ?></p>
+            
+            <div class="separator-line"></div>
 
             <h3 class="section-title">Description</h3>
-            <p class="description-text">
-                <?= !empty($book->getDescription()) ? nl2br(htmlspecialchars($book->getDescription())) : "Aucune description fournie." ?>
+            <p class="book-description">
+                <?= nl2br(htmlspecialchars($book->getDescription())) ?>
             </p>
 
-            <div class="owner-section">
-                <h3 class="section-title">Propriétaire</h3>
-                <div class="avatar-container">
-                    <img src="img/avatars/avatar_default.png" alt="Avatar">
+            <div class="separator-line"></div>
+
+            <div class="owner-block">
+                <p class="owner-label">PROPRIÉTAIRE</p>
+                
+                <div class="owner-card">
+                    <div class="avatar-wrapper">
+                        <img src="img/avatars/avatar_default.png" alt="Avatar" class="owner-avatar-img">
+                    </div>
+
+                    <div class="name-wrapper">
+                        <a href="index.php?action=public_profile&id=<?= $book->getUserId() ?>" class="owner-link">
+                            <?= htmlspecialchars($book->getSeller()) ?>
+                        </a>
+                    </div>
                 </div>
-                <span div class="owner-name">
-                    <a href="index.php?action=public_profile&id=<?= $book->getUserId() ?>" class="owner-name" style="text-decoration: none; color: inherit;">
-                        <?= htmlspecialchars($book->getSeller()) ?>
-                    </a>
-                </span>
+                
+                <a href="#" class="btn-send-message">Envoyer un message</a>
             </div>
+
         </div>
-        <a href="index.php?action=messagerie&id=<?= $book->getId() ?>" class="btn-message">
-            Envoyer un message
-        </a>
     </div>
-</div>
 </div>
 
 <?php require_once '../src/templates/_footer.php'; ?>

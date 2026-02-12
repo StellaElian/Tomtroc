@@ -49,13 +49,12 @@ switch($action){
     case 'exchange':
         $bookController->showCatalog();
         break;
-    case 'showBook' :
-        $bookController->ShowBook();
-        break;
-    case 'show_book' : // public
+    case 'showbook' :
         $bookController->showBook();
         break;
-
+    case 'show_book' : 
+        $bookController->ShowBook();
+        break;
     default:
         $homeController->index();
         break;

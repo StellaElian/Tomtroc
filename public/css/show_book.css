@@ -1,141 +1,136 @@
-.book-details-page {
-    max-width: 1440px; /* Largeur max pour grands écrans */
+/* --- CONFIGURATION GLOBALE --- */
+.book-page-wrapper {
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 40px;
-    font-family: 'Inter', sans-serif;
+    padding: 60px 20px;
+    font-family: 'Inter', sans-serif; /* Assure-toi d'avoir ta police */
     color: #222;
 }
 
-/* Fil d'ariane */
 .breadcrumb {
     margin-bottom: 40px;
-    font-size: 0.95rem;
-    color: #999;
+    font-size: 0.9rem;
+    color: #666;
 }
-.breadcrumb a { text-decoration: none; color: inherit; }
+.breadcrumb a { text-decoration: none; color: #666; }
+.current-page { font-weight: bold; color: #222; }
 
-/* --- LE CONTENEUR PRINCIPAL (C'est lui qui force le côte-à-côte) --- */
-.book-container {
-    display: flex ;
-    gap: 80px;
-    flex-direction: row;      /* Image à gauche, Texte à droite */
-    align-items: flex-start;  /* Calé en haut */
-}
-
-/* --- COLONNE GAUCHE : IMAGE --- */
-.book-image {
-    flex: 0 0 300px;
-    
+/* LE CONTENEUR PRINCIPAL (Flexbox) */
+/* C'est ici qu'on dit : Image à gauche, Texte à droite */
+.book-content-container {
+    display: flex;
+    gap: 80px; /* Espace entre les deux colonnes */
+    align-items: flex-start;
 }
 
-.book-image img {
+/* --- COLONNE GAUCHE --- */
+.book-cover-section {
+    flex: 1;
+    max-width: 400px;
+}
+
+.main-book-image {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 4px;
-    /* Ratio exact Figma (720px / 863px) */
-    aspect-ratio: 720 / 863; 
+    /* Optionnel : petite ombre portée comme sur la maquette */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
 }
 
-/* --- COLONNE DROITE : INFOS --- */
-.book-info {
-    width: 50%; /* L'autre moitié */
-    flex: 1px;
-    text-align: left;
-    padding-top: 10px;
+/* --- COLONNE DROITE --- */
+.book-info-section {
+    flex: 1;
+    padding-top: 10px; /* Petit alignement optique */
 }
 
-/* Typographie */
-.book-title {
-    font-family: 'Playfair Display', serif;
+.book-main-title {
+    font-family: 'Playfair Display', serif; /* Police titre */
     font-size: 2.5rem;
-    line-height: 1.1;
-    margin-top: 0;
-    margin-bottom: 20px;
-    color: #222;
+    margin: 0 0 5px 0;
+    line-height: 1.2;
 }
 
-.book-author {
-    color: #666;
+.book-main-author {
     font-size: 1.1rem;
+    color: #999;
     margin-bottom: 30px;
+    margin-top: 0;
 }
 
-/* Ligne séparatrice (Image) */
-.separator-img {
-    display: block;
-    width: 27px; /* Donnée Figma */
-    height: auto;
-    margin-bottom: 30px;
+.separator-line {
+    width: 100%;
+    height: 1px;
+    background-color: #eee;
+    margin: 30px 0;
 }
 
-/* Titres de section */
 .section-title {
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 15px;
-    margin-top: 40px; /* Espace avant le titre */
     color: #222;
 }
 
-.description-text {
+.book-description {
     line-height: 1.6;
-    color: #444;
+    color: #666;
     font-size: 1rem;
 }
 
-/* --- BLOC PROPRIÉTAIRE (Données Figma Respectées) --- */
+/* --- BLOC PROPRIÉTAIRE (C'est là qu'on répare l'alignement) --- */
+.owner-label {
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+/* Flexbox pour aligner Avatar et Nom côte à côte */
 .owner-card {
     display: flex;
     align-items: center;
-    
-    /* Vos données Figma exactes : */
-    width: fit-content;         /* Largeur : Enserrer (157px) */
-    height: 60px;               /* Hauteur : Enserrer (60px) */
-    padding: 6px 17px 6px 6px;  /* Marges internes : H6 D17 B6 G6 */
-    gap: 12px;                  /* Espace : 12px */
-    border-radius: 114px;       /* Rayon : 114px */
-    
-    background-color: white;  
+    gap: 15px;
+    margin-bottom: 30px;
 }
 
-.avatar-container {
-  
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: #eee;
-    flex-shrink: 0;
+.avatar-wrapper {
+    width: 50px;
+    height: 50px;
 }
 
-.avatar-container img {
+.owner-avatar-img {
     width: 100%;
     height: 100%;
+    border-radius: 50%; /* Image ronde */
     object-fit: cover;
+    background-color: #eee;
 }
 
-.owner-name {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 400; /* Regular */
-    color: #292929;
-    white-space: nowrap;
+.owner-link {
+    text-decoration: none;
+    color: #222;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
-/* Bouton Vert */
-.btn-message {
-    display: block;
+/* --- BOUTON MESSAGE --- */
+.btn-send-message {
+    display: block; /* Prend toute la largeur dispo */
     background-color: #00AC66;
     color: white;
     text-align: center;
-    padding: 16px;
-    text-decoration: none;
-    font-weight: 700;
+    padding: 14px 0;
     border-radius: 4px;
-    margin-top: 40px;
-    width: 100%;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.2s;
 }
-.btn-message:hover { background-color: #008f55; }
+
+.btn-send-message:hover {
+    background-color: #008f55;
+}
