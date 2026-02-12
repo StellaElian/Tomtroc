@@ -1,0 +1,55 @@
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.hero-content { flex: 1; padding-right: 50px; }
+.hero-title { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; color: #222; }
+.hero-text { color: #666; font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; }
+.hero-image { flex: 1; position: relative; }
+.hero-image img { width: 100%; border-radius: 4px; }
+.photo-credit { position: absolute; bottom: 10px; right: 10px; color: rgba(255,255,255,0.7); font-size: 0.8rem; }
+
+/* --- BOUTONS --- */
+.btn-primary {
+    background-color: #00AC66; color: white; padding: 12px 30px; text-decoration: none; border-radius: 4px; font-weight: bold; display: inline-block;
+}
+.btn-outline {
+    border: 1px solid #00AC66; color: #00AC66; padding: 12px 30px; text-decoration: none; border-radius: 4px; font-weight: bold; display: inline-block;
+}
+.center-btn { text-align: center; margin-top: 40px; }
+
+/* --- TITRES SECTIONS --- */
+.section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; text-align: center; margin-bottom: 10px; color: #222; }
+.section-subtitle { text-align: center; color: #666; margin-bottom: 50px; }
+
+/* --- DERNIERS LIVRES --- */
+.last-books-section { padding: 80px 20px; background-color: white; max-width: 1200px; margin: 0 auto; }
+.books-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+.book-card-link { text-decoration: none; color: inherit; }
+.book-card { display: flex; flex-direction: column; height: 100%; }
+.book-image { height: 300px; overflow: hidden; margin-bottom: 15px; }
+.book-image img { width: 100%; height: 100%; object-fit: cover; }
+.book-title-card { font-size: 1.1rem; margin: 0; color: #222; }
+.book-author-card { color: #888; font-size: 0.9rem; margin: 5px 0; }
+.book-seller-card { font-size: 0.8rem; color: #aaa; font-style: italic; }
+
+/* --- COMMENT ÇA MARCHE --- */
+.how-it-works-section { padding: 80px 20px; background-color: #f9f9f9; } /* Fond gris clair */
+.steps-grid { display: flex; gap: 30px; max-width: 1200px; margin: 0 auto; }
+.step-card { flex: 1; background: white; padding: 30px; border-radius: 8px; text-align: left; font-size: 0.95rem; color: #444; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+
+/* --- NOS VALEURS --- */
+.values-section { padding-bottom: 80px; }
+.values-banner { width: 100%; height: 300px; overflow: hidden; margin-bottom: 60px; }
+.values-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.values-content { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+.values-content p { color: #555; line-height: 1.8; margin-bottom: 20px; }
+
+.heart {
+    width: 120px;
+    height: 102px;
+}
