@@ -172,19 +172,16 @@ class BookController
         require_once '../src/templates/exchange.php';
     }
 
-    public function showBook(): void
+    public function showBook($id): void
     {
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $id =(int)$_GET['id'];
-            $bookManager = new BookManager();
-            $book = $bookManager->getBookById($id);
-            if($book) {
-                require_once "../src/templates/show_book.php";
-            }else {
-                Utils::redirect("exchange");
-            }
-        }else{
+        $bookManager = new BookManager();
+        $book = $bookManager->getBookById($id);
+        
+        if($book) {
+            require_once "../src/templates/show_book.php";
+        }else {
             Utils::redirect("exchange");
         }
+    
     }
 }

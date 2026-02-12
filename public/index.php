@@ -50,7 +50,7 @@ switch($action){
         $bookController->showCatalog();
         break;
     case 'showbook' :
-        $bookController->showBook();
+        $bookController->showBook($id);
         break;
     case 'show_book' : //public utilisateur
         if (isset($_GET['id']) && $_GET['id'] > 0){ 
