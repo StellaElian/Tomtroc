@@ -4,31 +4,32 @@
 
 <div class="profile-page">
     <h1 class="main-title">Mon compte</h1>
+    <form action="index.php?action=updateProfile" method="post" enctype="multipart/form-data" class="profile-top-section">
 
-    <div class="profile-top-section">
-        
-        <div class="profile-card">
-            <div class="profile-avatar">
-                <img src="img/avatars/avatar_default.png" alt="Avatar">
-                <a href="#" class="edit-avatar-link">modifier</a>
-            </div>
-            
-            <h2 class="profile-pseudo"><?= htmlspecialchars($_SESSION['user_pseudo'] ?? 'Membre') ?></h2>
-            <p class="profile-member-date">Membre depuis 1 an</p>
-            
-            <div class="profile-library-stats">
-                <span class="library-label">BIBLIOTHEQUE</span>
-                <span class="library-count">
-                    <img src="img/livres.svg" alt="" style="width: 15px; height: auto; vertical-align: middle; margin-right: 5px;">
-                    <?= count($books) ?> livres
-                </span>
-            </div>
-        </div>
+        <div class="profile-top-section">
 
-        <div class="profile-form-container">
-            <h3 class="form-title">Vos informations personnelles</h3>
-            
-            <form action="index.php?action=updateProfile" method="POST" class="personal-info-form">
+            <div class="profile-card">
+                <div class="profile-avatar">
+                    <img src="/Mission_tomtroc/public/img/avatars/" <?= htmlspecialchars($user->getAvatar() ?? 'avatar_default.png') ?> alt="Avatar">
+                </div>
+                <label for="avatar_upload" class="edit-avatar-link" style="cursor: pointer;">modifier</label>
+                <input type="file" id="avatar_upload" name="avatar" accept="image/*" style="display: none;">
+
+
+                <h2 class="profile-pseudo"><?= htmlspecialchars($user->getPseudo()) ?></h2>
+                <p class="profile-member-date">Membre depuis <?= Utils::format($user->getCreatedAt()) ?></p>
+
+                <div class="profile-library-stats">
+                    <span class="library-label">BIBLIOTHEQUE</span>
+                    <span class="library-count">
+                        <img src="img/livres.svg" alt="" style="width: 15px; height: auto; vertical-align: middle; margin-right: 5px;">
+                        <?= count($books) ?> livres
+                    </span>
+                </div>
+            </div>
+
+            <div class="profile-form-container">
+                <h3 class="form-title">Vos informations personnelles</h3>
                 <div class="form-group">
                     <label for="email">Adresse email</label>
                     <input type="email" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>" class="form-input">
@@ -45,12 +46,12 @@
                 </div>
 
                 <button type="submit" class="btn-save">Enregistrer</button>
-            </form>
+            </div>
         </div>
-    </div>
+    </form>
 
     <div class="profile-bottom-section">
-        
+
         <table class="books-table">
             <thead>
                 <tr>
@@ -71,33 +72,33 @@
                     <?php foreach ($books as $book): ?>
                         <tr>
                             <td>
-                                <img src="img/books/<?= htmlspecialchars($book->getImage()) ?>" 
-                                     alt="Cover" class="table-book-img">
+                                <img src="img/books/<?= htmlspecialchars($book->getImage()) ?>"
+                                    alt="Cover" class="table-book-img">
                             </td>
-                            
+
                             <td class="book-title-cell"><?= htmlspecialchars($book->getTitle()) ?></td>
-                            
+
                             <td class="book-author-cell"><?= htmlspecialchars($book->getAuthor()) ?></td>
-                            
+
                             <td class="book-desc-cell">
                                 <div class="desc-content">
                                     <?= htmlspecialchars(substr($book->getDescription() ?? '', 0, 100)) ?>...
                                 </div>
                             </td>
-                            
+
                             <td>
-                                <?php if($book->getDisponibilite() === 'non dispo'): ?>
+                                <?php if ($book->getDisponibilite() === 'non dispo'): ?>
                                     <span class="badge badge-not-available">non dispo</span>
                                 <?php else: ?>
                                     <span class="badge badge-available">disponible</span>
                                 <?php endif; ?>
                             </td>
-                            
+
                             <td class="actions-cell">
                                 <a href="index.php?action=editBook&id=<?= $book->getId() ?>" class="action-link edit">Éditer</a>
-                                <a href="index.php?action=deleteBook&id=<?= $book->getId() ?>" 
-                                   class="action-link delete"
-                                   onclick="return confirm('Supprimer ce livre ?');">Supprimer</a>
+                                <a href="index.php?action=deleteBook&id=<?= $book->getId() ?>"
+                                    class="action-link delete"
+                                    onclick="return confirm('Supprimer ce livre ?');">Supprimer</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
