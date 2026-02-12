@@ -3,51 +3,49 @@
 <link rel="stylesheet" href="css/profile.css">
 
 <div class="profile-page">
-    <h1 class="main-title">Mon compte</h1>
+    <div class="page-header">
+        <h1 class="main-title">Mon compte</h1>
+        <a href="index.php?action=addBook" class="btn-add-book"> Ajouter un livre</a>
+    </div>
+
     <form action="index.php?action=updateProfile" method="POST" enctype="multipart/form-data" class="profile-top-section">
+        <div class="profile-card">
+            <div class="profile-avatar">
+                <img src="img/avatars/<?= htmlspecialchars($user->getAvatar() ?? 'avatar_default.png') ?>" alt="Avatar">
+            </div>
+            <label for="file_upload" class="edit-avatar-link">modifier</label>
+            <input type="file" id="file_upload" name="avatar" accept="image/png, image/jpeg" class="hidden-input">
 
-        <div class="profile-top-section">
+            <h2 class="profile-pseudo"><?= htmlspecialchars($user->getPseudo()) ?></h2>
+            <p class="profile-member-date">Membre depuis <?= Utils::format($user->getCreatedAt()) ?></p>
 
-            <div class="profile-card">
-                <div class="profile-avatar">
-                   
-                    <img src="img/avatars/<?= htmlspecialchars($user->getAvatar() ?? 'avatar_default.png' ) ?>" alt="Avatar">
-                    
-                </div>
-                <label for="file_upload" class="edit-avatar-link">modifier</label>
-                <input type="file" id="file_upload" name="avatar" accept="image/png, image/jpeg" style="display: none;">
+            <div class="profile-library-stats">
+                <span class="library-label">BIBLIOTHEQUE</span>
+                <span class="library-count">
+                    <img src="img/livres.svg" alt="" class="icon-book">
+                    <?= count($books) ?> livres
+                </span>
+            </div>
+        </div>
 
-                <h2 class="profile-pseudo"><?= htmlspecialchars($user->getPseudo()) ?></h2>
-                <p class="profile-member-date">Membre depuis <?= Utils::format($user->getCreatedAt()) ?></p>
-
-                <div class="profile-library-stats">
-                    <span class="library-label">BIBLIOTHEQUE</span>
-                    <span class="library-count">
-                        <img src="img/livres.svg" alt="" style="width: 15px; height: auto; vertical-align: middle; margin-right: 5px;">
-                        <?= count($books) ?> livres
-                    </span>
-                </div>
+        <div class="profile-form-container">
+            <h3 class="form-title">Vos informations personnelles</h3>
+            <div class="form-group">
+                <label for="email">Adresse email</label>
+                <input type="email" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>" class="form-input">
             </div>
 
-            <div class="profile-form-container">
-                <h3 class="form-title">Vos informations personnelles</h3>
-                <div class="form-group">
-                    <label for="email">Adresse email</label>
-                    <input type="email" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>" class="form-input">
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" value="********" class="form-input">
-                </div>
-
-                <div class="form-group">
-                    <label for="pseudo">Pseudo</label>
-                    <input type="text" id="pseudo" name="pseudo" value="<?= htmlspecialchars($user->getPseudo()) ?>" class="form-input">
-                </div>
-
-                <button type="submit" class="btn-save">Enregistrer</button>
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" value="********" class="form-input">
             </div>
+
+            <div class="form-group">
+                <label for="pseudo">Pseudo</label>
+                <input type="text" id="pseudo" name="pseudo" value="<?= htmlspecialchars($user->getPseudo()) ?>" class="form-input">
+            </div>
+
+            <button type="submit" class="btn-save">Enregistrer</button>
         </div>
     </form>
 
