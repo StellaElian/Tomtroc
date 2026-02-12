@@ -52,6 +52,10 @@ switch($action){
     case 'showBook' :
         $bookController->ShowBook();
         break;
+    case 'show_book' : // public
+        $bookController->showCatalog();
+        break;
+
     default:
         $homeController->index();
         break;

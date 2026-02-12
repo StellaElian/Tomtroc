@@ -73,7 +73,7 @@ class Book extends AbstractEntity
     // Seller
     public function getSeller(): string
     {
-        return $this->seller;
+        return $this->seller ?? 'vendeur inconnu'; // pour ne plus que ça plante si le vendeur est vide
     }
     public function setSeller(string $seller): void
     {

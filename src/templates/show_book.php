@@ -3,18 +3,14 @@
 <link rel="stylesheet" href="css/show_book.css">
 
 <div class="book-details-page">
-
     <div class="breadcrumb">
         <a href="index.php?action=exchange">Nos livres</a> > <?= htmlspecialchars($book->getTitle()) ?>
     </div>
-
     <div class="book-container">
-        
         <div class="book-image">
             <img src="img/books/<?= htmlspecialchars($book->getImage()) ?>"
                 alt="<?= htmlspecialchars($book->getTitle()) ?>">
         </div>
-
         <div class="book-info">
             <h1 class="book-title">
                 <?= htmlspecialchars($book->getTitle()) ?>
@@ -32,16 +28,21 @@
             </p>
 
             <h3 class="section-title">Propriétaire</h3>
-            
+
             <div class="owner-card">
                 <div class="avatar-container">
                     <img src="img/avatars/avatar_default.png" alt="Avatar">
                 </div>
-                <span class="owner-name">
-                    <?= htmlspecialchars($book->getSeller()) ?>
-                </span>
-            </div>
+                <div class="owner-card">
+                    <div class="avatar-container">
+                        <img src="img/avatars/avatar_default.png" alt="Avatar">
+                    </div>
 
+                    <a href="index.php?action=public_profile&id=<?= $book->getUserId() ?>" class="owner-name" style="text-decoration: none; color: inherit;">
+                        <?= htmlspecialchars($book->getSeller()) ?>
+                    </a>
+                </div>
+            </div>
             <a href="index.php?action=messagerie&id=<?= $book->getId() ?>" class="btn-message">
                 Envoyer un message
             </a>

@@ -155,4 +155,22 @@ class UserController
         session_destroy();
         Utils::redirect('home');
     }
+
+    public function showPublicProfile(): void
+    {
+        if (!isset($_GET['id']) || empty($_GET['id'])) {
+            Utils::redirect('home');
+        }
+        $userId = $_GET['id'];
+        $userManager = new UserManager();
+        $bookManager = new BookManager();
+        // recuperation info utilisateur
+        $user = $userManager->getUserById($userId);
+        if (!$user){
+            Utils::redirect('home');
+        }
+        //recuperation livres utilisateur
+        $book = $bookManager->getBooksByUser($userId);
+        require_once '../src/templates/public-profile.php';
+    }
 }
