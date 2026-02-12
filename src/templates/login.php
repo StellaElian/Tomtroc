@@ -20,7 +20,7 @@
                 </p>
                 <button type="submit">Se connecter</button>
             </form>
-            <p>Pas de compte ? <a href="index.php?action=register" style="test-decoration: underline; color: black;">Inscrivez-vous</a></p>
+            <p>Pas de compte ? <a href="index.php?action=register" style="text-decoration: underline; color: black;">Inscrivez-vous</a></p>
         </div>
         <?php require_once '../src/templates/_footer.php'; ?>
     </body>
