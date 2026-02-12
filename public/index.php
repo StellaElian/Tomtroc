@@ -52,8 +52,19 @@ switch($action){
     case 'showbook' :
         $bookController->showBook();
         break;
-    case 'show_book' : 
-        $bookController->ShowBook();
+    case 'show_book' : //public utilisateur
+        if (isset($_GET['id']) && $_GET['id'] > 0){ 
+            $bookController->ShowBook($_GET['id']);
+        }else{
+           $bookController->showCatalog();
+        }
+        break;
+    case 'public_profile' : // pour que la redirection fonctionne 
+        if (isset($_GET['id']) && $_GET['id'] > 0){
+            $userController->showPublicProfile(); 
+        }else{
+            $homeController->index();
+        }
         break;
     default:
         $homeController->index();
