@@ -53,7 +53,7 @@ switch($action){
         $bookController->ShowBook();
         break;
     case 'show_book' : // public
-        $bookController->showCatalog();
+        $bookController->showBook();
         break;
 
     default:

@@ -27,27 +27,23 @@
                 <?= !empty($book->getDescription()) ? nl2br(htmlspecialchars($book->getDescription())) : "Aucune description fournie." ?>
             </p>
 
-            <h3 class="section-title">Propriétaire</h3>
-
-            <div class="owner-card">
+            <div class="owner-section">
+                <h3 class="section-title">Propriétaire</h3>
                 <div class="avatar-container">
                     <img src="img/avatars/avatar_default.png" alt="Avatar">
                 </div>
-                <div class="owner-card">
-                    <div class="avatar-container">
-                        <img src="img/avatars/avatar_default.png" alt="Avatar">
-                    </div>
-
+                <span div class="owner-name">
                     <a href="index.php?action=public_profile&id=<?= $book->getUserId() ?>" class="owner-name" style="text-decoration: none; color: inherit;">
                         <?= htmlspecialchars($book->getSeller()) ?>
                     </a>
-                </div>
+                </span>
             </div>
-            <a href="index.php?action=messagerie&id=<?= $book->getId() ?>" class="btn-message">
-                Envoyer un message
-            </a>
         </div>
+        <a href="index.php?action=messagerie&id=<?= $book->getId() ?>" class="btn-message">
+            Envoyer un message
+        </a>
     </div>
+</div>
 </div>
 
 <?php require_once '../src/templates/_footer.php'; ?>
