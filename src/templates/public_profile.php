@@ -21,9 +21,11 @@
                 </span>
             </div>
 
-            <a href="index.php?action=messagerie$create_chat_with=<?= $user->getId() ?>" class="btn-write-message">
-                Écrire un message
-            </a>
+            <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != $user->getId()): ?>
+                <a href="index.php?action=messagerie$create_chat_with=<?= $user->getId() ?>" class="btn-write-message">
+                    Écrire un message
+                </a>
+            <?php endif; ?>
         </div>
     </aside>
 
