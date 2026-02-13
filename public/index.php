@@ -1,11 +1,11 @@
 <?php
 require_once '../config/_config.php';
 require_once '../config/autoload.php';
-require_once '../src/controllers/HomeController.php';
 
 $userController = new UserController();
 $bookController = new BookController();
 $homeController = new HomeController();
+$messageController = new MessageController();
 
 $action = $_GET['action'] ?? $_POST['action'] ?? 'home';
 
@@ -62,6 +62,12 @@ switch($action){
         }else{
             $homeController->index();
         }
+        break;
+    case 'messagerie' :
+        $messageController->showMessages();
+        break;
+    case 'sendMessage' :
+        $messageController->sendMessage();
         break;
     default:
         $homeController->index();

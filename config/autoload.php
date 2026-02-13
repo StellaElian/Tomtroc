@@ -1,11 +1,10 @@
-<?php 
+<?php
 /*  à chaque fois qu'on utilise le mot "new", PHP va appeler cette fonction.
     elle va chercher automatiquement le fichier correspondant dans les dossiers.
     ----> petit robot détecteur 
 */
 // Quand on écrit new quelques chose, je vais chercher son fichier
-spl_autoload_register(function ($className) 
-{
+spl_autoload_register(function ($className) {
     // prépare les chemins possibles 
     $managers = '../src/managers/' . $className . '.php';
     $models = '../src/models/' . $className . '.php';
@@ -22,7 +21,7 @@ spl_autoload_register(function ($className)
         require_once $controllers;
     }
 
-    if(file_exists($services)){
+    if (file_exists($services)) {
         require_once $services;
     }
 });
