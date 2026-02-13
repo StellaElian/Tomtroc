@@ -17,7 +17,7 @@
             <a href="index.php?action=exchange">Nos livres à l'échange</a>
             
             <?php if (Utils::isUserConnected()): ?>
-                <a href="#">Messagerie</a>
+                <a href="index.php?action=messagerie">Messagerie</a>
                 <a href="index.php?action=profile">Mon compte</a> 
                 <a href="index.php?action=logout">Déconnexion</a>
             <?php else: ?>

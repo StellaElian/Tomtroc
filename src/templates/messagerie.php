@@ -1,4 +1,4 @@
-<?php require_once '../src/templates/header.php'; ?>
+
 
 <div class="messagerie-container">
 
@@ -81,4 +81,3 @@
 
     </div>
 </div>
-<?php require_once '../src/templates/footer.php'; ?>
