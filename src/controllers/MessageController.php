@@ -27,6 +27,7 @@ class MessageController
         }
 
         $conversations = $messageManager->getMyConversations($userId);
+        $selectedConversationId = null; //par défaut
 
         // SQL nous donne "User1" et "User2". Mais qui est mon interlocuteur ?
 
@@ -55,7 +56,6 @@ class MessageController
             // On demande au manager : "Donne-moi tous les messages de la conversation n°5"
             $messages = $messageManager->getMessagesByConversationId($conversationId);
         }
-
         require_once '../src/templates/messagerie.php';
     }
 
@@ -68,7 +68,7 @@ class MessageController
         // On récupère ce que l'utilisateur a écrit
         $content = $_POST['content'];
         $receiverId = $_POST['receiver_id'];
-        $monId = $_SESSION['user_id'];
+        $userId = $_SESSION['user_id'];
 
         if (!empty($content) && !empty($receiverId)) {
 
@@ -76,10 +76,10 @@ class MessageController
 
             //On crée la conversation (ou on récupère son ID si elle existe déjà)
             // la fonction 'createConversation' gère tout.
-            $conversationId = $messageManager->createConversation($monId, $receiverId);
+            $conversationId = $messageManager->createConversation($userId, $receiverId);
 
             //On enregistre le message dedans
-            $messageManager->postMessage($conversationId, $monId, $content);
+            $messageManager->postMessage($conversationId, $userId, $content);
 
             //On recharge la page pour voir le nouveau message
             Utils::redirect('messagerie&id=' . $conversationId);

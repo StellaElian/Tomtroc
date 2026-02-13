@@ -1,5 +1,4 @@
-
-
+<link rel="stylesheet" href="css/messagerie.css">
 <div class="messagerie-container">
 
     <div class="messagerie-sidebar">
@@ -10,7 +9,7 @@
                 <a href="index.php?action=messagerie&id=<?= $conversation['id'] ?>"
                     class="conversation-item <?= ($selectedConversationId == $conversation['id']) ? 'active' : '' ?>">
 
-                    <img src="img/avatars/<?= htmlspecialchars($conversation['other_avatar']) ?>" alt="Avatar">
+                    <img src="img/avatars/<?= htmlspecialchars($conversation['other_avatar'] ?? 'Avatar_default.png') ?>" alt="Avatar">
 
                     <div class="conversation-info">
                         <span class="pseudo"><?= htmlspecialchars($conversation['other_pseudo']) ?></span>
@@ -27,16 +26,16 @@
 
     <div class="messagerie-main">
 
-        <?php if ($selectedConversationId && !empty($conversations)): ?>
+        <?php if (isset($selectedConversationId) && $selectedConversationId && !empty($conversations)): ?>
 
             <div class="chat-header">
-                <img src="img/avatars/<?= htmlspecialchars($otherUserAvatar) ?>" alt="Avatar">
+                <img src="img/avatars/<?= htmlspecialchars($conversation['other_avatar'] ?? 'Avatar_default.png') ?>" alt="Avatar">
                 <h2><?= htmlspecialchars($otherUserPseudo) ?></h2>
             </div>
 
             <div class="chat-messages">
                 <?php if (empty($messages)): ?>
-                    <p class="no-message">Dites bonjour ! 👋</p>
+                    <p class="no-message">Dites bonjour ! </p>
                 <?php else: ?>
                     <?php foreach ($messages as $msg): ?>
 
@@ -72,12 +71,10 @@
                 <textarea name="content" placeholder="Votre message..." required></textarea>
                 <button type="submit">Envoyer</button>
             </form>
-
         <?php else: ?>
             <div class="empty-state">
                 <p>Sélectionnez une conversation à gauche pour commencer à discuter.</p>
             </div>
         <?php endif; ?>
-
     </div>
 </div>

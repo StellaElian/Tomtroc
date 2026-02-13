@@ -58,7 +58,8 @@ switch($action){
         break;
     case 'public_profile' : // pour que la redirection fonctionne 
         if (isset($_GET['id']) && $_GET['id'] > 0){
-            $userController->showPublicProfile(); 
+            // on demande d'afficher le  profil numéro..
+            $userController->showPublicProfile($_GET['id']); 
         }else{
             $homeController->index();
         }
