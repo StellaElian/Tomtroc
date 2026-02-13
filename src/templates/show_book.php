@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != $book->getUserId()): ?>
-                    <a href="index.php?action=messagerie" class="btn-send-message">Envoyer un message</a>
+                    <a href="index.php?action=messagerie&create_chat_with=<?=  $book->getUserId() ?>" class="btn-send-message">Envoyer un message</a>
                 <?php endif ?>
             </div>
 
