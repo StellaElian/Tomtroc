@@ -4,57 +4,74 @@ class MessageController
     //Affichage page messagerie
     public function showMessages()
     {
+        // 1. Vérification de sécurité
         if (!Utils::isUserConnected()) {
             Utils::redirect('login');
         }
 
         $userId = $_SESSION['user_id'];
-        // On appelle le Manager (celui qui parle à la base de données)
         $messageManager = new MessageManager();
+        $userManager = new UserManager(); //INDISPENSABLE pour trouver les pseudos !
 
-        //création automatique de conversation
+        //Gestion de la création automatique 
         if (isset($_GET['create_chat_with'])) {
-            $idDuDestinataire = (int)$_GET['create_chat_with'];
-            
-            // On empêche de se parler à soi-même
-            if ($idDuDestinataire !== $userId) {
-                // Le Manager crée ou récupère l'existante
-                $conversationId = $messageManager->createConversation($userId, $idDuDestinataire);
-                
-                // On redirige proprement vers la conversation ouverte
+            $targetId = (int)$_GET['create_chat_with'];
+            if ($targetId !== $userId) {
+                $conversationId = $messageManager->createConversation($userId, $targetId);
                 Utils::redirect("messagerie&id=" . $conversationId);
             }
         }
 
         $conversations = $messageManager->getMyConversations($userId);
-        $selectedConversationId = null; //par défaut
 
-        // SQL nous donne "User1" et "User2". Mais qui est mon interlocuteur ?
-
-        foreach ($conversations as $key => $conversation) {
-
-            // Si JE SUIS l'utilisateur 1
-            if ($conversation['user1_id'] == $userId) {
-                // l'autre, c'est l'utilisateur 2,On crée une nouvelle case 'pseudo_autre' pour simplifier l'affichage plus tard
-                $conversations[$key]['pseudo_autre'] = $conversation['user2_pseudo'];
-                $conversations[$key]['avatar_autre'] = $conversation['user2_avatar'];
-                $conversations[$key]['id_autre']     = $conversation['user2_id'];
+        // On parcourt chaque conversation pour AJOUTER le pseudo et l'avatar manquants
+        foreach ($conversations as $key => $conv) {
+            
+            // Qui est l'autre personne ?
+            if ($conv['user1_id'] == $userId) {
+                $otherId = $conv['user2_id'];
+            } else {
+                $otherId = $conv['user1_id'];
             }
-            // Sinon (ça veut dire que je suis l'utilisateur 2) et l'autre, c'est l'utilisateur 1 
-            else {
-                $conversations[$key]['pseudo_autre'] = $conversation['user1_pseudo'];
-                $conversations[$key]['avatar_autre'] = $conversation['user1_avatar'];
-                $conversations[$key]['id_autre']     = $conversation['user1_id'];
+
+            // On va chercher ses infos
+            $otherUser = $userManager->getUserById($otherId);
+
+            // IMPORTANT : On INJECTE les infos dans le tableau $conversations
+            if ($otherUser) {
+                $conversations[$key]['other_pseudo'] = $otherUser->getPseudo();
+                $conversations[$key]['other_avatar'] = $otherUser->getAvatar();
+                $conversations[$key]['other_user_id'] = $otherId;
+            } else {
+                $conversations[$key]['other_pseudo'] = "Utilisateur supprimé";
+                $conversations[$key]['other_avatar'] = "default_avatar.png";
+                $conversations[$key]['other_user_id'] = 0;
             }
         }
 
-        // liste vide au cas où on n'a cliqué sur rien
+        //Gestion de la conversation sélectionnée
+        $selectedConversationId = null;
         $messages = [];
+        $otherUserPseudo = ""; 
+        $otherUserAvatar = "";
 
         if (isset($_GET['id'])) {
-            $conversationId = (int)$_GET['id'];
-            // On demande au manager : "Donne-moi tous les messages de la conversation n°5"
-            $messages = $messageManager->getMessagesByConversationId($conversationId);
+            $selectedConversationId = (int)$_GET['id'];
+        } elseif (!empty($conversations)) {
+            $selectedConversationId = $conversations[0]['id'];
+        }
+
+        if ($selectedConversationId) {
+            $messages = $messageManager->getMessagesByConversationId($selectedConversationId);
+            
+            // On retrouve les infos qu'on vient de calculer pour les afficher 
+            foreach ($conversations as $conv) {
+                if ($conv['id'] == $selectedConversationId) {
+                    $otherUserPseudo = $conv['other_pseudo'];
+                    $otherUserAvatar = $conv['other_avatar'];
+                    break;
+                }
+            }
         }
         require_once '../src/templates/messagerie.php';
     }

@@ -29,8 +29,8 @@
         <?php if (isset($selectedConversationId) && $selectedConversationId && !empty($conversations)): ?>
 
             <div class="chat-header">
-                <img src="img/avatars/<?= htmlspecialchars($conversation['other_avatar'] ?? 'Avatar_default.png') ?>" alt="Avatar">
-                <h2><?= htmlspecialchars($otherUserPseudo) ?></h2>
+                <img src="img/avatars/<?= htmlspecialchars($otherUserAvatar ?? 'Avatar_default.png') ?>" alt="Avatar">
+                <h2><?= htmlspecialchars($otherUserPseudo ?? 'Utilisateur') ?></h2>
             </div>
 
             <div class="chat-messages">
