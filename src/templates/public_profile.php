@@ -21,7 +21,7 @@
                 </span>
             </div>
 
-            <a href="mailto:<?= htmlspecialchars($user->getEmail()) ?>" class="btn-write-message">
+            <a href="index.php?action=messagerie$create_chat_with=<?= $user->getId() ?>" class="btn-write-message">
                 Écrire un message
             </a>
         </div>

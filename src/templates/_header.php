@@ -15,11 +15,10 @@
         <nav>
             <a href="index.php?action=home">Accueil</a>
             <a href="index.php?action=exchange">Nos livres à l'échange</a>
-            
+            <a href="index.php?action=profile">Mon compte</a>
             <?php if (Utils::isUserConnected()): ?>
-                <a href="index.php?action=messagerie">Messagerie</a>
-                <a href="index.php?action=profile">Mon compte</a> 
-                <a href="index.php?action=logout">Déconnexion</a>
+                <li><a href="index.php?action=messagerie">Messagerie</a></li>
+                <li><a href="index.php?action=logout">Déconnexion</a></li>
             <?php else: ?>
                 <a href="index.php?action=login">Connexion</a>
             <?php endif; ?>
