@@ -40,7 +40,7 @@
             <p style="text-align: center;">Aucun livre disponible pour le moment.</p>
         <?php else: ?>
             <?php foreach ($booksList as $book): ?>
-                <a href="index.php?action=showBook&id=<?= htmlspecialchars($book->getId())  ?>" style="text-decoration: none; color: inherit;">
+                <a href="index.php?action=show_book&id=<?= htmlspecialchars($book->getId())  ?>" style="text-decoration: none; color: inherit;">
                     <article class="book-card">
                         <div class="book-image">
                             <img src="../public/img/books/<?= htmlspecialchars($book->getImage()) ?>"
