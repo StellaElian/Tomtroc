@@ -3,7 +3,7 @@ header nav {
     background-color: #F5F3EF;
     display: grid;
     /*mode grille qui aligne tout (logo à gauche, compte à droite) */
-    grid-template-columns: 1fr 150px 233px 94px 208px 148px 58px 170px 157px 130px 150px 1fr;
+    grid-template-columns: 150px 150px 213px 94px 188px 148px 58px 170px 157px 130px 150px;
     grid-template-rows: 1fr;
     height: 80px;
     justify-items: center;
