@@ -1,3 +1,128 @@
+
+/* On va chercher la police "Inter" chez Google */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+
+/*LES VARIABLES (lA PALETTE DE PEINTURE) */
+:root {
+    /* Le gris clair (fond du menu, fond de page) */
+    --lightGray:#F5F3EF;
+    
+    /* Le noir/gris foncé (pour le texte principal) */
+    --darkGray: #292929;
+    
+    /* Le gris moyen (pour les textes secondaires, dates, auteurs) */
+    --textGray: #A6A6A6;
+    
+    /* Le vert TomTroc (pour les boutons, les prix) */
+    --green: #00AC66;
+    
+    /* Le blanc pur (fond des cartes livres) */
+    --backgroundLight: #FAF9F7;
+    
+    /* Le gris clair (fond formulaire) */
+    --lightGray2:#EDF2F6;
+    
+    --white: #F0F0F0;
+   
+}
+
+* {
+    /* évite que les marges s'ajoutent à la largeur des boites */
+    box-sizing: border-box;
+}
+
+body {
+    /* On enlève les marges blanches autour de la page par défaut */
+    margin: 0;
+    padding: 0;
+    /* police "Inter" à tout le site */
+    font-family: 'Inter', sans-serif;
+    background-color: var(--backgroundLight);
+    color: var(--darkGray);
+    font-size: 14px;
+}
+
+/* LES LIENS (<a>)*/
+a {
+    text-decoration: none;
+    
+    /* Le lien prend la couleur du texte parent */
+    color: inherit;
+    
+    /* Le curseur devient une petite main */
+    cursor: pointer;
+    
+    /* Petite transition douce si la couleur change au survol */
+    transition: color 0.3s ease;
+}
+
+
+/* LES IMAGE*/
+img {
+    /* Empêche les images de dépasser des cartes*/
+    max-width: 100%;
+    height: auto;
+    
+    /* Enlève un petit espace blanc sous les images */
+    display: block;
+}
+
+
+/* Pour centrer le contenu de tes pages plus tard */
+.container {
+    max-width: 1440px; /* Largeur max de la maquette */
+    margin: 0 auto; /* Centre le bloc au milieu de l'écran */
+    padding: 0 20px; /* Petite marge sur les côtés */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
+
 .books-grid {
     display: flex;
     flex-wrap: wrap; 
