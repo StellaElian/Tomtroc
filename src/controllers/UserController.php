@@ -24,8 +24,8 @@ class UserController
             //on appelle le manager ranger en bdd
             $userManager = new UserManager();
             $userManager->createUser($user);
-            //on utilise utils pour rediriger vers l'acceuil
-            Utils::redirect('home');
+            //on utilise utils pour rla redirection vers login
+            Utils::redirect('login');
         
         }else{
             echo "Veuillez remplir tous les champs ou réessayer";
@@ -53,7 +53,7 @@ class UserController
             // demande si l'email existe dans la bdd 
             $userManager = new UserManager();
             $user = $userManager->getUserByEmail($_POST['email']);
-            if ($user !== null){
+            if ($user){
                 //verification password
                 if (password_verify($_POST['password'], $user->getPassword())){
                     // mdp bon donc on enregistre l'id de l'user dans la session
