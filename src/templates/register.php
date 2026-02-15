@@ -27,7 +27,7 @@
 
                 <button type="submit">S'inscrire</button>
             </form>
-            <p>Déja inscrit ? <a href="index.php?action=login" style="test-decoration: underline; color: black;">Connectez-vous</a></p>
+            <p>Déja inscrit ? <a href="index.php?action=login" style="text-decoration: underline; color: black;">Connectez-vous</a></p>
         </div>
         <?php require_once '../src/templates/_footer.php'; ?>
     </body>
