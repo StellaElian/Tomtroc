@@ -52,7 +52,6 @@ class UserController
             // demande si l'email existe dans la bdd 
             $userManager = new UserManager();
             $user = $userManager->getUserByEmail($_POST['email']);
-
             if ($user) {
                 //verification password
                 if (password_verify($_POST['password'], $user->getPassword())) {
@@ -105,11 +104,14 @@ class UserController
         $userManager = new UserManager();
         $user = $userManager->getUserById($_SESSION['user_id']);
 
+        //màj
         $user->setPseudo($_POST['pseudo']);
         $user->setEmail($_POST['email']);
 
+
         if (!empty($_POST['password'])) {
-            $user->setPassword(password_hash($_POST['password'], PASSWORD_DEFAULT));
+            $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $user->setPassword($hashedPassword);
         }
 
         // --- GESTION DE L'AVATAR ---

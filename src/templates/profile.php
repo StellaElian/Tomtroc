@@ -37,7 +37,7 @@
 
             <div class="form-group">
                 <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="password" value="********" class="form-input">
+                <input type="password" id="password" name="password" placeholder="Nouveau mot de passe" class="form-input">
             </div>
 
             <div class="form-group">
