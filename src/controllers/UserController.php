@@ -118,7 +118,7 @@ class UserController
         if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === 0) {
 
             // Définir le dossier de destination
-            $uploadDir = 'img/avatars/';
+            $uploadDir = IMG_AVATARS . '/';
 
             // Vérifier si le dossier existe, sinon le créer !
             if (!is_dir($uploadDir)) {
@@ -135,7 +135,7 @@ class UserController
                 // Ça a marché ! On supprime l'ancien
                 $oldAvatar = $user->getAvatar();
                 if ($oldAvatar && $oldAvatar !== 'Avatar_default.png') {
-                    $oldPath = $uploadDir . $oldAvatar;
+                    $oldPath = IMG_AVATARS . '/' . $oldAvatar;
                     if (file_exists($oldPath)) {
                         unlink($oldPath);
                     }
@@ -172,5 +172,49 @@ class UserController
         //recuperation livres utilisateur
         $books = $bookManager->getBooksByUser($id);
         require_once '../src/templates/public_profile.php';
+    }
+
+    public function deleteAccount(): void
+    {
+        if (!Utils::isUserConnected()) {
+            Utils::redirect('login');
+        }
+        $userId = $_SESSION['user_id'];
+        $userManager = new UserManager();
+        $bookManager = new BookManager();
+
+        // SUPPRESSION DES LIVRES ET DE LEURS IMAGES
+        // On récupère la liste de TOUS les livres de cet utilisateur
+        $userBooks = $bookManager->getBooksByUser($userId);
+
+        foreach ($userBooks as $book) {
+            // 1. On supprime l'image du disque
+            $imageName = $book->getImage();
+            if ($imageName !== 'Book_default.png') {
+                $imagePath = IMG_BOOKS_PATH . '/' . $imageName;
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
+            }
+            // 2. On supprime le livre de la BDD
+            $bookManager->deleteBook($book->getId());
+        }
+        // SUPPRESSION DE L'AVATAR
+        $user = $userManager->getUserById($userId);
+        $avatarName = $user->getAvatar();
+
+        if ($avatarName !== 'Avatar_default.png') {
+            // On utilise ta constante AVATAR
+            $avatarPath = IMG_AVATARS . '/' . $avatarName;
+            if (file_exists($avatarPath)) {
+                unlink($avatarPath);
+            }
+        }
+        // SUPPRESSION DE L'UTILISATEUR (BDD)
+        $userManager->deleteUser($userId);
+
+        // DÉCONNEXION ET REDIRECTION
+        session_destroy(); // On détruit la session car elle n'existe plus
+        Utils::redirect('home');
     }
 }

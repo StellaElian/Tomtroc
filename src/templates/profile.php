@@ -49,6 +49,8 @@
         </div>
     </form>
 
+    <div class="profile-bottom-section"></div>
+
     <div class="profile-bottom-section">
 
         <table class="books-table">
@@ -104,6 +106,16 @@
                 <?php endif; ?>
             </tbody>
         </table>
+        <div class="delete-account-container">
+            <form action="index.php?action=deleteAccount" method="POST">
+                <button 
+                    type="submit"
+                    class="btn-delete-account"
+                    onclick="return confirm('⚠️ Êtes-vous sûr de vouloir supprimer votre compte ? \nCette action est irréversible !');">
+                    Supprimer mon compte 
+                </button>
+            </form>
+        </div>
     </div>
 </div>
 

@@ -2,6 +2,13 @@
 require_once '../config/_config.php';
 require_once '../config/autoload.php';
 
+// paths
+define('TEMPLATE_VIEW_PATH', '../src/templates/');
+define('IMG_BOOKS_PATH', '../public/img/books');
+define('IMG_USER_PATH', '../public/img/avatars');
+define('IMG_MIN_PATH', '../public/img/min');
+define('IMG_AVATARS', '../public/img/avatars');
+
 $userController = new UserController();
 $bookController = new BookController();
 $homeController = new HomeController();
@@ -27,6 +34,9 @@ switch($action){
         break;
     case 'updateProfile' :
         $userController->updateProfile();
+        break;
+    case 'deleteAccount' :
+        $userController->deleteAccount();
         break;
     case 'logout' :
         $userController->logout();

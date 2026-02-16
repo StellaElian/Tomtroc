@@ -36,6 +36,29 @@
     transition: background-color 0.2s;
 }
 
+.profile-page .btn-delete-account{
+    display: inline-block;
+    background-color: #F0F0F0;
+    color: #d40101;
+    border: 1px solid #ddd;
+    font-weight: 700;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(234, 3, 49, 0.857);
+    transition: background-color 0.2s;
+}
+
+.profile-page .btn-delete-account:hover{
+    background-color: #d40101;
+    color: white;
+}
+
+.delete-account-container{
+    text-align: right;
+    margin-top: 40px;
+}
+
 /* --- SECTION DU HAUT (2 Colonnes) --- */
 .profile-top-section {
     display: flex;

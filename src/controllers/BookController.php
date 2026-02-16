@@ -51,7 +51,7 @@ class BookController
         Utils::redirect('profile');
     }
 
-    public function deleteBook(): void
+    public function deleteBook(): void //delete from mysql à faire
     {
         if (!Utils::isUserConnected()) {
             Utils::redirect('login');
@@ -62,15 +62,17 @@ class BookController
             $bookManager = new BookManager();
             $book = $bookManager->getBookById($id);
             // si le livre existe et s'il appartient à l'utilisateur connecté
-            if ($book && $book->getUserId() === $_SESSION['user_id']) {
+            if ($book && $book->getUserId() == $_SESSION['user_id']) {
                 //nettoyage image 
-                $imageName = $book->getImage();
+                $imageName = $book->getImage(); 
+               
                 if ($imageName !== 'Book_default.png'){
-                    $imagePath = '../public/img/books/' . $imageName;
+                    $imagePath = IMG_BOOKS_PATH . '/' . $imageName;
+
                     if(file_exists($imagePath)) {
                         unlink($imagePath); //Supprime le fichier du disque
                     }
-                } 
+                }
                 //suppression en bdd
                 $bookManager->deleteBook($id);
             }
@@ -182,6 +184,5 @@ class BookController
         }else {
             Utils::redirect("exchange");
         }
-    
     }
 }
