@@ -1,0 +1,39 @@
+footer {
+    background-color: #FFFFFF;
+    height: 61px; /* Hauteur */
+    padding: 0 50px; /* Marge sur les côtés, 0 en haut/bas car on centre avec flex */
+    margin-top: 60px; /* Espace avec le reste du site */
+    font-family: 'Inter', sans-serif; /* Pour centrer le contenu verticalement */
+    display: flex;
+    align-items: center;
+}
+
+.footer-menu {
+    width: 100%;
+    display: flex; /* Alignement horizontal */
+    justify-content: flex-end; /* TOUT À DROITE */
+    align-items: center; /* Centrage vertical */
+    gap: 40px; /* Espace entre les éléments */
+    list-style: none; /* Pas de puces */
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu a,
+.footer-menu li {
+    text-decoration: none; /* Pas de soulignement */
+    font-size: 12px;
+    font-weight: 300;
+    color: #292929;
+    transition: all 0.3s ease; /* Transition douce */
+}
+
+.footer-menu a:hover {
+    color: #000000;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+nav {
+    width: 100%;
+}
