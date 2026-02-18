@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/../services/Utils.php';
-// On importe ta classe Utils pour pouvoir l'utiliser
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -11,7 +10,6 @@ require_once __DIR__ . '/../services/Utils.php';
     <title>Menu</title>
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
 
 </head>

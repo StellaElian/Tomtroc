@@ -9,7 +9,7 @@
 .hero-content { flex: 1; padding-right: 50px; }
 .hero-title { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; color: #222; }
 .hero-text { color: #666; font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; }
-.hero-image { flex: 1; position: relative; }
+.hero-image { flex: 1; position: relative; width: 404px; height: 539px; }
 .hero-image img { width: 100%; border-radius: 4px; }
 .photo-credit { position: absolute; bottom: 10px; right: 10px; color: rgba(255,255,255,0.7); font-size: 0.8rem; }
 
