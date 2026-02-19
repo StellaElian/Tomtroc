@@ -4,15 +4,15 @@
     <div class="banner-content">
         <h1 class="title">Rejoignez nos lecteurs passionnés</h1>
         <p class="text">
-            Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture. 
+            Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture.
             Nous croyons en la magie du partage de connaissances et d'histoires à travers les livres.
         </p>
         <a href="index.php?action=catalog" class="btn">Découvrir</a>
     </div>
-    
+
     <div class="banner-image">
-        <img src="img/books/hamza-nousria.png" alt="author" class="image">
-        
+        <img src="img/books/hamza-nouasria.png" alt="author" class="image">
+
         <div class="card">
             <span class="name">Hamza</span>
         </div>
@@ -21,17 +21,17 @@
 
 <section class="books">
     <h2 class="section-title">Les derniers livres ajoutés</h2>
-    
+
     <div class="books-list">
         <?php if (isset($books) && !empty($books)): ?>
             <?php foreach ($books as $book): ?>
                 <article class="book">
                     <div class="book-cover">
-                        <img src="img/books/<?= htmlspecialchars($book->getImage() ?: 'default_book.png') ?>" 
-                             alt="<?= htmlspecialchars($book->getTitle()) ?>" 
-                             class="image">
+                        <img src="img/books/<?= htmlspecialchars($book->getImage() ?: 'default_book.png') ?>"
+                            alt="<?= htmlspecialchars($book->getTitle()) ?>"
+                            class="image">
                     </div>
-                    
+
                     <div class="book-details">
                         <h3 class="book-title"><?= htmlspecialchars($book->getTitle()) ?></h3>
                         <p class="book-author"><?= htmlspecialchars($book->getAuthor()) ?></p>
@@ -73,12 +73,13 @@
     <div class="values-content">
         <h2 class="title-left">Nos valeurs</h2>
         <p>Chez Tom Troc, nous mettons l'accent sur le partage, la découverte et la communauté. Nos valeurs sont ancrées dans notre passion pour les livres et notre désir de créer des liens entre les lecteurs. Nous croyons en la puissance des histoires pour rassembler les gens et inspirer des conversations enrichissantes. Notre association a été fondée avec une conviction profonde : chaque livre mérite d'être lu et partagé. Nous sommes passionnés par la création d'une plateforme conviviale qui permet aux lecteurs de se connecter, de partager leurs découvertes littéraires et d'échanger des livres qui attendent patiemment sur les étagères.</p>
-        
+
         <div class="signature-box">
             <span class="team-name">L'équipe de Tom Troc</span>
             <img src="img/min/vector.png" alt="heart" class="heart">
         </div>
     </div>
 </section>
+
 
 <?php require_once '../src/templates/_footer.php'; ?>

@@ -1,59 +1,69 @@
-header nav {
-    align-items: center; 
-    background-color: #F5F3EF;
-    display: grid;
-    /*mode grille qui aligne tout (logo à gauche, compte à droite) */
-    grid-template-columns: 150px 150px 213px 94px 188px 148px 58px 170px 157px 130px 150px;
-    grid-template-rows: 1fr;
+.site-header {
+    width: 100%;
     height: 80px;
-    justify-items: center;
-    min-height: 80px;
-    position: relative;
+    background-color: var(--lightGray);
 }
 
-/* Le Logo */
-header nav .logo {
-    justify-self: flex-start;
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 38px;
 }
 
-/* Le style des liens (Texte gris, pas de soulignement) */
 header nav a {
-    color: var(--darkGray);
-    font-size: 14px;
-    font-weight: 400;
-    white-space: nowrap; /* Le texte reste sur une ligne */
     display: flex;
     align-items: center;
 }
 
-/* Quand on survole ou que le lien est actif (gras) */
-header nav a:hover,
-header nav a.active {
+.header-inner {
+    max-width: 1440px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 150px;
+    display: flex;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.nav-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-left
+ {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.separator {
+    /*margin-left: 230px;*/
+    margin-left: 208px; 
+    height: 19px;
+}
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav a {
+    font-size: 14px;
+    color: var(--darkGray);
+    text-decoration: none;
+}
+
+.nav a:hover {
     font-weight: 600;
 }
 
-/* La petite ligne verticale grise */
-header nav .line {
-    background-color: var(--textGray);
-    height: 19px;
-    opacity: 20%;
-    width: 1px;
-}
-
-/* Les icônes (Messagerie et Compte) */
-header nav .messaging img, 
-header nav .account img {
-    margin-right: 8px; /* Espace entre icône et texte */
-    height: 14px;      /* Taille de l'icône */
-}
-
-/* La petite bulle de notification */
-header nav .messaging .bubble {
-    background-color: var(--darkGray);
-    border-radius: 10px;
-    color: var(--lightGray);
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 6px;
-    margin-left: 5px;
+.connexion {
+    margin-left: 20px;
 }

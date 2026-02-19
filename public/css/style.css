@@ -1,203 +1,395 @@
+/* ==========================================================================
+   0. LES BASES (Polices, Couleurs, Reset)
+   ========================================================================== */
 
-/* On va chercher la police "Inter" chez Google */
+/* On va chercher la police "Inter" et "Playfair" chez Google */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-/*LES VARIABLES (lA PALETTE DE PEINTURE) */
+
+/* LES VARIABLES (La palette de peinture) */
 :root {
-    /* Le gris clair (fond du menu, fond de page) */
     --lightGray:#F5F3EF;
-    
-    /* Le noir/gris foncé (pour le texte principal) */
     --darkGray: #292929;
-    
-    /* Le gris moyen (pour les textes secondaires, dates, auteurs) */
     --textGray: #A6A6A6;
-    
-    /* Le vert TomTroc (pour les boutons, les prix) */
     --green: #00AC66;
-    
-    /* Le blanc pur (fond des cartes livres) */
     --backgroundLight: #FAF9F7;
-    
-    /* Le gris clair (fond formulaire) */
     --lightGray2:#EDF2F6;
-    
     --white: #F0F0F0;
-   
 }
 
 * {
-    /* évite que les marges s'ajoutent à la largeur des boites */
+    /* Évite que les marges s'ajoutent à la largeur des boîtes */
     box-sizing: border-box;
 }
 
 body {
-    /* On enlève les marges blanches autour de la page par défaut */
     margin: 0;
     padding: 0;
-    /* police "Inter" à tout le site */
     font-family: 'Inter', sans-serif;
-    background-color: var(--backgroundLight);
+    background-color: var(--lightGray);
     color: var(--darkGray);
     font-size: 14px;
+    /*pour éviter de lisser les polices différemment */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* LES LIENS (<a>)*/
+/* LES LIENS */
 a {
     text-decoration: none;
-    
-    /* Le lien prend la couleur du texte parent */
     color: inherit;
-    
-    /* Le curseur devient une petite main */
     cursor: pointer;
-    
-    /* Petite transition douce si la couleur change au survol */
     transition: color 0.3s ease;
 }
 
-
-/* LES IMAGE*/
+/* LES IMAGES */
 img {
-    /* Empêche les images de dépasser des cartes*/
     max-width: 100%;
     height: auto;
-    
-    /* Enlève un petit espace blanc sous les images */
     display: block;
 }
 
-
-/* Pour centrer le contenu de tes pages plus tard */
+/* Conteneur global (si besoin) */
 .container {
-    max-width: 1440px; /* Largeur max de la maquette */
-    margin: 0 auto; /* Centre le bloc au milieu de l'écran */
-    padding: 0 20px; /* Petite marge sur les côtés */
+    max-width: 1440px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
 }
 
-/* --- LE BOUTON VERT (Utilisé pour "Découvrir" ET "Voir tous les livres") --- */
-.btn {
-    display: inline-block;
-    background-color: #00AC66; /* Vert TomTroc */
-    color: #FFFFFF;            /* Texte Blanc */
+
+/* ==========================================================================
+   1. GLOBAUX ET BOUTONS
+   ========================================================================== */
+
+.center-btn {
+    text-align: center; 
+    width: 100%;        
+}
+
+/* STYLE GÉNÉRAL DES BOUTONS */
+.btn-outline {
+    display: inline-block; 
     font-family: 'Inter', sans-serif;
-    font-weight: 500;          /* Graisse moyenne */
     font-size: 16px;
-    padding: 12px 24px;        /* Espace intérieur */
-    border-radius: 4px;        /* Coins arrondis */
-    text-decoration: none;     /* Pas de soulignement */
-    border: 1px solid #00AC66; /* Bordure verte (même couleur) */
-    
-    transition: background-color 0.3s ease; /* Animation douce */
+    font-weight: 500; 
+    text-decoration: none; 
+    padding: 12px 30px; 
+    border-radius: 4px; 
+    transition: all 0.3s ease; 
     cursor: pointer;
-}
-
-/* Effet quand on passe la souris dessus */
-.btn:hover {
-    background-color: #008f53; /* Devient un peu plus foncé */
-    border-color: #008f53;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**/
-
-.books-grid {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 20px;       /* Espace entre les cartes */
-    justify-content: center; /* Centre les livres dans la page */
-    margin: 40px auto;
-    max-width: 1200px;
-}
-
-/* La carte individuelle du livre */
-.book-card {
-    width: 250px;    
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Petite ombre  */
-    overflow: hidden; /* Empêche l'image de dépasser des bords ronds */
-    transition: transform 0.2s; /* effet au survol */
-}
-
-/* Effet au survol de la souris */
-.book-card:hover {
-    transform: translateY(-5px); /* La carte monte un peu */
-}
-
-/* La zone de l'image */
-.book-image {
-    height: 350px;   /* Hauteur fixe pour l'image */
-    width: 100%;
-    background-color: #f0f0f0;
-}
-
-/* L'image elle-même */
-.book-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* L'image remplit tout le cadre sans être déformée */
-}
-
-/* Les textes en dessous */
-.book-info {
-    padding: 15px;
     text-align: center;
 }
 
+/* BOUTON PLEIN (Vert) ou cta */
+.btn {
+    width: 152px;
+    height: 63px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px; /* Rayon de 10px */
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600; /* Semi Bold */
+    line-height: 1;   /* 100% */
+    text-align: center;
+    text-decoration: none;
+    /* Haut 39px, Bas 71px pour l'espace de 199px total */
+    margin: 39px 0 71px 0; 
+    background-color: var(--green);
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    /* Lissage Safari */
+    transition: all 300ms ease-out;
+}
+
+.btn:hover {
+    background-color: #008f53; 
+    border-color: #008f53;
+}
+
+/* BOUTON CONTOUR (Blanc/Transparent avec bord vert) */
+.btn-outline {
+    background-color: transparent;
+    color: var(--green); 
+    border: 1px solid var(--green); 
+}
+
+.btn-outline:hover {
+    background-color: var(--green); 
+    color: white; 
+}
+
+/* ==========================================================================
+   2. SECTION BANNIÈRE (Tout en haut avec Hamza)
+   ========================================================================== */
+.banner {
+    background-color: var(--lightGray); 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    padding-top: 80px;
+    min-height: 747px;
+    padding-bottom: 50px;
+    gap: 105px;
+}
+
+.banner-content {
+    width: 335px;
+    max-width: 335px; /*largeur bloc texte*/
+    margin-left: 10px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner-image {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+}
+
+.banner-image .image {
+    width: 100%;
+    max-width: 404px;
+    height: 539px;
+}
+
+.name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--textGray);
+    display: block; /*pour etre sure que la marge s'applique bien */
+    margin-top: 12px; 
+    margin-bottom: 50px;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.2; 
+    color: #000000;
+    margin-bottom: 16px; 
+}
+
+.text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px; 
+    font-weight: 400;
+    line-height: 1.5; 
+    max-width: 328px;    
+    margin-bottom: 40px; 
+}
+
+
+/* ==========================================================================
+   3. SECTION LIVRES (Les derniers livres ajoutés)
+   ========================================================================== */
+
+.books {
+    background-color: #FAF9F7; 
+    padding: 80px 0; 
+}
+
+.books .section-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 80px; 
+}
+
+.books-list {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;         
+    max-width: 1200px;       
+    margin: 0 auto;          
+    gap: 38px;               
+    margin-bottom: 48px;     
+}
+
+.book {
+    width: 200px;
+    height: 324px;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-cover {
+    width: 200px;
+    height: 200px;
+}
+
+.book-cover .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.book-details {
+    width: 200px;
+    height: 124px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    padding-left: 14px;
+    padding-top: 20px;
+}
+
 .book-title {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    color: #333;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+    margin: 0 0 8px 0; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    margin-bottom: 8px;
 }
 
 .book-author {
-    color: #666;
-    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--textGray);
+    margin: 0 0 22px 0; 
+    margin-bottom: 22px;
 }
 
 .book-seller {
-    font-size: 0.8rem;
-    color: #999;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--textGray);
+    margin: 0;
+    margin-bottom: 0px;
+}
+
+
+/* ==========================================================================
+   4. SECTION ÉTAPES (Comment ça marche ?)
+   ========================================================================== */
+
+.steps {
+    background-color: var(--lightGray); 
+    padding: 80px 0;           
+    text-align: center;        
+}
+
+.steps .section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1; 
+    color: var(--darkGray);
+    margin-bottom: 24px; 
+}
+
+.steps .subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300; 
+    font-size: 16px;
+    line-height: 1;   
+    color: var(--darkGray);
+    margin-bottom: 40px; 
+}
+
+.steps-list {
+    display: flex;
+    justify-content: center; 
+    gap: 36px;               
+    margin-bottom: 48px;     
+}
+
+.step {
+    background-color: #FFFFFF;
+    width: 215px;            
+    height: 139px;           
+    box-sizing: border-box;  
+    padding: 44px 18px;      
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;        
+    font-size: 14px;
+    line-height: 1;          
+    color: var(--darkGray);
+    display: flex;
+    align-items: center;     
+    justify-content: center; 
+    text-align: center;
+    border-radius: 4px;      
+}
+
+
+/* ==========================================================================
+   5. SECTION VALEURS (La grande image et la signature)
+   ========================================================================== */
+
+.values {
+    background-color: var(--lightGray); 
+    padding-bottom: 20px;
+    /*margin-bottom: 0;*/
+}
+.values-banner { 
+    width: 100%;
+}
+
+.values-banner img {
+    width: 100%;
+    height: auto;
+    display: block; 
+    object-fit: cover;
+}
+
+.values-content {
+    width: 100%;
+    max-width: 392px; 
+    margin: 80px auto 60px auto; 
+    position: relative; 
+    min-height: 412px;
+}
+
+.values-content .title-left {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1; 
+    color: var(--darkGray);
+    margin-bottom: 29px; 
+}
+
+.values-content p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300; 
+    font-size: 16px;
+    line-height: 1.5; 
+    color: var(--darkGray);
+}
+
+.signature-box {
+    margin-top: 39px;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+   /* padding-bottom: 50px;*/
+}
+
+.team-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--textGray);
+}
+
+.heart {
+    position: absolute;
+    width: 120px; 
+    height: 102px;
+    top: -14px;  
+    left: 320px;  
 }
