@@ -11,7 +11,7 @@
     </div>
     
     <div class="banner-image">
-        <img src="img/books/hamza-nousria.png" alt="Lecteur" class="image">
+        <img src="img/books/hamza-nousria.png" alt="author" class="image">
         
         <div class="card">
             <span class="name">Hamza</span>
@@ -35,7 +35,7 @@
                     <div class="book-details">
                         <h3 class="book-title"><?= htmlspecialchars($book->getTitle()) ?></h3>
                         <p class="book-author"><?= htmlspecialchars($book->getAuthor()) ?></p>
-                        <p class="book-seller">Vendu par : <?= htmlspecialchars($book->getSellerPseudo() ?? 'Inconnu') ?></p>
+                        <p class="book-seller">Vendu par : <?= htmlspecialchars($book->getSeller() ?? 'Inconnu') ?></p>
                     </div>
                 </article>
             <?php endforeach; ?>
@@ -45,7 +45,7 @@
     </div>
 
     <div class="center-btn">
-        <a href="index.php?action=catalog" class="btn">Voir tous les livres</a>
+        <a href="index.php?action=catalog" class="btn-outline">Voir tous les livres</a>
     </div>
 </section>
 
@@ -71,11 +71,11 @@
     </div>
 
     <div class="values-content">
-        <h2 class="section-title" style="text-align: left;">Nos valeurs</h2>
+        <h2 class="title-left">Nos valeurs</h2>
         <p>Chez Tom Troc, nous mettons l'accent sur le partage, la découverte et la communauté. Nos valeurs sont ancrées dans notre passion pour les livres et notre désir de créer des liens entre les lecteurs. Nous croyons en la puissance des histoires pour rassembler les gens et inspirer des conversations enrichissantes. Notre association a été fondée avec une conviction profonde : chaque livre mérite d'être lu et partagé. Nous sommes passionnés par la création d'une plateforme conviviale qui permet aux lecteurs de se connecter, de partager leurs découvertes littéraires et d'échanger des livres qui attendent patiemment sur les étagères.</p>
         
-        <div class="signature">
-            <img src="img/min/signature.png" alt="Signature">
+        <div class="signature-box">
+            <span class="team-name">L'équipe de Tom Troc</span>
             <img src="img/min/vector.png" alt="heart" class="heart">
         </div>
     </div>

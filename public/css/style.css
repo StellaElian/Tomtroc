@@ -74,7 +74,28 @@ img {
     padding: 0 20px; /* Petite marge sur les côtés */
 }
 
+/* --- LE BOUTON VERT (Utilisé pour "Découvrir" ET "Voir tous les livres") --- */
+.btn {
+    display: inline-block;
+    background-color: #00AC66; /* Vert TomTroc */
+    color: #FFFFFF;            /* Texte Blanc */
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;          /* Graisse moyenne */
+    font-size: 16px;
+    padding: 12px 24px;        /* Espace intérieur */
+    border-radius: 4px;        /* Coins arrondis */
+    text-decoration: none;     /* Pas de soulignement */
+    border: 1px solid #00AC66; /* Bordure verte (même couleur) */
+    
+    transition: background-color 0.3s ease; /* Animation douce */
+    cursor: pointer;
+}
 
+/* Effet quand on passe la souris dessus */
+.btn:hover {
+    background-color: #008f53; /* Devient un peu plus foncé */
+    border-color: #008f53;
+}
 
 
 
