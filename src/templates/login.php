@@ -1,27 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>Connexion</title>
-    </head>
-    <body>
-        <?php require_once '../src/templates/_header.php'; ?>
-        <div class="login-container">
-            <h1>Se connecter</h1>
 
-            <form action="index.php?action=connectUser" method="post">
-                <p>
-                    <label for="email">Email</label><br>
-                    <input type="email" name="email" id="email" required><br><br>
-                </p>
-                <p>
-                    <label for="password">Mot de passe</label><br>
-                    <input type="password" name="password" id="password" required><br><br>
-                </p>
-                <button type="submit">Se connecter</button>
-            </form>
-            <p>Pas de compte ? <a href="index.php?action=register" style="text-decoration: underline; color: black;">Inscrivez-vous</a></p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+</head>
+
+<body>
+    <?php require_once '../src/templates/_header.php'; ?>
+    <main class="main-auth">
+        <div class="auth">
+            <div class="auth-left">
+                <h1 class="sign-title">Inscription</h1>
+
+                <form action="index.php?action=registerUser" method="post" class="sign-form">
+
+                    <div class="field">
+                        <label for="email">Adresse email</label>
+                        <input type="email" name="email" id="email" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" name="password" id="password" required>
+                    </div>
+
+                    <button type="submit" class="sign-submit-btn">S'inscrire</button>
+                </form>
+
+                <div class="sign-ask">
+                    Pas de compte ? <a href="index.php?action=register" style="text-decoration: underline; color: black;">Inscrivez-vous</a>
+                </div>
+            </div>
+
+            <img src="img/books/image_inscription.png" class="auth-img" alt="Bibliothèque">
         </div>
-        <?php require_once '../src/templates/_footer.php'; ?>
-    </body>
-</html> 
+    </main>
+
+    <?php require_once '../src/templates/_footer.php'; ?>
+</body>
