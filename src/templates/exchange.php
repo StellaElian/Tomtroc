@@ -1,63 +1,56 @@
-<?php require_once '../src/templates/_header.php'; ?>
+<!DOCTYPE html>
+<html lang="fr">
 
-<div class="exchange-page" style="padding: 40px 20px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0">
+    <title>Nos livres</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
 
-    <div class="page-title-wrapper" style="text-align: center; margin-bottom: 40px;">
-        <h1 style="font-family: 'Playfair Display', serif;">Nos livres à l'échange</h1>
+<body>
+    <?php require_once '../src/templates/_header.php'; ?>
 
-        <form action="index.php" method="GET" style="margin-top: 30px;">
-            <input type="hidden" name="action" value="exchange">
+    <main class="books-page">
+        <div class="container">
+            <header class="books-header">
+                <h1 class="page-title">Nos livres à l’échange</h1>
+                <div class="search-bar">
+                    <form action="index.php" method="GET">
+                        <input type="hidden" name="action" value="exchange">
 
-            <div style="position: relative; width: 100%; max-width: 400px; margin: 0 auto;">
+                        <img src="/Mission_tomtroc/public/img/min/search.png" alt="rechercher">
 
-                <img src="/Mission_tomtroc/public/img/search.png" alt="rechercher" style="
-                    position: absolute; /* Je flotte par-dessus */
-                    left: 15px;         /* À 15px du bord gauche */
-                    top: 50%;           /* Centré en hauteur */
-                    transform: translateY(-50%); /* L'astuce pour centrer parfaitement */
-                    width: 20px;        /* Taille visuelle désirée */
-                    opacity: 0.6;       /* Un peu transparent pour faire gris */
-                ">
+                        <input type="text" name="search" placeholder="Rechercher un livre" value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
+                    </form>
+                </div>
+            </header>
 
-                <input type="text" name="search" placeholder="Rechercher un livre" style="
-                    width: 100%;
-                    height: 50px;        /* Hauteur comme sur Figma */
-                    padding-left: 45px;  /* IMPORTANT : Espace à gauche pour ne pas écrire SUR l'image */
-                    border: 1px solid #ccc;
-                    border-radius: 25px; /* Bords ronds */
-                    font-size: 1rem;
-                ">
-            </div>
-        </form>
-    </div>
-    <div class="books-grid">
-        <?php
-        // Sécurité : si $books n'existe pas, on met un tableau vide
-        $booksList = isset($books) ? $books : [];
-        ?>
+            <section class="books-grid">
+                <?php if (isset($books) && !empty($books)) : ?>
+                    <?php foreach ($books as $book) : ?>
+                        <article class="book-card">
+                            <a href="index.php?action=show_book&id=<?= htmlspecialchars($book->getId())  ?>">
+                                <div class="book-image">
+                                    <img src="img/books/<?= $book->getImage() ?>" alt="<?= $book->getTitle() ?>">
+                                </div>
+                                <div class="book-info">
+                                    <h2 class="book-title"><?= htmlspecialchars($book->getTitle()) ?></h2>
+                                    <p class="book-author">par <?= htmlspecialchars($book->getAuthor()) ?></p>
+                                    <p class="book-seller">Vendu par : <?= htmlspecialchars($book->getSeller()) ?>
+                                </div>
+                            </a>
+                        </article>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <div class="no-results">
+                        <p>Désolé, aucun livre ne correspond à votre recherche "<strong><?= htmlspecialchars($_GET['search'] ?? '') ?></strong>".</p>
+                        <a href="index.php?action=exchange" class="btn-back">Voir tous les livres</a>
+                    </div>
+                <?php endif; ?>
+            </section>
+        </div>
 
-        <?php if (empty($booksList)): ?>
-            <p style="text-align: center;">Aucun livre disponible pour le moment.</p>
-        <?php else: ?>
-            <?php foreach ($booksList as $book): ?>
-                <a href="index.php?action=show_book&id=<?= htmlspecialchars($book->getId())  ?>" style="text-decoration: none; color: inherit;">
-                    <article class="book-card">
-                        <div class="book-image">
-                            <img src="../public/img/books/<?= htmlspecialchars($book->getImage()) ?>"
-                                alt="<?= htmlspecialchars($book->getTitle()) ?>">
-                        </div>
-                        <div class="book-info">
-                            <h3 class="book-title"><?= htmlspecialchars($book->getTitle()) ?></h3>
-                            <p class="book-author">par <?= htmlspecialchars($book->getAuthor()) ?></p>
-                            <p class="book-seller" style="font-style: italic; color: grey; font-size: 0.9rem;">
-                                Vendu par : <?= htmlspecialchars($book->getSeller()) ?>
-                            </p>
-                        </div>
-                    </article>
-                </a>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    </div>
-</div>
-
-<?php require_once '../src/templates/_footer.php'; ?>
+    <?php require_once '../src/templates/_footer.php'; ?>

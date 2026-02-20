@@ -25,7 +25,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    background-color: var(--lightGray);
+    /*background-color: var(--lightGray);*/
     color: var(--darkGray);
     font-size: 14px;
     display: flex;
@@ -583,4 +583,177 @@ main, .main-auth {
 .sign-ask a {
     color: var(--darkGray);
     text-decoration: underline;
+}
+
+/* ==========================================================================
+   8. PAGE NOS LIVRES A L'ECHANGE
+   ========================================================================== */
+
+/* Fond de la page */
+.books-page {
+    background-color: #FAF9F7;
+    padding-top: 130px; /* Distance avec le Header  */
+    padding-bottom: 80px; /*distance derniere ligne avec le footer*/
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.container {
+    max-width: 1440px; 
+    margin: 0 auto; /* Centre le bloc au milieu de l'écran */
+    padding: 0 150px; 
+}
+
+/* En-tête (Titre et Recherche sur la même ligne) */
+.books-header {
+    display: flex;
+    /*justify-content: space-between;*/
+    align-items: center; /*alignement horizental*/
+    margin-bottom: 80px; 
+    gap: 249px;
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    white-space: nowrap; /*pour que ça ne fasse qu'une ligne*/
+}
+
+/* Barre de recherche (322x50px) */
+.search-bar {
+    position: relative;
+    width: 322px;
+    height: 50px;
+}
+
+/*input barre de recherche dans form alors on pousse form à se comporter comme un container car loupe ne se voit plus*/
+.search-bar form {
+    display: contents;
+}
+
+.search-bar img {
+    position: absolute;
+    left: 12px;
+    top: 17px;
+    width: 15.85px;
+    height: 15.15px;
+}
+
+.search-bar input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #FFFFFF;
+    border-radius: 6px;
+    padding-left: 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #A6A6A6;
+    cursor: text;
+}
+
+.search-bar input::placeholder {
+    color: var(--textGray);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; 
+    font-weight: 400;
+}
+
+/* Grille de livres (Gap 38px) */
+.books-grid {
+    display: grid; /*crée un tableau invisible qui range les livres dans une case */
+    grid-template-columns: repeat(auto-fill, 200px); /*formule pour ranger magiquement les livres en colonnes de 200px */
+    column-gap: 38px;  /*espace horizntal entre les livres*/
+    row-gap: 48px; /* espace vertical entre les livres */
+    justify-content: center; /* Centre la grille dans la page */
+    margin-top: 72px;
+}
+
+/* Carte de livre (200x324px) */
+.book-card {
+    width: 200px;
+    height: 324px;
+    background: #FFFFFF;
+    /*transition: transform 0.3s ease, box-shadow 0.3s ease;*/
+}
+
+.book-card:hover {
+    transform: translateY(-5px); /*le livre monte de 5 pixels*/
+    /*box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);  Ombre légère apparait */
+}
+
+.book-image {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.book-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.book-info {
+    width: 200px;
+    height: 124px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    padding-left: 14px;
+    padding-top: 20px;
+}
+
+.book-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+    margin: 0 0 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 8px;
+}
+
+.book-author {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--textGray);
+    margin: 0 0 22px 0;
+    margin-bottom: 22px;
+}
+
+.book-seller {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--textGray);
+    margin: 0;
+    margin-bottom: 0px;
+}
+
+.no-results {
+    grid-column: 1 / -1; /* Force le message à prendre toute la largeur de la grille */
+    text-align: center;
+    padding: 50px 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.no-results p {
+    font-size: 18px;
+    color: var(--textGray);
+    margin-bottom: 20px;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--green);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
 }

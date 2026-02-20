@@ -1,15 +1,23 @@
 footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 61px;
     background-color: #FFFFFF;
-    height: 61px; /* Hauteur */
-    padding: 0 50px; /* Marge sur les côtés, 0 en haut/bas car on centre avec flex */
-    margin-top: 60px; /* Espace avec le reste du site */
-    font-family: 'Inter', sans-serif; /* Pour centrer le contenu verticalement */
+    padding: 0 50px;
     display: flex;
     align-items: center;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+body {
+    padding-bottom: 61px; /* évite que le contenu soit caché sous le footer */
 }
 
 .footer-menu {
     width: 100%;
+    height: 100%;
     display: flex; /* Alignement horizontal */
     justify-content: flex-end; /* TOUT À DROITE */
     align-items: center; /* Centrage vertical */
