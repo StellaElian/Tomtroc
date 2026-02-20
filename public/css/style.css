@@ -7,12 +7,12 @@
 
 /* LES VARIABLES (La palette de peinture) */
 :root {
-    --lightGray:#F5F3EF;
+    --lightGray: #F5F3EF;
     --darkGray: #292929;
     --textGray: #A6A6A6;
     --green: #00AC66;
     --backgroundLight: #FAF9F7;
-    --lightGray2:#EDF2F6;
+    --lightGray2: #EDF2F6;
     --white: #F0F0F0;
 }
 
@@ -28,6 +28,9 @@ body {
     background-color: var(--lightGray);
     color: var(--darkGray);
     font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     /*pour éviter de lisser les polices différemment */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -50,9 +53,9 @@ img {
 
 /* Conteneur global (si besoin) */
 .container {
-    max-width: 1440px; 
-    margin: 0 auto; 
-    padding: 0 20px; 
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 
@@ -61,20 +64,20 @@ img {
    ========================================================================== */
 
 .center-btn {
-    text-align: center; 
-    width: 100%;        
+    text-align: center;
+    width: 100%;
 }
 
 /* STYLE GÉNÉRAL DES BOUTONS */
 .btn-outline {
-    display: inline-block; 
+    display: inline-block;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    font-weight: 500; 
-    text-decoration: none; 
-    padding: 12px 30px; 
-    border-radius: 4px; 
-    transition: all 0.3s ease; 
+    font-weight: 500;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
     cursor: pointer;
     text-align: center;
 }
@@ -86,15 +89,18 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px; /* Rayon de 10px */
+    border-radius: 10px;
+    /* Rayon de 10px */
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    font-weight: 600; /* Semi Bold */
-    line-height: 1;   /* 100% */
+    font-weight: 600;
+    /* Semi Bold */
+    line-height: 1;
+    /* 100% */
     text-align: center;
     text-decoration: none;
     /* Haut 39px, Bas 71px pour l'espace de 199px total */
-    margin: 39px 0 71px 0; 
+    margin: 39px 0 71px 0;
     background-color: var(--green);
     color: #FFFFFF;
     border: none;
@@ -104,29 +110,29 @@ img {
 }
 
 .btn:hover {
-    background-color: #008f53; 
+    background-color: #008f53;
     border-color: #008f53;
 }
 
 /* BOUTON CONTOUR (Blanc/Transparent avec bord vert) */
 .btn-outline {
     background-color: transparent;
-    color: var(--green); 
-    border: 1px solid var(--green); 
+    color: var(--green);
+    border: 1px solid var(--green);
 }
 
 .btn-outline:hover {
-    background-color: var(--green); 
-    color: white; 
+    background-color: var(--green);
+    color: white;
 }
 
 /* ==========================================================================
    2. SECTION BANNIÈRE (Tout en haut avec Hamza)
    ========================================================================== */
 .banner {
-    background-color: var(--lightGray); 
+    background-color: var(--lightGray);
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     padding-top: 80px;
     min-height: 747px;
@@ -136,7 +142,8 @@ img {
 
 .banner-content {
     width: 335px;
-    max-width: 335px; /*largeur bloc texte*/
+    max-width: 335px;
+    /*largeur bloc texte*/
     margin-left: 10px;
     margin-top: 30px;
     display: flex;
@@ -146,7 +153,7 @@ img {
 .banner-image {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; 
+    align-items: flex-end;
 }
 
 .banner-image .image {
@@ -161,8 +168,9 @@ img {
     font-style: italic;
     font-size: 12px;
     color: var(--textGray);
-    display: block; /*pour etre sure que la marge s'applique bien */
-    margin-top: 12px; 
+    display: block;
+    /*pour etre sure que la marge s'applique bien */
+    margin-top: 12px;
     margin-bottom: 50px;
 }
 
@@ -170,18 +178,18 @@ img {
     font-family: 'Playfair Display', serif;
     font-size: 36px;
     font-weight: 400;
-    line-height: 1.2; 
+    line-height: 1.2;
     color: #000000;
-    margin-bottom: 16px; 
+    margin-bottom: 16px;
 }
 
 .text {
     font-family: 'Inter', sans-serif;
-    font-size: 16px; 
+    font-size: 16px;
     font-weight: 400;
-    line-height: 1.5; 
-    max-width: 328px;    
-    margin-bottom: 40px; 
+    line-height: 1.5;
+    max-width: 328px;
+    margin-bottom: 40px;
 }
 
 
@@ -190,8 +198,8 @@ img {
    ========================================================================== */
 
 .books {
-    background-color: #FAF9F7; 
-    padding: 80px 0; 
+    background-color: #FAF9F7;
+    padding: 80px 0;
 }
 
 .books .section-title {
@@ -199,17 +207,17 @@ img {
     font-family: 'Playfair Display', serif;
     font-size: 36px;
     font-weight: 400;
-    margin-bottom: 80px; 
+    margin-bottom: 80px;
 }
 
 .books-list {
     display: flex;
-    justify-content: center; 
-    flex-wrap: wrap;         
-    max-width: 1200px;       
-    margin: 0 auto;          
-    gap: 38px;               
-    margin-bottom: 48px;     
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 38px;
+    margin-bottom: 48px;
 }
 
 .book {
@@ -227,7 +235,7 @@ img {
 .book-cover .image {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 .book-details {
@@ -245,9 +253,9 @@ img {
     font-size: 16px;
     font-weight: 400;
     color: #000000;
-    margin: 0 0 8px 0; 
-    white-space: nowrap; 
-    overflow: hidden; 
+    margin: 0 0 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
     margin-bottom: 8px;
 }
@@ -257,7 +265,7 @@ img {
     font-size: 14px;
     font-weight: 400;
     color: var(--textGray);
-    margin: 0 0 22px 0; 
+    margin: 0 0 22px 0;
     margin-bottom: 22px;
 }
 
@@ -276,52 +284,52 @@ img {
    ========================================================================== */
 
 .steps {
-    background-color: var(--lightGray); 
-    padding: 80px 0;           
-    text-align: center;        
+    background-color: var(--lightGray);
+    padding: 80px 0;
+    text-align: center;
 }
 
 .steps .section-title {
     font-family: 'Playfair Display', serif;
     font-weight: 400;
     font-size: 32px;
-    line-height: 1; 
+    line-height: 1;
     color: var(--darkGray);
-    margin-bottom: 24px; 
+    margin-bottom: 24px;
 }
 
 .steps .subtitle {
     font-family: 'Inter', sans-serif;
-    font-weight: 300; 
+    font-weight: 300;
     font-size: 16px;
-    line-height: 1;   
+    line-height: 1;
     color: var(--darkGray);
-    margin-bottom: 40px; 
+    margin-bottom: 40px;
 }
 
 .steps-list {
     display: flex;
-    justify-content: center; 
-    gap: 36px;               
-    margin-bottom: 48px;     
+    justify-content: center;
+    gap: 36px;
+    margin-bottom: 48px;
 }
 
 .step {
     background-color: #FFFFFF;
-    width: 215px;            
-    height: 139px;           
-    box-sizing: border-box;  
-    padding: 44px 18px;      
+    width: 215px;
+    height: 139px;
+    box-sizing: border-box;
+    padding: 44px 18px;
     font-family: 'Inter', sans-serif;
-    font-weight: 400;        
+    font-weight: 400;
     font-size: 14px;
-    line-height: 1;          
+    line-height: 1;
     color: var(--darkGray);
     display: flex;
-    align-items: center;     
-    justify-content: center; 
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    border-radius: 4px;      
+    border-radius: 4px;
 }
 
 
@@ -330,26 +338,27 @@ img {
    ========================================================================== */
 
 .values {
-    background-color: var(--lightGray); 
+    background-color: var(--lightGray);
     padding-bottom: 20px;
     /*margin-bottom: 0;*/
 }
-.values-banner { 
+
+.values-banner {
     width: 100%;
 }
 
 .values-banner img {
     width: 100%;
     height: auto;
-    display: block; 
+    display: block;
     object-fit: cover;
 }
 
 .values-content {
     width: 100%;
-    max-width: 392px; 
-    margin: 80px auto 60px auto; 
-    position: relative; 
+    max-width: 392px;
+    margin: 80px auto 60px auto;
+    position: relative;
     min-height: 412px;
 }
 
@@ -357,16 +366,16 @@ img {
     font-family: 'Playfair Display', serif;
     font-weight: 400;
     font-size: 32px;
-    line-height: 1; 
+    line-height: 1;
     color: var(--darkGray);
-    margin-bottom: 29px; 
+    margin-bottom: 29px;
 }
 
 .values-content p {
     font-family: 'Inter', sans-serif;
-    font-weight: 300; 
+    font-weight: 300;
     font-size: 16px;
-    line-height: 1.5; 
+    line-height: 1.5;
     color: var(--darkGray);
 }
 
@@ -375,7 +384,7 @@ img {
     position: relative;
     display: flex;
     align-items: flex-end;
-   /* padding-bottom: 50px;*/
+    /* padding-bottom: 50px;*/
 }
 
 .team-name {
@@ -388,8 +397,99 @@ img {
 
 .heart {
     position: absolute;
-    width: 120px; 
+    width: 120px;
     height: 102px;
-    top: -14px;  
-    left: 320px;  
+    top: -14px;
+    left: 320px;
+}
+
+/* ==========================================================================
+   6. PAGE INSCRIPTION 
+   ========================================================================== */
+
+/* On force les parents à prendre toute la place disponible */
+main, .main-auth {
+    display: flex;
+    flex: 1;
+    width: 100%;
+}
+
+.auth {
+    display: flex;
+    width: 100%;
+    /* Calcul : Toute la hauteur de l'écran - (Header 80px + Footer 61px) */
+    min-height: calc(100vh - 141px); 
+}
+
+.auth-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* On garde marges Figma : Haut 130, Gauche 150 */
+    padding: 80px 50px 0px 180px; 
+    background-color: var(--lightGray);
+    overflow-y: auto;
+}
+
+.auth-img {
+    width: 50%;
+    height: 110%;
+}
+
+/* --- CHAMPS ET BOUTON --- */
+.sign-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 48px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+}
+
+.field label {
+    color: var(--textGray);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.field input {
+    background-color: #FFFFFF;
+    border-radius: 6px;
+    border: 1px solid var(--white);
+    height: 50px;
+    padding: 16px 14px;
+    width: 322px;
+    outline: none;
+}
+
+.sign-submit-btn {
+    width: 322px;
+    height: 63px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 30px;
+    background-color: var(--green);
+    color: #FFFFFF;
+    border: none;
+}
+
+/* Texte "Déjà inscrit" avec l'écart de 40px */
+.sign-ask {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--darkGray);
+    margin-top: 40px; 
+}
+
+.sign-ask a {
+    color: var(--darkGray);
+    text-decoration: underline;
 }
