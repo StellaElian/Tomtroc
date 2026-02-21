@@ -7,6 +7,7 @@
     <title>Inscription</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
@@ -42,9 +43,5 @@
 
             <img src="img/books/image_inscription.png" class="auth-img" alt="Bibliothèque">
         </div>
-    </main>
-
+    
     <?php require_once '../src/templates/_footer.php'; ?>
-</body>
-
-</html>

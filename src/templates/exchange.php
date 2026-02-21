@@ -52,5 +52,7 @@
                 <?php endif; ?>
             </section>
         </div>
+        </main>
 
-    <?php require_once '../src/templates/_footer.php'; ?>
+        <?php require_once '../src/templates/_footer.php'; ?>
+        </body>

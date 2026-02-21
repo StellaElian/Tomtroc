@@ -16,25 +16,46 @@
     --white: #F0F0F0;
 }
 
+/* ==========================================================================
+   0.5 RÉGLAGE UNIVERSEL (Le moteur du site)
+   ========================================================================== */
+
 * {
     /* Évite que les marges s'ajoutent à la largeur des boîtes */
     box-sizing: border-box;
 }
 
-body {
+html, body {
+    height: 100%; /* Force le navigateur à calculer sur toute la hauteur */
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
-    /*background-color: var(--lightGray);*/
-    color: var(--darkGray);
-    font-size: 14px;
+}
+
+body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /*pour éviter de lisser les polices différemment */
+    font-family: 'Inter', sans-serif;
+    background-color: #FFFFFF;
+    /*pour éviter de lisser les polices différemment*/ 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+/* C'est LUI qui doit boucher tous les trous */
+main {
+    flex: 1; 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--backgroundLight);
+}
+
+/* On neutralise les marges automatiques qui créent tes blocs blancs */
+h1, h2, p, ul {
+    margin-top: 0;
+}
+
 
 /* LES LIENS */
 a {
@@ -53,11 +74,9 @@ img {
 
 /* Conteneur global (si besoin) */
 .container {
-    max-width: 1440px;
     margin: 0 auto;
     padding: 0 20px;
 }
-
 
 /* ==========================================================================
    1. GLOBAUX ET BOUTONS
@@ -89,14 +108,11 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    /* Rayon de 10px */
+    border-radius: 10px; /* Rayon de 10px */
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    font-weight: 600;
-    /* Semi Bold */
-    line-height: 1;
-    /* 100% */
+    font-weight: 600; /* Semi Bold */
+    line-height: 1; /* 100% */
     text-align: center;
     text-decoration: none;
     /* Haut 39px, Bas 71px pour l'espace de 199px total */
@@ -134,16 +150,14 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 80px;
-    min-height: 747px;
+    padding-top: 80px; /*padding: 100px 0;  remplace les min-height*/
     padding-bottom: 50px;
     gap: 105px;
 }
 
 .banner-content {
     width: 335px;
-    max-width: 335px;
-    /*largeur bloc texte*/
+    max-width: 335px; /*largeur bloc texte*/
     margin-left: 10px;
     margin-top: 30px;
     display: flex;
@@ -159,7 +173,6 @@ img {
 .banner-image .image {
     width: 100%;
     max-width: 404px;
-    height: 539px;
 }
 
 .name {
@@ -340,7 +353,6 @@ img {
 .values {
     background-color: var(--lightGray);
     padding-bottom: 20px;
-    /*margin-bottom: 0;*/
 }
 
 .values-banner {
@@ -384,7 +396,6 @@ img {
     position: relative;
     display: flex;
     align-items: flex-end;
-    /* padding-bottom: 50px;*/
 }
 
 .team-name {
@@ -407,18 +418,11 @@ img {
    6. PAGE INSCRIPTION 
    ========================================================================== */
 
-/* On force les parents à prendre toute la place disponible */
-main, .main-auth {
-    display: flex;
-    flex: 1;
-    width: 100%;
-}
-
 .auth {
     display: flex;
-    width: 100%;
-    /* Calcul : Toute la hauteur de l'écran - (Header 80px + Footer 61px) */
-    min-height: calc(100vh - 141px); 
+    width: auto;
+    min-height: calc(100vh - 141px);
+    object-fit: cover;
 }
 
 .auth-left {
@@ -433,7 +437,7 @@ main, .main-auth {
 
 .auth-img {
     width: 50%;
-    height: 110%;
+    height: 100%;
 }
 
 /* --- CHAMPS ET BOUTON --- */
@@ -498,18 +502,10 @@ main, .main-auth {
    7. PAGE CONNEXION
    ========================================================================== */
 
-/* On force les parents à prendre toute la place disponible */
-main, .main-auth {
-    display: flex;
-    flex: 1;
-    width: 100%;
-}
 
 .auth {
     display: flex;
     width: 100%;
-    /* Calcul : Toute la hauteur de l'écran - (Header 80px + Footer 61px) */
-    min-height: calc(100vh - 141px); 
 }
 
 .auth-left {
@@ -522,9 +518,11 @@ main, .main-auth {
     overflow-y: auto;
 }
 
-.auth-img {
-    width: 50%;
-    height: 110%;
+.auth {
+    display: flex;
+    width: auto;
+    min-height: calc(100vh - 141px);
+    object-fit: cover;
 }
 
 /* --- CHAMPS ET BOUTON --- */
@@ -601,7 +599,7 @@ main, .main-auth {
 }
 
 .container {
-    max-width: 1440px; 
+   max-width: 1440px; 
     margin: 0 auto; /* Centre le bloc au milieu de l'écran */
     padding: 0 150px; 
 }
@@ -681,7 +679,7 @@ main, .main-auth {
 
 .book-card:hover {
     transform: translateY(-5px); /*le livre monte de 5 pixels*/
-    /*box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);  Ombre légère apparait */
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);  /*Ombre légère apparait */
 }
 
 .book-image {

@@ -51,5 +51,3 @@ require_once __DIR__ . '/../services/Utils.php';
             </nav>
         </div>
     </header>
-
-    <main id="main"></main>

@@ -7,6 +7,7 @@
     <title>Inscription</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
@@ -14,7 +15,7 @@
     <main class="main-auth">
         <div class="auth">
             <div class="auth-left">
-                <h1 class="sign-title">Inscription</h1>
+                <h1 class="sign-title">Connexion</h1>
 
                 <form action="index.php?action=registerUser" method="post" class="sign-form">
 
@@ -38,7 +39,5 @@
 
             <img src="img/books/image_inscription.png" class="auth-img" alt="Bibliothèque">
         </div>
-    </main>
-
+    
     <?php require_once '../src/templates/_footer.php'; ?>
-</body>
