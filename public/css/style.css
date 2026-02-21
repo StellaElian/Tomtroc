@@ -755,3 +755,179 @@ img {
     text-decoration: none;
     border-radius: 6px;
 }
+
+/* ==========================================================================
+   9. PAGE DETAILS D UN LIVRE
+   ========================================================================== */
+
+/* --- Mise en page globale --- */
+.book-page-wrapper {
+    background-color: var(--backgroundLight) !important;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 80px;
+    padding: 0;
+   /* width: 100%;*/
+}
+
+.book-page-wrapper .container {
+    padding-top: 16px;
+    background-color: transparent !important;
+    max-width: 100%; 
+    width: 100%;
+    margin: 0 ;
+    padding: 0;
+}
+
+/* LA DIVISION 50/50 */
+.book-content-container {
+    display: flex; /* Met les blocs côte à côte */
+    /*gap: 85px;      L'espace entre l'image et le texte */
+    width: 100%;
+    align-items: flex-start;
+}
+
+/* --- BLOC GAUCHE  --- */
+.book-cover-section {
+    flex: 0 0 50%; /* Ne bouge pas de 720px */
+    overflow: hidden;
+}
+
+.book-image-detail {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- BLOC DROITE (Prend le reste de la place) --- */
+.book-info-section {
+    flex: 0 0 50%; /* Remplit tout le côté droit */
+    padding-left: 85px;
+    background-color: transparent !important;
+}
+
+.chemin-navigation {
+    padding-left: 150px; /* Aligne le fil d'ariane avec le logo du header */
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    margin-bottom: 16px;
+    font-size: 10px;
+    color: var(--textGray);
+}
+
+.chemin-navigation a {
+    color: var(--textGray);
+    text-decoration: none;
+}
+
+.chemin-navigation .separator {
+    color: var(--textGray);
+    margin: 0 10px;
+}
+
+/* --- Typographie et Détails --- */
+.book-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    margin-top: 59px;
+    margin-bottom: 16px;
+    color: #000000;
+}
+
+.book-main-author {
+    font-family: 'Inter', sans-serif;
+    color: var(--textGray);
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 32.5px;
+}
+
+.detail-line-separator {
+    width: 27px;
+    height: 1px;
+    display: block;
+    margin-bottom: 32.5px;
+}
+
+.section-main-title, .section-owner {
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    /*text-transform: uppercase;*/
+    /*letter-spacing: 0.08em;*/
+    margin-bottom: 16px;
+}
+
+.book-main-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--darkGray);
+    font-weight: 400;
+    max-width: 485px;
+    /*line-height: 1.4;  Légèrement plus que 1 pour la lisibilité */
+    margin-bottom: 32px;
+}
+
+/* --- Bloc Propriétaire --- */
+.owner-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 157px;
+    margin-bottom: 80px;
+    border-radius: 114px;
+    background-color: #FFFFFF;
+}
+
+.avatar-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.owner-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.owner-name-container a {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--darkGray);
+}
+
+.owner-name-container a:hover {
+    text-decoration: underline;
+}
+
+/* --- Bouton Envoyer un message --- */
+.btn-send-message {
+    width: 485px;
+    height: 63px;
+    background-color: var(--green);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    margin-top: 80px;
+    border: none;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.btn-send-message:hover {
+    background-color: #008f53;
+}

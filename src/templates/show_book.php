@@ -1,57 +1,81 @@
-<?php require_once '../src/templates/_header.php'; ?>
+<!DOCTYPE html>
+<html lang="fr">
 
-<link rel="stylesheet" href="css/show_book.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single livre</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
 
-<div class="book-page-wrapper">
-    
-    <div class="breadcrumb">
-        <a href="index.php?action=catalog">Nos livres > </a>
-        <span class="current-page"><?= htmlspecialchars($book->getTitle()) ?></span>
-    </div>
+<body>
 
-    <div class="book-content-container">
-        
-        <div class="book-cover-section">
-            <img src="img/books/<?= htmlspecialchars($book->getImage()) ?>" 
-                 alt="Couverture de <?= htmlspecialchars($book->getTitle()) ?>" 
-                 class="main-book-image">
-        </div>
+    <?php require_once '../src/templates/_header.php'; ?>
 
-        <div class="book-info-section">
-            
-            <h1 class="book-main-title"><?= htmlspecialchars($book->getTitle()) ?></h1>
-            <p class="book-main-author">par <?= htmlspecialchars($book->getAuthor()) ?></p>
-            
-            <div class="separator-line"></div>
+    <main class="book-page-wrapper">
+        <div class="container">
 
-            <h3 class="section-title">Description</h3>
-            <p class="book-description">
-                <?= nl2br(htmlspecialchars($book->getDescription())) ?>
-            </p>
+            <nav class="chemin-navigation">
+                <a href="index.php?action=exchange">Nos livres</a>
+                <span class="separator">></span>
+                <span class="current-page"><?= htmlspecialchars($book->getTitle()) ?></span>
+            </nav>
 
-            <div class="separator-line"></div>
+            <div class="book-content-container">
 
-            <div class="owner-block">
-                <p class="owner-label">PROPRIÉTAIRE</p>
-                
-                <div class="owner-card">
-                    <div class="avatar-wrapper">
-                        <img src="img/avatars/avatar_default.png" alt="Avatar" class="owner-avatar-img">
-                    </div>
-
-                    <div class="name-wrapper">
-                        <a href="index.php?action=public_profile&id=<?= $book->getUserId() ?>" class="owner-link">
-                            <?= htmlspecialchars($book->getSeller()) ?>
-                        </a>
-                    </div>
+                <div class="book-cover-section">
+                    <img src="img/books/<?= htmlspecialchars($book->getImage()) ?>"
+                        alt="Couverture"
+                        class="book-image-detail">
                 </div>
-                <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != $book->getUserId()): ?>
-                    <a href="index.php?action=messagerie&create_chat_with=<?=  $book->getUserId() ?>" class="btn-send-message">Envoyer un message</a>
-                <?php endif ?>
+
+                <div class="book-info-section">
+
+                    <h1 class="book-main-title"><?= htmlspecialchars($book->getTitle()) ?></h1>
+                    <p class="book-main-author">par <?= htmlspecialchars($book->getAuthor()) ?></p>
+
+                    <img src="img/min/line2.png" alt="séparateur" class="detail-line-separator">
+
+                    <div class="description-bloc">
+                        <h3 class="section-main-title">Description</h3>
+                        <p class="book-main-description">
+                            <?php echo htmlspecialchars($book->getDescription()); ?>
+                        </p>
+                    </div>
+
+                    <div class="owner-bloc">
+                        <h3 class="section-owner">PROPRIÉTAIRE</h3>
+
+                        <div class="owner-card">
+                            <div class="avatar-wrapper">
+                                <img src="img/avatars/avatar_default.png" alt="Avatar" class="owner-avatar-img">
+                            </div>
+
+                            <div class="owner-name-container">
+                                <a href="index.php?action=public_profile&id=<?= $book->getUserId() ?>">
+                                    <?= htmlspecialchars($book->getSeller()) ?>
+                                </a>
+                            </div>
+                        </div>
+
+                        <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != $book->getUserId()): ?>
+                            <div class="action-wrapper">
+                                <a href="index.php?action=messagerie&create_chat_with=<?= $book->getUserId() ?>" class="btn-send-message">
+                                    Envoyer un message
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+
+                </div>
             </div>
-
         </div>
-    </div>
-</div>
+    </main>
 
-<?php require_once '../src/templates/_footer.php'; ?>
+    <?php require_once '../src/templates/_footer.php'; ?>
+
+</body>
+
+</html>
