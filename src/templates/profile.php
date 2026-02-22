@@ -71,7 +71,7 @@
                 </div>
             </form>
 
-            <div class="profile-table-wrapper">
+            <div class="my-account-wrapper">
                 <table class="my-books-table">
                     <thead>
                         <tr>

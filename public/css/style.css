@@ -1233,7 +1233,7 @@ img {
     overflow: hidden;
 }
 
-.book-cover {
+.book-cover-img-wrapper {
     width: 78px;
     height: 78px;
     object-fit: cover;
@@ -1421,7 +1421,7 @@ img {
    ========================================================================== */
 
 /* --- Conteneurs principaux --- */
-.profile-page-wrapper {
+.my-account-wrapper {
     min-height: 1200px;
     background-color: #FAF9F7;
     padding-top: 90px;

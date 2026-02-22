@@ -78,7 +78,7 @@
                                         <td class="col-photo">
                                             <div class="book-img-wrapper">
                                                 <img src="img/books/<?= htmlspecialchars($book->getImage()) ?>"
-                                                    alt="Cover" class="book-cover">
+                                                    alt="Cover" class="book-cover-img-wrapper">
                                             </div>
                                         </td>
                                         <td class="col-title"><?= htmlspecialchars($book->getTitle()) ?></td>
