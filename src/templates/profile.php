@@ -1,122 +1,149 @@
-<?php require_once '../src/templates/_header.php'; ?>
+<!DOCTYPE html>
+<html lang="fr">
 
-<link rel="stylesheet" href="css/profile.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon compte</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
 
-<div class="profile-page">
-    <div class="page-header">
-        <h1 class="main-title">Mon compte</h1>
-        <a href="index.php?action=addBook" class="btn-add-book"> Ajouter un livre</a>
-    </div>
+<body>
 
-    <form action="index.php?action=updateProfile" method="POST" enctype="multipart/form-data" class="profile-top-section">
-        <div class="profile-card">
-            <div class="profile-avatar">
-                <img src="img/avatars/<?= htmlspecialchars($user->getAvatar() ?? 'avatar_default.png') ?>" alt="Avatar">
-            </div>
-            <label for="file_upload" class="edit-avatar-link">modifier</label>
-            <input type="file" id="file_upload" name="avatar" accept="image/png, image/jpeg" class="hidden-input">
+    <?php require_once '../src/templates/_header.php'; ?>
 
-            <h2 class="profile-pseudo"><?= htmlspecialchars($user->getPseudo()) ?></h2>
-            <p class="profile-member-date">Membre depuis <?= Utils::format($user->getCreatedAt()) ?></p>
+    <main class="profile-page-wrapper">
+        <div class="profile-container">
 
-            <div class="profile-library-stats">
-                <span class="library-label">BIBLIOTHEQUE</span>
-                <span class="library-count">
-                    <img src="img/livres.svg" alt="" class="icon-book">
-                    <?= count($books) ?> livres
-                </span>
-            </div>
-        </div>
-
-        <div class="profile-form-container">
-            <h3 class="form-title">Vos informations personnelles</h3>
-            <div class="form-group">
-                <label for="email">Adresse email</label>
-                <input type="email" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>" class="form-input">
+            <div class="profile-header-flex">
+                <h1 class="profile-main-title">Mon compte</h1>
+                <a href="index.php?action=addBook" class="btn-add-book">Ajouter un livre</a>
             </div>
 
-            <div class="form-group">
-                <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="password" placeholder="Nouveau mot de passe" class="form-input">
-            </div>
+            <form action="index.php?action=updateProfile" method="POST" enctype="multipart/form-data" class="profile-top-section">
 
-            <div class="form-group">
-                <label for="pseudo">Pseudo</label>
-                <input type="text" id="pseudo" name="pseudo" value="<?= htmlspecialchars($user->getPseudo()) ?>" class="form-input">
-            </div>
+                <div class="profile-columns-flex">
 
-            <button type="submit" class="btn-save">Enregistrer</button>
-        </div>
-    </form>
+                    <div class="profile-col-left">
+                        <div class="profile-avatar-frame">
+                            <img src="img/avatars/<?= htmlspecialchars($user->getAvatar() ?? 'avatar_default.png') ?>" alt="Avatar de profil" id="avatar-preview">
+                        </div>
 
-    <div class="profile-bottom-section"></div>
+                        <label for="avatar_upload" class="edit-avatar-link">modifier</label>
+                        <input type="file" id="avatar_upload" name="avatar" accept="image/png, image/jpeg" style="display: none;">
 
-    <div class="profile-bottom-section">
+                        <img src="img/min/line5.svg" alt="séparateur" class="profile-separator-line">
 
-        <table class="books-table">
-            <thead>
-                <tr>
-                    <th>PHOTO</th>
-                    <th>TITRE</th>
-                    <th>AUTEUR</th>
-                    <th class="col-desc">DESCRIPTION</th>
-                    <th>DISPONIBILITE</th>
-                    <th>ACTION</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if (empty($books)): ?>
-                    <tr>
-                        <td colspan="6" style="text-align:center; padding: 20px;">Votre bibliothèque est vide.</td>
-                    </tr>
-                <?php else: ?>
-                    <?php foreach ($books as $book): ?>
-                        <tr>
-                            <td>
-                                <img src="img/books/<?= htmlspecialchars($book->getImage()) ?>"
-                                    alt="Cover" class="table-book-img">
-                            </td>
+                        <h2 class="profile-pseudo"><?= htmlspecialchars($user->getPseudo()) ?></h2>
+                        <p class="profile-member-date">Membre depuis <?= Utils::format($user->getCreatedAt()) ?></p>
 
-                            <td class="book-title-cell"><?= htmlspecialchars($book->getTitle()) ?></td>
+                        <div class="profile-library-stats">
+                            <span class="library-label">BIBLIOTHEQUE</span>
+                            <div class="library-count-flex">
+                                <img src="img/min/livres.svg" alt="Icon livre" class="icon-book">
+                                <span class="library-count-text"><?= count($books) ?> livres</span>
+                            </div>
+                        </div>
+                    </div>
 
-                            <td class="book-author-cell"><?= htmlspecialchars($book->getAuthor()) ?></td>
+                    <div class="profile-col-right">
+                        <h3 class="form-section-title">Vos informations personnelles</h3>
 
-                            <td class="book-desc-cell">
-                                <div class="desc-content">
-                                    <?= htmlspecialchars(substr($book->getDescription() ?? '', 0, 100)) ?>...
-                                </div>
-                            </td>
+                        <div class="edit-forms">
+                            <label for="email" class="edit-label-blue">Adresse email</label>
+                            <input type="email" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>" required>
+                        </div>
 
-                            <td>
-                                <?php if ($book->getDisponibilite() === 'non dispo'): ?>
-                                    <span class="badge badge-not-available">non dispo</span>
-                                <?php else: ?>
-                                    <span class="badge badge-available">disponible</span>
-                                <?php endif; ?>
-                            </td>
+                        <div class="edit-forms">
+                            <label for="password" class="edit-label-blue">Mot de passe</label>
+                            <input type="password" id="password" name="password" placeholder="•••••••••">
+                        </div>
 
-                            <td class="actions-cell">
-                                <a href="index.php?action=editBook&id=<?= $book->getId() ?>" class="action-link edit">Éditer</a>
-                                <a href="index.php?action=deleteBook&id=<?= $book->getId() ?>"
-                                    class="action-link delete"
-                                    onclick="return confirm('Supprimer ce livre ?');">Supprimer</a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </tbody>
-        </table>
-        <div class="delete-account-container">
-            <form action="index.php?action=deleteAccount" method="POST">
-                <button 
-                    type="submit"
-                    class="btn-delete-account"
-                    onclick="return confirm('⚠️ Êtes-vous sûr de vouloir supprimer votre compte ? \nCette action est irréversible !');">
-                    Supprimer mon compte 
-                </button>
+                        <div class="edit-forms">
+                            <label for="pseudo" class="edit-label-blue">Pseudo</label>
+                            <input type="text" id="pseudo" name="pseudo" value="<?= htmlspecialchars($user->getPseudo()) ?>" required>
+                        </div>
+
+                        <button type="submit" class="btn-save-outline">Enregistrer</button>
+                    </div>
+                </div>
             </form>
-        </div>
-    </div>
-</div>
 
-<?php require_once '../src/templates/_footer.php'; ?>
+            <div class="profile-table-wrapper">
+                <table class="my-books-table">
+                    <thead>
+                        <tr>
+                            <th>PHOTO</th>
+                            <th>TITRE</th>
+                            <th>AUTEUR</th>
+                            <th>DESCRIPTION</th>
+                            <th>DISPONIBILITE</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if (empty($books)): ?>
+                            <tr>
+                                <td colspan="6" style="text-align:center; padding: 20px;">Votre bibliothèque est vide.</td>
+                            </tr>
+                        <?php else: ?>
+                            <?php foreach ($books as $book): ?>
+                                <tr>
+                                    <td>
+                                        <div class="table-img-frame">
+                                            <img src="img/books/<?= htmlspecialchars($book->getImage()) ?>" alt="Cover">
+                                        </div>
+                                    </td>
+                                    <td class="table-text-bold"><?= htmlspecialchars($book->getTitle()) ?></td>
+                                    <td class="table-text-light"><?= htmlspecialchars($book->getAuthor()) ?></td>
+                                    <td class="table-text-desc">
+                                        <?= htmlspecialchars($book->getDescription() ?? '' ); ?>...
+                                    </td>
+                                    <td>
+                                        <?php if ($book->getDisponibilite() === 'non disponible'): ?>
+                                            <span class="badge-not-avalaible">non dispo.</span>
+                                        <?php else: ?>
+                                            <span class="badge-disponible">disponible</span>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td class="table-actions">
+                                        <a href="index.php?action=editBook&id=<?= $book->getId() ?>" class="action-edit">Éditer</a>
+                                        <a href="index.php?action=deleteBook&id=<?= $book->getId() ?>" class="action-delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?');">Supprimer</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="delete-account-zone">
+                <form action="index.php?action=deleteAccount" method="POST">
+                    <button type="submit" class="btn-delete-account" onclick="return confirm('⚠️⚠️ Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible !');">
+                        Supprimer mon compte
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <?php require_once '../src/templates/_footer.php'; ?>
+
+    <script>
+        document.getElementById('avatar_upload').addEventListener('change', function(e) {
+            if (this.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('avatar-preview').src = e.target.result;
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -25,8 +25,10 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%; /* Force le navigateur à calculer sur toute la hauteur */
+html,
+body {
+    height: 100%;
+    /* Force le navigateur à calculer sur toute la hauteur */
     margin: 0;
     padding: 0;
 }
@@ -37,14 +39,14 @@ body {
     min-height: 100vh;
     font-family: 'Inter', sans-serif;
     background-color: #FFFFFF;
-    /*pour éviter de lisser les polices différemment*/ 
+    /*pour éviter de lisser les polices différemment*/
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 /* C'est LUI qui doit boucher tous les trous */
 main {
-    flex: 1; 
+    flex: 1;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -52,7 +54,10 @@ main {
 }
 
 /* On neutralise les marges automatiques qui créent tes blocs blancs */
-h1, h2, p, ul {
+h1,
+h2,
+p,
+ul {
     margin-top: 0;
 }
 
@@ -108,11 +113,14 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px; /* Rayon de 10px */
+    border-radius: 10px;
+    /* Rayon de 10px */
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    font-weight: 600; /* Semi Bold */
-    line-height: 1; /* 100% */
+    font-weight: 600;
+    /* Semi Bold */
+    line-height: 1;
+    /* 100% */
     text-align: center;
     text-decoration: none;
     /* Haut 39px, Bas 71px pour l'espace de 199px total */
@@ -150,14 +158,15 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 80px; 
+    padding-top: 80px;
     padding-bottom: 50px;
     gap: 105px;
 }
 
 .banner-content {
     width: 335px;
-    max-width: 335px; /*largeur bloc texte*/
+    max-width: 335px;
+    /*largeur bloc texte*/
     margin-left: 10px;
     margin-top: 30px;
     display: flex;
@@ -430,7 +439,7 @@ img {
     display: flex;
     flex-direction: column;
     /* On garde marges Figma : Haut 130, Gauche 150 */
-    padding: 80px 50px 0px 180px; 
+    padding: 80px 50px 0px 180px;
     background-color: var(--lightGray);
     overflow-y: auto;
 }
@@ -490,7 +499,7 @@ img {
     font-weight: 400;
     font-size: 14px;
     color: var(--darkGray);
-    margin-top: 40px; 
+    margin-top: 40px;
 }
 
 .sign-ask a {
@@ -513,7 +522,7 @@ img {
     display: flex;
     flex-direction: column;
     /* On garde marges Figma : Haut 130, Gauche 150 */
-    padding: 80px 50px 0px 180px; 
+    padding: 80px 50px 0px 180px;
     background-color: var(--lightGray);
     overflow-y: auto;
 }
@@ -575,7 +584,7 @@ img {
     font-weight: 400;
     font-size: 14px;
     color: var(--darkGray);
-    margin-top: 40px; 
+    margin-top: 40px;
 }
 
 .sign-ask a {
@@ -590,8 +599,10 @@ img {
 /* Fond de la page */
 .books-page {
     background-color: #FAF9F7;
-    padding-top: 130px; /* Distance avec le Header  */
-    padding-bottom: 80px; /*distance derniere ligne avec le footer*/
+    padding-top: 130px;
+    /* Distance avec le Header  */
+    padding-bottom: 80px;
+    /*distance derniere ligne avec le footer*/
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -599,16 +610,18 @@ img {
 }
 
 .container {
-   max-width: 1440px; 
-    margin: 0 auto; /* Centre le bloc au milieu de l'écran */
-    padding: 0 150px; 
+    max-width: 1440px;
+    margin: 0 auto;
+    /* Centre le bloc au milieu de l'écran */
+    padding: 0 150px;
 }
 
 /* Titre et Recherche sur la même ligne */
 .books-header {
     display: flex;
-    align-items: center; /*alignement horizental*/
-    margin-bottom: 80px; 
+    align-items: center;
+    /*alignement horizental*/
+    margin-bottom: 80px;
     gap: 249px;
 }
 
@@ -616,7 +629,8 @@ img {
     font-family: 'Playfair Display', serif;
     font-size: 36px;
     font-weight: 400;
-    white-space: nowrap; /*pour que ça ne fasse qu'une ligne*/
+    white-space: nowrap;
+    /*pour que ça ne fasse qu'une ligne*/
 }
 
 .search-bar {
@@ -653,17 +667,22 @@ img {
 .search-bar input::placeholder {
     color: var(--textGray);
     font-family: 'Inter', sans-serif;
-    font-size: 14px; 
+    font-size: 14px;
     font-weight: 400;
 }
 
 /* Grille de livres (Gap 38px) */
 .books-grid {
-    display: grid; /*crée un tableau invisible qui range les livres dans une case */
-    grid-template-columns: repeat(auto-fill, 200px); /*formule pour ranger magiquement les livres en colonnes de 200px */
-    column-gap: 38px;  /*espace horizntal entre les livres*/
-    row-gap: 48px; /* espace vertical entre les livres */
-    justify-content: center; /* Centre la grille dans la page */
+    display: grid;
+    /*crée un tableau invisible qui range les livres dans une case */
+    grid-template-columns: repeat(auto-fill, 200px);
+    /*formule pour ranger magiquement les livres en colonnes de 200px */
+    column-gap: 38px;
+    /*espace horizntal entre les livres*/
+    row-gap: 48px;
+    /* espace vertical entre les livres */
+    justify-content: center;
+    /* Centre la grille dans la page */
     margin-top: 72px;
 }
 
@@ -675,15 +694,18 @@ img {
 }
 
 .book-card:hover {
-    transform: translateY(-5px); /*le livre monte de 5 pixels*/
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);  /*Ombre légère apparait */
+    transform: translateY(-5px);
+    /*le livre monte de 5 pixels*/
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+    /*Ombre légère apparait */
 }
 
 .book-image {
     width: 200px;
     height: 200px;
     overflow: hidden;
-    position: relative; /*boite de l image est notre ref*/
+    position: relative;
+    /*boite de l image est notre ref*/
 }
 
 .book-image img {
@@ -697,13 +719,15 @@ img {
     top: 16px;
     right: 11.87px;
     background-color: #C56D6D;
-    color:#FFFFFF;
+    color: #FFFFFF;
     font-family: 'Inter', sans-serif;
     font-size: 8.88px;
     font-weight: 500;
-    padding: 3.7px 13.31px; /*espace autour du texte*/
+    padding: 3.7px 13.31px;
+    /*espace autour du texte*/
     border-radius: 29.58px;
 }
+
 .book-info {
     width: 200px;
     height: 124px;
@@ -745,7 +769,8 @@ img {
 }
 
 .no-results {
-    grid-column: 1 / -1; /* Force le message à prendre toute la largeur de la grille */
+    grid-column: 1 / -1;
+    /* Force le message à prendre toute la largeur de la grille */
     text-align: center;
     padding: 50px 0;
     font-family: 'Inter', sans-serif;
@@ -782,22 +807,24 @@ img {
 .book-page-wrapper .container {
     padding-top: 16px;
     background-color: transparent !important;
-    max-width: 100%; 
+    max-width: 100%;
     width: 100%;
-    margin: 0 ;
+    margin: 0;
     padding: 0;
 }
 
 /* LA DIVISION 50/50 */
 .book-content-container {
-    display: flex; /* Met les blocs côte à côte */
+    display: flex;
+    /* Met les blocs côte à côte */
     width: 100%;
     align-items: flex-start;
 }
 
 /* --- BLOC GAUCHE  --- */
 .book-cover-section {
-    flex: 0 0 50%; /* Ne bouge pas de 720px */
+    flex: 0 0 50%;
+    /* Ne bouge pas de 720px */
     overflow: hidden;
 }
 
@@ -811,13 +838,15 @@ img {
 
 /* --- BLOC DROITE (Prend le reste de la place) --- */
 .book-info-section {
-    flex: 0 0 50%; /* Remplit tout le côté droit */
+    flex: 0 0 50%;
+    /* Remplit tout le côté droit */
     padding-left: 85px;
     background-color: transparent !important;
 }
 
 .chemin-navigation {
-    padding-left: 150px; /* Aligne le fil d'ariane avec le logo du header */
+    padding-left: 150px;
+    /* Aligne le fil d'ariane avec le logo du header */
     margin-top: 16px;
     margin-bottom: 16px;
     font-family: 'Inter', sans-serif;
@@ -862,7 +891,8 @@ img {
     margin-bottom: 32.5px;
 }
 
-.section-main-title, .section-owner {
+.section-main-title,
+.section-owner {
     font-family: 'Inter', sans-serif;
     font-size: 8px;
     font-weight: 600;
@@ -935,7 +965,7 @@ img {
 
 .btn-send-message:hover {
     background-color: #008f53;
-    color:#FFFFFF;
+    color: #FFFFFF;
 }
 
 /* ==========================================================================
@@ -944,37 +974,43 @@ img {
 
 /* --- Mise en page globale --- */
 .profile-page-wrapper {
-    background-color: #F0F0F0; 
-    padding-top: 103px;    
+    background-color: #F0F0F0;
+    padding-top: 103px;
     padding-bottom: 214px;
     min-height: 100vh;
 }
 
 .container-profile-main-flex {
     display: flex;
-    justify-content: flex-start; /*aligne au debaut (gauche)*/
+    justify-content: flex-start;
+    /*aligne au debaut (gauche)*/
     align-items: flex-start;
-    gap: 28px; /* Espace entre les deux blocs */
+    gap: 28px;
+    /* Espace entre les deux blocs */
     width: 100%;
     max-width: 1440px;
-    margin: 0 auto; /*centre la zone sur les grands écrans */
+    margin: 0 auto;
+    /*centre la zone sur les grands écrans */
     padding-left: 150px;
     box-sizing: border-box;
 }
 
 /* --- BLOC GAUCHE (Carte Blanche) --- */
 .profile-sidebar {
-    flex: 0 0 341px; /* Largeur fixe Figma */
+    flex: 0 0 341px;
+    /* Largeur fixe Figma */
     width: 341px;
     height: 579px;
     background-color: #FFFFFF;
-    border-radius: 20px; /* Arrondi de 20px */
+    border-radius: 20px;
+    /* Arrondi de 20px */
     box-sizing: border-box;
     padding: 0;
 }
 
 .profile-card {
-    background-color: transparent; /*pour eviter les doucles fonds blancs*/
+    background-color: transparent;
+    /*pour eviter les doucles fonds blancs*/
     padding: 0;
     width: 100%;
     display: flex;
@@ -985,10 +1021,10 @@ img {
 .profile-avatar {
     border-radius: 50%;
     overflow: hidden;
-    margin-bottom: 70px; 
+    margin-bottom: 70px;
     width: 135px;
     height: 135px;
-    margin: 48px auto 0 auto; 
+    margin: 48px auto 0 auto;
 }
 
 .profile-avatar img {
@@ -1000,9 +1036,11 @@ img {
 .profile-separator-img {
     margin-top: 70px;
     margin-bottom: 48px;
-    display: block; /*pour que les marges fonctionnent bien*/
-    margin-left: auto; /*pour la centrer horizentalement */
-    margin-right: auto; 
+    display: block;
+    /*pour que les marges fonctionnent bien*/
+    margin-left: auto;
+    /*pour la centrer horizentalement */
+    margin-right: auto;
 }
 
 .profile-name {
@@ -1032,8 +1070,9 @@ img {
 .livre-library {
     width: 10.41px;
     height: 13.71px;
-    display: block; /*evite les espaces sous l'image*/
-    
+    display: block;
+    /*evite les espaces sous l'image*/
+
 }
 
 .library-count {
@@ -1041,12 +1080,13 @@ img {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 14px;
-    line-height: normal; /*force le texte a ne pas prendre de place inutile en bas*/
+    line-height: normal;
+    /*force le texte a ne pas prendre de place inutile en bas*/
     display: flex;
     align-items: center;
 }
 
-.library-count-box{
+.library-count-box {
     gap: 5.59px;
     margin-top: 6px;
     display: flex;
@@ -1059,7 +1099,8 @@ img {
     height: 63px;
     background-color: #F5F3EF;
     color: #00AC66;
-    border: 1px solid #00AC66; /* bordure verte*/
+    border: 1px solid #00AC66;
+    /* bordure verte*/
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -1072,19 +1113,22 @@ img {
 /* --- BLOC DROITE (Tableau) --- */
 .profile-content {
     background-color: transparent;
-    flex: 0 0 771px; /* Largeur tableau */
+    flex: 0 0 771px;
+    /* Largeur tableau */
     width: 771px;
 }
 
 .table-round-container {
-   background-color: transparent;
-   border-radius: 20px; /* Arrondi de 20px */
-   border: none;
+    background-color: transparent;
+    border-radius: 20px;
+    /* Arrondi de 20px */
+    border: none;
 }
 
 .books-table {
     width: 100%;
-    border-collapse: separate; /*permet d'utiliser border-spacing */
+    border-collapse: separate;
+    /*permet d'utiliser border-spacing */
     border-spacing: 0;
 }
 
@@ -1092,7 +1136,8 @@ img {
 .books-table thead tr th {
     height: 53px;
     background-color: #FFFFFF;
-    border-bottom: 1px solid #F0F0F0; /*simule espace de 1px avec fond de couleur*/
+    border-bottom: 1px solid #F0F0F0;
+    /*simule espace de 1px avec fond de couleur*/
     font-family: 'Inter', sans-serif;
     font-size: 8px;
     font-weight: 600;
@@ -1102,23 +1147,37 @@ img {
     padding-bottom: 0;
 }
 
-.books-table th.col-photo, 
-.books-table td.col-photo { 
-    padding-left: 66px; 
-    width: auto; 
+.books-table th.col-photo,
+.books-table td.col-photo {
+    padding-left: 66px;
+    width: auto;
 }
 
 /* On donne le même padding-left aux titres ET aux cellules de contenu */
-.books-table th.col-title, .books-table td.col-title { padding-left: 31px; width: 150px; }
-.books-table th.col-author, .books-table td.col-author { padding-left: 31px; width: 150px; }
-.books-table th.col-desc, .books-table td.col-desc { padding-left: 31px; padding-right: 31px; }
+.books-table th.col-title,
+.books-table td.col-title {
+    padding-left: 31px;
+    width: 150px;
+}
+
+.books-table th.col-author,
+.books-table td.col-author {
+    padding-left: 31px;
+    width: 150px;
+}
+
+.books-table th.col-desc,
+.books-table td.col-desc {
+    padding-left: 31px;
+    padding-right: 31px;
+}
 
 
 .col-photo {
     padding-left: 0;
     width: 144px;
 }
- 
+
 /*espacement de 8px entrevles autres lignes */
 .books-table tbody tr td {
     border-bottom: 8px solid #F0F0F0;
@@ -1126,7 +1185,8 @@ img {
 
 /* Bordure de l'en-tête */
 .books-table thead tr th {
-    border-top: 1px solid #F0F0F0; /* La bordure grise du haut */
+    border-top: 1px solid #F0F0F0;
+    /* La bordure grise du haut */
 }
 
 /* Alternance des couleurs de lignes */
@@ -1139,12 +1199,22 @@ img {
 }
 
 /* Arrondis En-tête */
-.books-table thead tr th:first-child { border-radius: 20px 0 0 0; }
-.books-table thead tr th:last-child { border-radius: 0 20px 0 0; }
+.books-table thead tr th:first-child {
+    border-radius: 20px 0 0 0;
+}
+
+.books-table thead tr th:last-child {
+    border-radius: 0 20px 0 0;
+}
 
 /* Arrondis Corps de tableau */
-.books-table tbody tr td:first-child { border-radius: 20px 0 0 20px; }
-.books-table tbody tr td:last-child { border-radius: 0 20px 20px 0; }
+.books-table tbody tr td:first-child {
+    border-radius: 20px 0 0 20px;
+}
+
+.books-table tbody tr td:last-child {
+    border-radius: 0 20px 20px 0;
+}
 
 .books-table td {
     height: 130px;
@@ -1176,12 +1246,13 @@ img {
 
 .edit-book-page-wrapper {
     background-color: #FAF9F7;
-    padding-bottom: 92px; /*L'espace exact de 92px avant le footer */
+    padding-bottom: 92px;
+    /*L'espace exact de 92px avant le footer */
 }
 
 /* Le conteneur qui aligne tout à 150px du bord gauche */
 .edit-book-container {
-    padding-left: 150px; 
+    padding-left: 150px;
 }
 
 /* --- Navigation Retour --- */
@@ -1191,10 +1262,11 @@ img {
 }
 
 .edit-btn-back {
-    align-items: center;  /* Aligne parfaitement au milieu */
+    align-items: center;
+    /* Aligne parfaitement au milieu */
     display: flex;
-    gap: 4px;             
-    color: #A6A6A6; 
+    gap: 4px;
+    color: #A6A6A6;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
@@ -1202,8 +1274,9 @@ img {
 }
 
 .edit-back-icon {
-    width: 8px; 
-    height: auto;/* Ajustement de line4.png */
+    width: 8px;
+    height: auto;
+    /* Ajustement de line4.png */
     display: block;
 }
 
@@ -1222,7 +1295,7 @@ img {
     max-width: 1141px;
     width: 100%;
     border-radius: 20px;
-    padding: 56px 50px; 
+    padding: 56px 50px;
     box-sizing: border-box;
     margin-top: 23px;
     overflow: hidden;
@@ -1230,14 +1303,16 @@ img {
 
 .edit-columns-flex {
     display: flex;
-    gap: 118px; /* Espace entre la colonne photo et la colonne texte */
+    gap: 118px;
+    /* Espace entre la colonne photo et la colonne texte */
 }
 
 /* --- Colonne GAUCHE (Photo) --- */
 .edit-col-left-photo {
     width: 488px;
-    display: flex; 
-    flex-direction: column;  /*Empile proprement le label, l'image et le bouton */
+    display: flex;
+    flex-direction: column;
+    /*Empile proprement le label, l'image et le bouton */
 }
 
 .edit-label-light {
@@ -1252,7 +1327,8 @@ img {
     width: 488px;
     height: 488px;
     overflow: hidden;
-    margin-bottom: 10px; /* Espace avec le bouton "modifier" */
+    margin-bottom: 10px;
+    /* Espace avec le bouton "modifier" */
 }
 
 .edit-image-frame img {
@@ -1283,14 +1359,16 @@ img {
 
 /* Style des entrées  */
 /* Style des champs (Inputs et Select) */
-.edit-form-group input, 
+.edit-form-group input,
 .edit-form-group select {
     width: 100%;
-    height: 50px; /* réduction de 77px  à 50px pour un input standard*/
-    background-color: #EDF2F6; 
+    height: 50px;
+    /* réduction de 77px  à 50px pour un input standard*/
+    background-color: #EDF2F6;
     border: 1px solid #FFFFFF;
     border-radius: 6px;
-    padding: 16px 14px 17px 14px; /* L'ordre du padding : Haut(16px) Droite(auto) Bas(17px) Gauche(14px) */
+    padding: 16px 14px 17px 14px;
+    /* L'ordre du padding : Haut(16px) Droite(auto) Bas(17px) Gauche(14px) */
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -1301,17 +1379,19 @@ img {
 /* Le champ commentaire doit être plus grand */
 .edit-form-group textarea {
     width: 100%;
-    height: 356px; /* La hauteur demandée par ton Figma */
-    background-color: #EDF2F6; 
+    height: 356px;
+    /* La hauteur demandée par ton Figma */
+    background-color: #EDF2F6;
     border: 1px solid #F0F0F0;
     border-radius: 6px;
-    padding: 16px 12px 34px 14px; 
+    padding: 16px 12px 34px 14px;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: #292929;
     box-sizing: border-box;
-    resize: none;  /*indéformable, Empêche l'utilisateur de déformer la boîte*/
+    resize: none;
+    /*indéformable, Empêche l'utilisateur de déformer la boîte*/
 }
 
 
@@ -1319,7 +1399,8 @@ img {
 .edit-btn-validate {
     width: 322px;
     height: 63px;
-    background-color: #00AC66; /* Ton vert */
+    background-color: #00AC66;
+    /* Ton vert */
     color: #FFFFFF;
     border: none;
     border-radius: 10px;
@@ -1332,4 +1413,345 @@ img {
 
 .edit-btn-validate:hover {
     background-color: #FFFFFF;
+}
+
+
+/* ==========================================================================
+   12. PAGE MON COMPTE (PROFIL)
+   ========================================================================== */
+
+/* --- Conteneurs principaux --- */
+.profile-page-wrapper {
+    min-height: 1200px;
+    background-color: #FAF9F7;
+    padding-top: 90px;
+}
+
+.profile-container {
+    max-width: 1440px;
+    padding-left: 150px;
+}
+
+/* --- En-tête --- */
+.profile-header-flex {
+    display: flex;
+    justify-content: space-between;
+    /* Pousse le titre à gauche et le bouton à droite */
+    align-items: center;
+    max-width: 1141px;
+    margin-bottom: 48px;
+}
+
+.profile-main-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 26px;
+    color: #000000;
+}
+
+.btn-add-book {
+    background-color: #FFFFFF;
+    color: #00AC66;
+    border: 1px solid #00AC66;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 10px;
+}
+
+/* --- Haut : Flexbox Avatar / Formulaire --- */
+.profile-columns-flex {
+    display: flex;
+    gap: 33px;
+    margin-bottom: 32px;
+}
+
+/* --- Colonne Gauche (Avatar et Stats) --- */
+.profile-col-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centre tout horizontalement */
+    width: 547px;
+    height: 508px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+
+}
+
+.profile-avatar-frame {
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 48px;
+}
+
+.profile-avatar-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.edit-avatar-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #A6A6A6;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.profile-separator-line {
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+
+
+.profile-pseudo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #292929;
+    margin: 0 18px 11px 18px;
+}
+
+.profile-member-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #A6A6A6;
+    margin: 11px 0 21px 0;
+}
+
+.library-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 8px;
+    color: #292929;
+    display: block;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.library-count-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5.59px;
+}
+
+.icon-book {
+    width: 10.41px;
+    height: auto;
+}
+
+.library-count-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #292929;
+}
+
+/* --- Colonne Droite */
+.profile-col-right {
+    width: 555px;
+    max-height: 508px;
+    background-color: #FFFFFF;
+    padding-left: 117px;
+    border-radius: 20px;
+}
+
+.form-section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #292929;
+    margin-top: 36px;
+    margin-bottom: 26px;
+}
+
+.edit-forms {
+    width: 322px;
+    max-height: 77px;
+    margin-bottom: 32px;
+}
+
+.edit-label-blue {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #A6A6A6;
+    margin-bottom: 10px;
+    display: block;
+}
+
+
+.edit-forms input {
+    width: 100%;
+    height: 50px;
+    background-color: #EDF2F6;
+    border: 1px solid #F0F0F0;
+    border-radius: 6px;
+    padding: 16px 14px 17px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #292929;
+    font-weight: 400;
+    box-sizing: border-box;
+}
+
+.btn-save-outline {
+    width: 150px;
+    height: 63px;
+    background-color: #F5F3EF;
+    color: #00AC66;
+    border: 1px solid #00AC66;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 22px 32px 22px 32px;
+    padding-bottom: 5px;
+}
+
+.btn-save-outline:hover {
+    background-color: #FFFFFF;
+}
+
+/* --- Tableau des livres (Tes nouvelles classes) --- */
+.profile-table-wrapper {
+    width: 1141px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    margin-bottom: 104px;
+    padding-left: 66px;
+}
+
+.my-books-table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+.my-books-table th {
+    background-color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    font-weight: 600;
+    color: #292929;
+    padding: 33.24px 20px;
+    text-align: left;
+    border-bottom: 1px solid #F5F3EF;
+}
+
+.my-books-table td {
+    padding: 20px;
+}
+
+
+.my-books-table tbody tr:nth-child(even) {
+    background-color: #EDF2F6; /* une ligne sur deux */
+}
+
+.table-img-frame {
+    width: 78px;
+    height: 78px;
+    overflow: hidden;
+}
+
+.table-img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.table-text-bold {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #292929;
+}
+
+.table-text-light {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #292929;
+}
+
+.table-text-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 12px;
+    color: #292929;
+    max-width: 128px;
+    max-height: 62px;
+}
+
+/* --- Badges Disponibilité --- */
+.badge-disponible {
+    background-color: #6DC5A1;
+    color: #FFFFFF;
+    padding: 3.7px 13.31px;
+    border-radius: 29.58px;
+    font-size: 8.88px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    width: 70.62px;
+    height: 18.4px;
+}
+
+.badge-not-avalaible {
+    background-color: #C56D6D;
+    color: #FFFFFF;
+    padding: 3.7px 13.31px;
+    border-radius: 29.58px;
+    font-size: 8.88px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    width: 71.63px;
+    height: 18.4px;
+}
+
+/* --- Liens Action --- */
+.table-actions a {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    text-decoration: underline;
+    margin-right: 15px;
+}
+
+.action-edit {
+    color: #292929;
+}
+
+.action-delete {
+    color: #C56D6D;
+}
+
+/* --- Zone Danger --- */
+.delete-account-zone {
+    max-width: 1141px;
+    display: flex;
+    justify-content: flex-end; /* Aligne tout à droite */
+}
+
+.btn-delete-account {
+    background-color: transparent;
+    border: 1px solid #d30e0e;
+    border-radius: 10px;
+    color: #C56D6D;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 12px 24px;
+    padding-top: 20px;
 }
