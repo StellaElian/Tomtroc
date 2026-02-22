@@ -35,6 +35,9 @@
                             <a href="index.php?action=show_book&id=<?= htmlspecialchars($book->getId())  ?>">
                                 <div class="book-image">
                                     <img src="img/books/<?= $book->getImage() ?>" alt="<?= $book->getTitle() ?>">
+                                    <?php if ($book->getDisponibilite() === 'non disponible') : ?>
+                                        <span class="badge-non-disponible">non dispo.</span>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="book-info">
                                     <h2 class="book-title"><?= htmlspecialchars($book->getTitle()) ?></h2>

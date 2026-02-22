@@ -683,6 +683,7 @@ img {
     width: 200px;
     height: 200px;
     overflow: hidden;
+    position: relative; /*boite de l image est notre ref*/
 }
 
 .book-image img {
@@ -691,6 +692,18 @@ img {
     object-fit: cover;
 }
 
+.badge-non-disponible {
+    position: absolute;
+    top: 16px;
+    right: 11.87px;
+    background-color: #C56D6D;
+    color:#FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 8.88px;
+    font-weight: 500;
+    padding: 3.7px 13.31px; /*espace autour du texte*/
+    border-radius: 29.58px;
+}
 .book-info {
     width: 200px;
     height: 124px;
@@ -754,7 +767,7 @@ img {
 }
 
 /* ==========================================================================
-   9. PAGE DETAILS D UN LIVRE
+   9. PAGE DETAILS D'UN LIVRE
    ========================================================================== */
 
 /* --- Mise en page globale --- */
