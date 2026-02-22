@@ -48,27 +48,37 @@
                     <div class="owner-bloc">
                         <h3 class="section-owner">PROPRIÉTAIRE</h3>
 
-                        <div class="owner-card">
-                            <div class="avatar-wrapper">
-                                <img src="img/avatars/avatar_default.png" alt="Avatar" class="owner-avatar-img">
+                        <div class="owner-bloc">
+                            <h3 class="section-owner">PROPRIÉTAIRE</h3>
+
+                            <div class="owner-card">
+                                <div class="avatar-wrapper">
+                                    <img src="img/avatars/Avatar_default.png" alt="Avatar" class="owner-avatar-img">
+                                </div>
+
+                                <div class="owner-name-container">
+                                    <a href="index.php?action=public_profile&id=<?= htmlspecialchars($book->getUserId()) ?>">
+                                        <?= htmlspecialchars($book->getSeller()) ?>
+                                    </a>
+                                </div>
                             </div>
 
-                            <div class="owner-name-container">
-                                <a href="index.php?action=public_profile&id=<?= $book->getUserId() ?>">
-                                    <?= htmlspecialchars($book->getSeller()) ?>
-                                </a>
+                            <div class="action-wrapper">
+                                <?php if (isset($_SESSION['user_id'])): ?>
+                                    <?php if ($_SESSION['user_id'] != $book->getUserId()): ?>
+                                        <a href="index.php?action=messagerie&create_chat_with=<?= $book->getUserId() ?>" class="btn-send-message">
+                                            Envoyer un message
+                                        </a>
+                                    <?php endif; ?>
+                                <?php else: ?>
+                                    <a href="index.php?action=login" class="btn-send-message">
+                                        Envoyer un message
+                                    </a>
+                                <?php endif; ?>
                             </div>
                         </div>
 
-                        <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != $book->getUserId()): ?>
-                            <div class="action-wrapper">
-                                <a href="index.php?action=messagerie&create_chat_with=<?= $book->getUserId() ?>" class="btn-send-message">
-                                    Envoyer un message
-                                </a>
-                            </div>
-                        <?php endif; ?>
                     </div>
-
                 </div>
             </div>
         </div>
