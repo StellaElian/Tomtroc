@@ -17,7 +17,7 @@
             <div class="auth-left">
                 <h1 class="sign-title">Connexion</h1>
 
-                <form action="index.php?action=registerUser" method="post" class="sign-form">
+                <form action="index.php?action=connectUser" method="post" class="sign-form">
 
                     <div class="field">
                         <label for="email">Adresse email</label>

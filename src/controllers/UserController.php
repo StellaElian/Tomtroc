@@ -109,7 +109,7 @@ class UserController
         $user->setEmail($_POST['email']);
 
 
-        if (!empty($_POST['password'])) {
+        if (isset($_POST['password']) && trim($_POST['password']) != '') {
             $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $user->setPassword($hashedPassword);
         }
@@ -152,7 +152,8 @@ class UserController
     }
 
     public function logout(): void
-    {
+    { 
+        session_start();
         $_SESSION = []; // vide le tableau
         session_destroy();
         session_regenerate_id(true); //sécurité
