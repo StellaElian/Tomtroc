@@ -9,7 +9,10 @@ class MessageManager extends AbstractEntityManager
         // On cherche les conversations où je suis user1 OU user2
         $sql = "SELECT c.*, 
                 u1.pseudo as user1_pseudo, u1.avatar as user1_avatar,
-                u2.pseudo as user2_pseudo, u2.avatar as user2_avatar
+                u2.pseudo as user2_pseudo, u2.avatar as user2_avatar,
+                (SELECT content FROM messages m WHERE m.conversation_id = c.id ORDER BY m.created_at DESC LIMIT 1) as last_message,
+                /* recyperer l'heure du dernier message */
+                (SELECT created_at FROM messages m WHERE m.conversation_id = c.id ORDER BY m.created_at DESC LIMIT 1) as last_message_date
                 FROM conversations c
                 JOIN users u1 ON c.user1_id = u1.id
                 JOIN users u2 ON c.user2_id = u2.id

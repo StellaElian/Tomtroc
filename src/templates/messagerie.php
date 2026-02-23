@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width" , initial-scale="1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Nos livres</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
@@ -32,9 +32,9 @@
                             <div class="conv-info">
                                 <div class="conv-header">
                                     <span class="conv-pseudo"><?= htmlspecialchars($conversation['other_pseudo']) ?></span>
-                                    <span class="conv-time">15:43</span>
+                                    <span class="conv-time"><?= date('H.i', strtotime($conversation['last_message_date'] ?? 'now')) ?> </span>
                                 </div>
-                                <p class="conv-preview">Cliquez pour lire...</p>
+                                <p class="conv-preview"><?= htmlspecialchars($conversation['last_message'] ?? 'Nouvelle conversation') ?></p>
                             </div>
                         </a>
                     <?php endforeach; ?>
@@ -57,7 +57,7 @@
 
                     <div class="chat-messages-area">
                         <?php if (empty($messages)): ?>
-                            <p style="color: #A6A6A6; font-size: 14px;">Dites bonjour !</p>
+                            <p class="mess-int">Dites bonjour !</p>
                         <?php else: ?>
                             <?php foreach ($messages as $msg): ?>
                                 <?php
@@ -74,11 +74,11 @@
 
                                     <div class="msg-content-wrapper">
                                         <div class="msg-meta">
-                                            <span class="msg-date"><?= $msg->getFormattedDate() ?></span>
-                                            <span class="msg-time">15:48</span>
+                                            <span class="msg-date"><?= date('d.m', strtotime($msg->getCreatedAt() ?? 'now')) ?></span>
+                                            <span class="msg-time"><?= date('H:i', strtotime($msg->getCreatedAt() ?? 'now')) ?></span>
                                         </div>
                                         <div class="msg-bubble">
-                                            <p><?= nl2br(htmlspecialchars($msg->getContent())) ?></p>
+                                            <p><?= htmlspecialchars($msg->getContent()); ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -89,27 +89,13 @@
 
                     <div class="chat-input-wrapper">
                         <form action="index.php?action=sendMessage" method="POST" class="chat-form">
-                            <?php
-                            // On retrouve l'ID de l'interlocuteur pour lui envoyer le message
-                            $receiverId = 0;
-                            foreach ($conversations as $conv) {
-                                if ($conv['id'] == $selectedConversationId) {
-                                    $receiverId = $conv['other_user_id'];
-                                    break;
-                                }
-                            }
-                            ?>
-                            <input type="hidden" name="receiver_id" value="<?= $receiverId ?>">
+                            <input type="hidden" name="receiver_id" value="<?= $otherUserId ?>">
                             <input type="text" name="content" class="chat-input-field" placeholder="Tapez votre message ici" required>
                             <button type="submit" class="btn-send-chat">Envoyer</button>
                         </form>
                     </div>
-
-                <?php else: ?>
-                    <div style="display:flex; justify-content:center; align-items:center; height:100%; color:#A6A6A6;">
-                        <p>Sélectionnez une conversation à gauche pour commencer à discuter.</p>
-                    </div>
                 <?php endif; ?>
+
             </section>
 
         </div>

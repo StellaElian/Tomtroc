@@ -69,6 +69,7 @@ class MessageController
                 if ($conv['id'] == $selectedConversationId) {
                     $otherUserPseudo = $conv['other_pseudo'];
                     $otherUserAvatar = $conv['other_avatar'];
+                    $otherUserId = $conv['other_user_id'];
                     break;
                 }
             }

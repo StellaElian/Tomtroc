@@ -48,13 +48,36 @@ class Message extends AbstractEntity
     }
 
     //format date : 21.08 à 15:48
-    public function getformattedDate(): string
+    /*public function getformattedDate(): string
     {
         try {
             $date = new DateTime($this->createdAt);
             return $date->format('d.m à H:i');
         } catch (Exception $e) {
             return $this->createdAt;
+        }
+    }*/
+
+
+    // donnes UNIQUEMENT la date (jour etmois )
+    public function getOnlyDate(): string
+    {
+        try {
+            $date = new DateTime($this->createdAt);
+            return $date->format('d.m');
+        } catch (Exception $e) {
+            return '';
+        }
+    }
+
+    // Donne UNIQUEMENT l'heure (ex: 15:48)
+    public function getOnlyTime(): string
+    {
+        try {
+            $date = new DateTime($this->createdAt);
+            return $date->format('H:i');
+        } catch (Exception $e) {
+            return '';
         }
     }
 }
