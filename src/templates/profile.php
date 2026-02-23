@@ -14,7 +14,7 @@
 
     <?php require_once '../src/templates/_header.php'; ?>
 
-    <main class="profile-page-wrapper">
+    <main class="my-account-wrapper">
         <div class="profile-container">
 
             <div class="profile-header-flex">
@@ -71,7 +71,7 @@
                 </div>
             </form>
 
-            <div class="my-account-wrapper">
+            <div class="profile-table-wrapper">
                 <table class="my-books-table">
                     <thead>
                         <tr>
@@ -147,3 +147,15 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
