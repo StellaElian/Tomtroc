@@ -25,7 +25,7 @@
     <div class="books-list">
         <?php if (isset($books) && !empty($books)): ?>
             <?php foreach ($books as $book): ?>
-                <article class="book">
+                <a href="index.php?action=show_book&id=<?= $book->getId() ?>" class="book">
                     <div class="book-cover">
                         <img src="img/books/<?= htmlspecialchars($book->getImage() ?: 'default_book.png') ?>"
                             alt="<?= htmlspecialchars($book->getTitle()) ?>"
@@ -37,7 +37,7 @@
                         <p class="book-author"><?= htmlspecialchars($book->getAuthor()) ?></p>
                         <p class="book-seller">Vendu par : <?= htmlspecialchars($book->getSeller() ?? 'Inconnu') ?></p>
                     </div>
-                </article>
+                </a>
             <?php endforeach; ?>
         <?php else: ?>
             <p>Aucun livre disponible.</p>
