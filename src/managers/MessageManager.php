@@ -59,9 +59,9 @@ class MessageManager extends AbstractEntityManager
         $sqlInsert = "INSERT INTO conversations (user1_id, user2_id) VALUES (:u1, :u2)";
         $this->db->query($sqlInsert, ['u1' => $senderId, 'u2' => $receiverId]);
 
-        //Pour récupérer l'ID créé, on doit utiliser getPDO() car ton query() ne retourne pas l'ID.
+        //Pour récupérer l'ID créé, on doit utiliser getPDO() car le query() ne retourne pas l'ID.
         return $this->db->getPDO()->lastInsertId();
-        // lII: c'est quoi l'id que tu viens de créer ?pour rediriger l'user vers son new chat
+        // l'id  créer ?pour rediriger l'user vers son new chat
     }
 
     // Enregistrer un message
