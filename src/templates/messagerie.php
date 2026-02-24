@@ -13,7 +13,6 @@
 <body>
     <?php require_once '../src/templates/_header.php'; ?>
 
-
     <main class="messagerie-page-wrapper">
         <div class="messagerie-container">
 
@@ -105,5 +104,13 @@
 
 
 </body>
+
+<script>
+    // Cette fonction fait descendre le scroll tout en bas de la zone de chat
+    const chatWindow = document.querySelector('.chat-messages-area');
+    if (chatWindow) {
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+</script>
 
 </html>
