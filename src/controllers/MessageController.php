@@ -1,4 +1,5 @@
 <?php
+
 class MessageController
 {
     //Affichage page messagerie
@@ -73,7 +74,11 @@ class MessageController
                     break;
                 }
             }
+            // On marque les messages de cette conversation comme lu
+            $messageManager->markAsRead($selectedConversationId, $userId);
         }
+        $_SESSION['unread_count'] = $messageManager->countUnreadMessages($userId);
+        
         require_once '../src/templates/messagerie.php';
     }
 

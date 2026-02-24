@@ -14,6 +14,11 @@ $bookController = new BookController();
 $homeController = new HomeController();
 $messageController = new MessageController();
 
+if (isset($_SESSION['user_id'])) {
+    $mm = new MessageManager();
+    $_SESSION['unread_count'] = $mm->countUnreadMessages($_SESSION['user_id']);
+}
+
 $action = $_GET['action'] ?? $_POST['action'] ?? 'home';
 
 switch($action){

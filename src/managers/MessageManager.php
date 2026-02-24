@@ -82,4 +82,38 @@ class MessageManager extends AbstractEntityManager
 
         return true;
     }
+
+    //compte le nbre total de messages non lus pour l'user
+    public function countUnreadMessages(int $userId): int
+    {
+        // On compte les messages non lus qui ne viennent PAS de moi
+        // ET qui appartiennent à une conversation dont je fais partie
+        $sql = "SELECT COUNT(*) as unread_count 
+            FROM messages 
+            WHERE is_read = 0 
+            AND sender_id != :userId 
+            AND conversation_id IN (
+                SELECT id FROM conversations WHERE user1_id = :userId OR user2_id = :userId
+            )";
+
+        $query = $this->db->query($sql, ['userId' => $userId]);
+        $result = $query->fetch();
+
+        return (int) ($result['unread_count'] ?? 0);
+    }
+
+    //Marque les messages d'une conv comme lus
+    public function markAsRead(int $conversationId, int $userId): void
+    {
+        $sql = "UPDATE messages 
+            SET is_read = 1 
+            WHERE conversation_id = :conversationId 
+            AND sender_id != :userId";
+
+        // On exécute l'ordre pour cette conversation précise
+        $this->db->query($sql, [
+            'conversationId' => $conversationId,
+            'userId' => $userId
+        ]);
+    }
 }

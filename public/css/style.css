@@ -1404,7 +1404,6 @@ img {
     width: 322px;
     height: 63px;
     background-color: #00AC66;
-    /* Ton vert */
     color: #FFFFFF;
     border: none;
     border-radius: 10px;
@@ -1416,7 +1415,7 @@ img {
 }
 
 .edit-btn-validate:hover {
-    background-color: #FFFFFF;
+    background-color: #90dbbb;
 }
 
 
