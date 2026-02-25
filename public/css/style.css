@@ -1432,7 +1432,7 @@ img {
 /* --- Colonne Droite */
 .profile-col-right {
     width: 555px;
-    max-height: 508px;
+    height: 508px;
     background-color: #FFFFFF;
     padding-left: 117px;
     border-radius: 20px;
@@ -1486,8 +1486,6 @@ img {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    margin: 22px 32px 22px 32px;
-    /*padding-bottom: 37px;*/
 }
 
 .btn-save-outline:hover {
