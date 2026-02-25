@@ -1,36 +1,57 @@
-//previsualisation image dans ajout d'un livre 
-document.getElementById('book-image-upload').addEventListener('change', function (e) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-        document.getElementById('book-preview').src = e.target.result;
-    }
-    if (this.files[0]) {
-        reader.readAsDataURL(this.files[0]);
-    }
-});
+// ==========================================================
+// 1. PRÉVISUALISATION DE L'IMAGE (Page "Ajouter un livre")
+// ==========================================================
 
+let champImage = document.getElementById('book-image-upload');
 
-// recherche dynamique dans nos livres à l'échange 
-// On cible la barre de recherche et toutes les cartes des livres
-const searchInput = document.querySelector('input[name="search"]');
-const bookCards = document.querySelectorAll('.book-card');
+if (champImage !== null) {
 
-// On écoute l'événement "input" (se déclenche à chaque lettre tapée)
-searchInput.addEventListener('input', function () {
+    champImage.addEventListener('change', function () {
 
-    // On récupère le texte tapé et on le met en minuscules
-    const searchText = searchInput.value.toLowerCase();
+        // On isole le fichier que l'utilisateur vient de sélectionner
+        let fichierChoisi = this.files[0];
 
-    // On vérifie chaque livre un par un
-    bookCards.forEach(function (card) {
-        // On récupère le titre du livre (en minuscules aussi)
-        const title = card.querySelector('.book-title').textContent.toLowerCase();
+        if (fichierChoisi) {
 
-        //  Si le titre contient les lettres tapées, on l'affiche. Sinon, on le cache.
-        if (title.includes(searchText)) {
-            card.style.display = ''; // Laisse le livre visible
-        } else {
-            card.style.display = 'none'; // Cache le livre
+            // On crée un outil capable de lire le fichier
+            let lecteur = new FileReader();
+
+            // On prépare ce qui se passe QUAND la lecture sera finie
+            lecteur.onload = function (evenement) {
+                // On remplace la fausse image par le résultat de la lecture
+                document.getElementById('book-preview').src = evenement.target.result;
+            };
+
+            lecteur.readAsDataURL(fichierChoisi);
         }
     });
-});
+}
+
+// ==========================================================
+// 2. RECHERCHE DYNAMIQUE (Page "Nos livres à l'échange")
+// ==========================================================
+
+let barreRecherche = document.querySelector('input[name="search"]');
+
+if (barreRecherche !== null) {
+
+    let cartesLivres = document.querySelectorAll('.book-card');
+
+    barreRecherche.addEventListener('input', function () {
+
+        // On récupère ce qu'il a tapé, et on force tout en minuscules
+        let texteTape = barreRecherche.value.toLowerCase();
+
+        // On passe en revue chaque livre un par un
+        cartesLivres.forEach(function (carte) {
+
+            let titreLivre = carte.querySelector('.book-title').textContent.toLowerCase();
+
+            if (titreLivre.includes(texteTape)) {
+                carte.style.display = ''; // On laisse la carte visible
+            } else {
+                carte.style.display = 'none';
+            }
+        });
+    });
+}
