@@ -1317,6 +1317,7 @@ img {
     color: #000000;
 }
 
+
 .btn-add-book {
     background-color: #FFFFFF;
     color: #00AC66;
@@ -1328,6 +1329,7 @@ img {
     padding: 12px 24px;
     border-radius: 10px;
 }
+
 
 /* --- Haut : Flexbox Avatar / Formulaire --- */
 .profile-columns-flex {
@@ -1627,6 +1629,7 @@ img {
     justify-content: flex-end;
     /* Aligne tout à droite */
 }
+
 
 .btn-delete-account {
     background-color: transparent;
@@ -2003,4 +2006,10 @@ img {
 .error-btn:hover {
     background-color: #00AC66;
     color: #FFFFFF;
+}
+
+/* === MODE SOUTENANCE === */
+.btn-add-book,
+.btn-delete-account {
+    display: none !important;
 }

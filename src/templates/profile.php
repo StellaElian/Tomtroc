@@ -5,7 +5,9 @@
 
         <div class="profile-header-flex">
             <h1 class="profile-main-title">Mon compte</h1>
+            <!--
             <a href="index.php?action=addBook" class="btn-add-book">Ajouter un livre</a>
+            -->
         </div>
 
         <form action="index.php?action=updateProfile" method="POST" enctype="multipart/form-data" class="profile-top-section">
@@ -109,9 +111,11 @@
 
         <div class="delete-account-zone">
             <form action="index.php?action=deleteAccount" method="POST">
+                <!--
                 <button type="submit" class="btn-delete-account" onclick="return confirm('⚠️⚠️ Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible !');">
                     Supprimer mon compte
                 </button>
+                -->
             </form>
         </div>
 
