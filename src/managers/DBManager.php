@@ -2,7 +2,7 @@
 
 /**
  * Classe qui permet de se connecter à la base de données.
- * Cette classe est un singleton. Cela signifie qu'il n'est pas possible de créer plusieurs instances de cette classe.
+ * C est un singleton. Cela signifie qu'il n'est pas possible de créer plusieurs instances de cette classe.
  * Pour récupérer une instance de cette classe, il faut utiliser la méthode getInstance().
  * Création d'une classe singleton qui permet de se connecter à la base de données.
  * On crée une instance de la classe DBConnect qui permet de se connecter à la base de données.
