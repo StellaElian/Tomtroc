@@ -635,6 +635,7 @@ img {
     font-weight: 400;
     white-space: nowrap;
     /*pour que ça ne fasse qu'une ligne*/
+    margin: 0; /*enlève la marge qui pousse le texte */
 }
 
 .search-bar {

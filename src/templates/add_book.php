@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajoute d'un livre </title>
+    <title>Ajout d'un livre </title>
 
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/style.css">
@@ -40,7 +40,7 @@
                             </div>
 
                             <label for="book-image-upload" class="edit-link-modify-photo">Modifier la photo</label>
-                            <input type="file" name="image" id="book-image-upload" accept="image/png, image/jpeg" style="display: none;" required>
+                            <input type="file" name="image" id="book-image-upload" accept="image/png, image/jpeg" style="display: none;">
                         </div>
 
                         <div class="edit-col-right-inputs">
