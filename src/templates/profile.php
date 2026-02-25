@@ -32,7 +32,7 @@
                         </div>
 
                         <label for="avatar_upload" class="edit-avatar-link">modifier</label>
-                        <input type="file" id="avatar_upload" name="avatar" accept="image/png, image/jpeg" style="display: none;">
+                        <input type="file" id="avatar_upload" name="avatar" accept="image/png, image/jpeg" class="hidden">
 
                         <img src="img/min/line5.svg" alt="séparateur" class="profile-separator-line">
 
@@ -86,7 +86,7 @@
                     <tbody>
                         <?php if (empty($books)): ?>
                             <tr>
-                                <td colspan="6" style="text-align:center; padding: 20px;">Votre bibliothèque est vide.</td>
+                                <td colspan="6" class="empty-state">Votre bibliothèque est vide.</td>
                             </tr>
                         <?php else: ?>
                             <?php foreach ($books as $book): ?>

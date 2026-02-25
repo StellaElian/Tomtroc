@@ -40,7 +40,7 @@
                             </div>
 
                             <label for="book-image-upload" class="edit-link-modify-photo">Modifier la photo</label>
-                            <input type="file" name="image" id="book-image-upload" accept="image/png, image/jpeg" style="display: none;">
+                            <input type="file" name="image" id="book-image-upload" accept="image/png, image/jpeg" class="hidden">
                         </div>
 
 

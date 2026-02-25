@@ -39,7 +39,7 @@
                     <?php endforeach; ?>
 
                     <?php if (empty($conversations)): ?>
-                        <p style="padding: 10px; color: #A6A6A6; font-size: 14px;">Aucune conversation pour le moment.</p>
+                        <p class="empty-msg">Aucune conversation pour le moment.</p>
                     <?php endif; ?>
                 </div>
             </div>
