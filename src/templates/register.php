@@ -30,5 +30,5 @@
 
         <img src="img/books/image_inscription.png" class="auth-img" alt="Bibliothèque">
     </div>
-
-    <?php require_once '../src/templates/_footer.php'; ?>
+</main>
+<?php require_once '../src/templates/_footer.php'; ?>
