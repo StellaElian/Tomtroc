@@ -1502,7 +1502,9 @@ img {
     overflow: hidden;
     background-color: #FFFFFF;
     margin-bottom: 104px;
-    padding-left: 66px;
+    
+    padding: 0;
+    width: 100%;
 }
 
 .my-books-table {
@@ -1526,6 +1528,10 @@ img {
     padding: 20px;
 }
 
+.my-books-table th:first-child,
+.my-books-table td:first-child {
+    padding-left: 66px;
+}
 
 .my-books-table tbody tr:nth-child(even) {
     background-color: #EDF2F6;
