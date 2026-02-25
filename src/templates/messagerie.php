@@ -24,6 +24,12 @@
                         <div class="conv-info">
                             <div class="conv-header">
                                 <span class="conv-pseudo"><?= htmlspecialchars($conversation['other_pseudo']) ?></span>
+                                <?php 
+                                // On affiche le point SI le dernier message n'est pas lu 
+                                // ET SI ce n'est pas NOUS qui l'avons envoyé
+                                if ($conversation['last_message_read'] == 0 && $conversation['last_message_sender_id'] != $_SESSION['user_id']): ?>
+                                    <span class="unread-dot"></span>
+                                <?php endif; ?>
                                 <span class="conv-time"><?= date('H.i', strtotime($conversation['last_message_date'] ?? 'now')) ?> </span>
                             </div>
                             <p class="conv-preview"><?= htmlspecialchars($conversation['last_message'] ?? 'Nouvelle conversation') ?></p>

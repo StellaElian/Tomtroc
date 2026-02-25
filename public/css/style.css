@@ -1730,6 +1730,16 @@ img {
     color: #292929;
 }
 
+.unread-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #00AC66; /* Le vert de ton bouton */
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
 .conv-time {
     font-family: 'Inter', sans-serif;
     font-weight: 400;

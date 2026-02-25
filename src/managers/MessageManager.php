@@ -12,7 +12,10 @@ class MessageManager extends AbstractEntityManager
                 u2.pseudo as user2_pseudo, u2.avatar as user2_avatar,
                 (SELECT content FROM messages m WHERE m.conversation_id = c.id ORDER BY m.created_at DESC LIMIT 1) as last_message,
                 /* recuperer l'heure du dernier message */
-                (SELECT created_at FROM messages m WHERE m.conversation_id = c.id ORDER BY m.created_at DESC LIMIT 1) as last_message_date
+                (SELECT created_at FROM messages m WHERE m.conversation_id = c.id ORDER BY m.created_at DESC LIMIT 1) as last_message_date,
+                /*récupérer les deniers messages */ 
+                (SELECT is_read FROM messages m WHERE m.conversation_id = c.id ORDER BY m.created_at DESC LIMIT 1) as last_message_read,
+                (SELECT sender_id FROM messages m WHERE m.conversation_id = c.id ORDER BY m.created_at DESC LIMIT 1) as last_message_sender_id
                 FROM conversations c
                 JOIN users u1 ON c.user1_id = u1.id
                 JOIN users u2 ON c.user2_id = u2.id
