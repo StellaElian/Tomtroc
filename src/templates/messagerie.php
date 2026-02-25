@@ -8,6 +8,12 @@
 
             <div class="conversation-list">
                 <?php foreach ($conversations as $conversation): ?>
+                    <?php
+                    //si 'last_message' est vide ou nul, on saute cette itération
+                    if (empty($conversation['last_message'])) {
+                        continue;
+                    }
+                    ?>
                     <a href="index.php?action=messagerie&id=<?= $conversation['id'] ?>"
                         class="conversation-item <?= ($selectedConversationId == $conversation['id']) ? 'active' : '' ?>">
 
