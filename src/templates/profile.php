@@ -18,7 +18,7 @@
                     </div>
 
                     <label for="avatar_upload" class="edit-avatar-link">modifier</label>
-                    <input type="file" id="avatar_upload" name="avatar" accept="image/png, image/jpeg" class="hidden">
+                    <input type="file" id="avatar_upload" name="avatar" accept="image/png, image/jpeg" class="hidden-input">
 
                     <img src="img/min/line5.svg" alt="séparateur" class="profile-separator-line">
 
