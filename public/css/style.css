@@ -1502,15 +1502,12 @@ img {
     overflow: hidden;
     background-color: #FFFFFF;
     margin-bottom: 104px;
-    
     padding: 0;
-    width: 100%;
 }
 
 .my-books-table {
     width: 100%;
     border-collapse: collapse;
-
 }
 
 .my-books-table th {
