@@ -55,7 +55,35 @@
                 <?php endif; ?>
             </section>
         </div>
-        </main>
+    </main>
 
-        <?php require_once '../src/templates/_footer.php'; ?>
-        </body>
+    <?php require_once '../src/templates/_footer.php'; ?>
+
+    <script>
+        // 1. On cible la barre de recherche et toutes les cartes des livres
+        const searchInput = document.querySelector('input[name="search"]');
+        const bookCards = document.querySelectorAll('.book-card');
+
+        // 2. On écoute l'événement "input" (se déclenche à chaque lettre tapée)
+        searchInput.addEventListener('input', function() {
+
+            // 3. On récupère le texte tapé et on le met en minuscules
+            const searchText = searchInput.value.toLowerCase();
+
+            // 4. On vérifie chaque livre un par un
+            bookCards.forEach(function(card) {
+                // On récupère le titre du livre (en minuscules aussi)
+                const title = card.querySelector('.book-title').textContent.toLowerCase();
+
+                // 5. Si le titre contient les lettres tapées, on l'affiche. Sinon, on le cache.
+                if (title.includes(searchText)) {
+                    card.style.display = ''; // Laisse le livre visible
+                } else {
+                    card.style.display = 'none'; // Cache le livre
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
