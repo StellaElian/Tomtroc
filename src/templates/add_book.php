@@ -82,17 +82,8 @@
 
     <?php require_once '../src/templates/_footer.php'; ?>
 
-    <script>
-        document.getElementById('book-image-upload').addEventListener('change', function(e) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('book-preview').src = e.target.result;
-            }
-            if (this.files[0]) {
-                reader.readAsDataURL(this.files[0]);
-            }
-        });
-    </script>
+    <script src="js/script.js"></script>
+    
 </body>
 
 </html>
