@@ -1291,6 +1291,10 @@ img {
     display: block;
 }
 
+.hidden-input {
+    display: none;
+}
+
 /* --- Colonne DROITE (Champs) --- */
 .edit-col-right-inputs {
     width: 435px;
