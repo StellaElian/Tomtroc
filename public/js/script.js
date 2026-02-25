@@ -55,3 +55,30 @@ if (barreRecherche !== null) {
         });
     });
 }
+
+// ==========================================================
+// 3. PRÉVISUALISATION AVATAR (Page "Mon Compte")
+// ==========================================================
+let avatarUpload = document.getElementById('avatar_upload');
+
+if (avatarUpload !== null) {
+    avatarUpload.addEventListener('change', function () {
+        let fichierChoisi = this.files[0];
+        if (fichierChoisi) {
+            let lecteur = new FileReader();
+            lecteur.onload = function (evenement) {
+                document.getElementById('avatar-preview').src = evenement.target.result;
+            };
+            lecteur.readAsDataURL(fichierChoisi);
+        }
+    });
+}
+
+// ==========================================================
+// 4. SCROLL AUTOMATIQUE (Page "Messagerie")
+// ==========================================================
+let fenetreChat = document.querySelector('.chat-messages-area');
+
+if (fenetreChat !== null) {
+    fenetreChat.scrollTop = fenetreChat.scrollHeight;
+}

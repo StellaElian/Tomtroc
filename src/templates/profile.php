@@ -132,17 +132,7 @@
 
     <?php require_once '../src/templates/_footer.php'; ?>
 
-    <script>
-        document.getElementById('avatar_upload').addEventListener('change', function(e) {
-            if (this.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('avatar-preview').src = e.target.result;
-                }
-                reader.readAsDataURL(this.files[0]);
-            }
-        });
-    </script>
+    <script src="js/script.js"></script>
 
 </body>
 

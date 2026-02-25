@@ -83,16 +83,7 @@
 
     <?php require_once '../src/templates/_footer.php'; ?>
 
-    <script>
-        // Aperçu de l'image immédiat lors du changement de fichier
-        document.getElementById('book-image-upload').addEventListener('change', function(e) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                document.getElementById('book-preview').src = e.target.result;
-            }
-            reader.readAsDataURL(this.files[0]);
-        });
-    </script>
+    <script src="js/script.js"></script>
 
 </body>
 
