@@ -93,8 +93,7 @@ class BookManager extends AbstractEntityManager
         $sql = "SELECT b.*, u.pseudo AS seller
                 FROM books b
                 INNER JOIN users u ON b.user_id = u.id
-                ORDER BY b.id DESC 
-                LIMIT 4";
+                ORDER BY b.id DESC ";
         $query = $this->db->query($sql);
         $books = [];
         if ($query) {
