@@ -22,6 +22,9 @@ if (isset($_SESSION['user_id'])) {
 $action = $_GET['action'] ?? $_POST['action'] ?? 'home';
 
 switch($action){
+    case 'home':
+        $homeController->index();
+        break;
     case 'register': //Affichage de la page 
         $userController->showRegister();
         break;
@@ -86,6 +89,7 @@ switch($action){
         $messageController->sendMessage();
         break;
     default:
-        $homeController->index();
+        //si l'action n'existe pas
+        require_once '../src/templates/error404.php';
         break;
 }
