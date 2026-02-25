@@ -85,7 +85,9 @@
                                 <td class="table-text-bold"><?= htmlspecialchars($book->getTitle()) ?></td>
                                 <td class="table-text-light"><?= htmlspecialchars($book->getAuthor()) ?></td>
                                 <td class="table-text-desc">
-                                    <?= htmlspecialchars($book->getDescription() ?? ''); ?>...
+                                    <div class="text-truncate-wrapper">
+                                        <?= htmlspecialchars($book->getDescription() ?? ''); ?>
+                                    </div>
                                 </td>
                                 <td>
                                     <?php if ($book->getDisponibilite() === 'non disponible'): ?>
