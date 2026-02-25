@@ -180,6 +180,8 @@ class BookController
         $book = $bookManager->getBookById($id);
         
         if($book) {
+            $userManager = new UserManager();
+            $seller = $userManager->getUserById($book->getUserId());
             require_once "../src/templates/show_book.php";
         }else {
             Utils::redirect("exchange");

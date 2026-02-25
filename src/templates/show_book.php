@@ -38,7 +38,7 @@
 
                         <div class="owner-card">
                             <div class="avatar-wrapper">
-                                <img src="img/avatars/Avatar_default.png" alt="Avatar" class="owner-avatar-img">
+                                <img src="img/avatars/<?=  htmlspecialchars($seller->getAvatar()) ?>" alt="Avatar" class="owner-avatar-img">
                             </div>
 
                             <div class="owner-name-container">
