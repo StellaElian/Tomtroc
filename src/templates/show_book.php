@@ -46,7 +46,6 @@
                     </div>
 
                     <div class="owner-bloc">
-                        <h3 class="section-owner">PROPRIÉTAIRE</h3>
 
                         <div class="owner-bloc">
                             <h3 class="section-owner">PROPRIÉTAIRE</h3>
