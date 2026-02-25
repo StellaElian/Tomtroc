@@ -17,7 +17,7 @@ class MessageManager extends AbstractEntityManager
                 JOIN users u1 ON c.user1_id = u1.id
                 JOIN users u2 ON c.user2_id = u2.id
                 WHERE c.user1_id = :userId OR c.user2_id = :userId
-                ORDER BY c.id DESC";
+                ORDER BY last_message_date DESC"; //on trie la date du message ici 
 
         $query = $this->db->query($sql, ['userId' => $userId]);
 
