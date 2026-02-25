@@ -17,11 +17,10 @@ Le projet est construit de zéro, sans framework externe, en respectant rigoureu
 * **Front-end :** HTML5, CSS3 (Flexbox/Grid), JavaScript (Vanilla)
 * **Back-end :** PHP 8.3 (POO)
 * **Base de données :** MySQL (requêtes préparées via PDO)
-* **Architecture MVC :**
-  * `controllers/` : Logique applicative et liaison.
-  * `models/` : Classes (Entités) et accès aux données (Managers).
-  * `views/` : Templates HTML/CSS sécurisés.
+* **Architecture MVC & Sécurité :**
   * `public/` : Point d'entrée unique (`index.php`) et ressources statiques.
+  * `controllers/`, `models/`, `views/`, `config/`, etc. : Sécurisés par des fichiers `.htaccess` bloquant tout accès direct HTTP.
+  * **GitHub :** Fichiers sensibles (`config.php`) et uploads utilisateurs ignorés via `.gitignore`.
 
 ## 💻 Installation et configuration
 
