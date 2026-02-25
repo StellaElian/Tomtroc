@@ -29,11 +29,11 @@
                         <input type="password" name="password" id="password" required>
                     </div>
 
-                    <button type="submit" class="sign-submit-btn">S'inscrire</button>
+                    <button type="submit" class="sign-submit-btn">Se connecter</button>
                 </form>
 
                 <div class="sign-ask">
-                    Pas de compte ? <a href="index.php?action=register" style="text-decoration: underline; color: black;">Inscrivez-vous</a>
+                    Pas de compte ? <a href="index.php?action=register">Inscrivez-vous</a>
                 </div>
             </div>
 

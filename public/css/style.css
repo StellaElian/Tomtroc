@@ -77,12 +77,6 @@ img {
     display: block;
 }
 
-/* Conteneur global (si besoin) */
-.container {
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
 /* ==========================================================================
    1. GLOBAUX ET BOUTONS
 ========================================================================== */
@@ -429,7 +423,7 @@ img {
 }
 
 /* ==========================================================================
-   6. PAGE INSCRIPTION 
+   6. PAGE INSCRIPTION +  7. PAGE CONNEXION
 ========================================================================== */
 
 .auth {
@@ -445,7 +439,7 @@ img {
     flex-direction: column;
     /* On garde marges Figma : Haut 130, Gauche 150 */
     padding: 80px 50px 0px 180px;
-    background-color: var(--lightGray);
+    background-color: #FAF9F7;
     overflow-y: auto;
 }
 
@@ -507,93 +501,19 @@ img {
     margin-top: 40px;
 }
 
-.sign-ask a {
-    color: var(--darkGray);
-    text-decoration: underline;
-}
-
-/* ==========================================================================
-   7. PAGE CONNEXION
-========================================================================== */
-
-.auth {
-    display: flex;
-    width: 100%;
-}
-
-.auth-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    /* On garde marges Figma : Haut 130, Gauche 150 */
-    padding: 80px 50px 0px 180px;
-    background-color: var(--lightGray);
-    overflow-y: auto;
-}
-
-.auth {
-    display: flex;
-    width: auto;
-    min-height: calc(100vh - 141px);
-    object-fit: cover;
-}
-
-/* --- CHAMPS ET BOUTON --- */
-.sign-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 400;
-    line-height: 48px;
-}
-
-.field {
-    display: flex;
-    flex-direction: column;
-    margin-top: 32px;
-}
-
-.field label {
-    color: var(--textGray);
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.field input {
-    background-color: #FFFFFF;
-    border-radius: 6px;
-    border: 1px solid var(--white);
-    height: 50px;
-    padding: 16px 14px;
-    width: 322px;
-    outline: none;
-}
-
-.sign-submit-btn {
-    width: 322px;
-    height: 63px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 30px;
-    background-color: var(--green);
-    color: #FFFFFF;
-    border: none;
-}
-
-/* Texte "Déjà inscrit" avec l'écart de 40px */
-.sign-ask {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: var(--darkGray);
-    margin-top: 40px;
+.sign-submit-btn:hover {
+    background-color: #008f53; /* Un vert un peu plus foncé, comme tes autres boutons */
+    transition: all 0.3s ease; /* Rend l'animation douce */
 }
 
 .sign-ask a {
     color: var(--darkGray);
     text-decoration: underline;
+}
+
+.sign-ask a:hover {
+    color: var(--textGray); 
+    text-decoration: none;
 }
 
 /* ==========================================================================
