@@ -67,5 +67,3 @@
 </main>
 
 <?php require_once '../src/templates/_footer.php'; ?>
-
-<script src="js/script.js"></script>
