@@ -49,6 +49,9 @@
     gap: 58px; 
     margin-left: 58px; 
 }
+.push-right {
+    margin-left: auto;
+}
 
 .nav-item {
     display: flex;

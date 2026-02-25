@@ -48,7 +48,7 @@
                         <a href="index.php?action=logout" class="connexion">Déconnexion</a>
                     </div>
                 <?php else: ?>
-                    <div class="nav-right">
+                    <div class="nav-right push-right">
                         <a href="index.php?action=login" class="connexion">Connexion</a>
                     </div>
                 <?php endif; ?>
