@@ -5,9 +5,9 @@
 
         <div class="profile-header-flex">
             <h1 class="profile-main-title">Mon compte</h1>
-            <!--
+            
             <a href="index.php?action=addBook" class="btn-add-book">Ajouter un livre</a>
-            -->
+          
         </div>
 
         <form action="index.php?action=updateProfile" method="POST" enctype="multipart/form-data" class="profile-top-section">
