@@ -597,6 +597,15 @@ img {
     font-weight: 400;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 1;
+}
+
 /* Grille de livres (Gap 38px) */
 .books-grid {
     display: grid;

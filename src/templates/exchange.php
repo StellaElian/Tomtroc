@@ -7,10 +7,10 @@
             <div class="search-bar">
                 <form action="index.php" method="GET">
                     <input type="hidden" name="action" value="exchange">
-
-                    <img src="/Mission_tomtroc/public/img/min/search.png" alt="rechercher">
-
-                    <input type="text" name="search" placeholder="Rechercher un livre" value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
+                    <div class="search-section">
+                        <img src="/Mission_tomtroc/public/img/min/search.png" alt=""><label for="search-input" class="visually-hidden">Rechercher un titre par son titre</label>
+                        <input type="text" name="search" id="search-input" placeholder="Rechercher un livre" value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
+                    </div>
                 </form>
             </div>
         </header>
