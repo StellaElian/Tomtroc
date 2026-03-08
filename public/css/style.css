@@ -800,16 +800,16 @@ img {
     font-weight: 300;
     margin-bottom: 16px;
     font-size: 10px;
-    color: var(--textGray);
+    color: #1f1e1e;
 }
 
 .chemin-navigation a {
-    color: var(--textGray);
+    color: #1f1e1e;
     text-decoration: none;
 }
 
 .chemin-navigation .separator {
-    color: var(--textGray);
+    color: #1f1e1e;
     margin: 0 10px;
 }
 
@@ -825,7 +825,7 @@ img {
 
 .book-main-author {
     font-family: 'Inter', sans-serif;
-    color: var(--textGray);
+    color: #1f1e1e;
     font-weight: 400;
     font-size: 16px;
     margin-bottom: 32.5px;
@@ -895,7 +895,7 @@ img {
 .btn-send-message {
     width: 485px;
     height: 63px;
-    background-color: var(--green);
+    background-color: #036e43;
     display: flex;
     justify-content: center;
     align-items: center;
