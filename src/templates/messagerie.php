@@ -88,7 +88,8 @@
                 <div class="chat-input-wrapper">
                     <form action="index.php?action=sendMessage" method="POST" class="chat-form">
                         <input type="hidden" name="receiver_id" value="<?= $otherUserId ?>">
-                        <input type="text" name="content" class="chat-input-field" placeholder="Tapez votre message ici" required>
+                        <label for="chat-input" class="visually-hidden">Tapez votre message ici</label>
+                        <input type="text" name="content" id="chat-input" class="chat-input-field" placeholder="Tapez votre message ici" required>
                         <button type="submit" class="btn-send-chat">Envoyer</button>
                     </form>
                 </div>
