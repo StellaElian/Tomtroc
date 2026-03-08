@@ -1342,8 +1342,8 @@ img {
 
 .btn-add-book {
     background-color: #FFFFFF;
-    color: #00AC66;
-    border: 1px solid #00AC66;
+    color: #036e43;
+    border: 1px solid #036e43;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-size: 12px;
@@ -1396,7 +1396,7 @@ img {
     font-family: 'Inter', sans-serif;
     font-size: 12px;
     font-weight: 400;
-    color: #A6A6A6;
+    color: #201f1f;
     text-decoration: underline;
     cursor: pointer;
     margin-top: 5px;
@@ -1420,7 +1420,7 @@ img {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 400;
-    color: #A6A6A6;
+    color: #201f1f;
     margin: 11px 0 21px 0;
 }
 
@@ -1480,7 +1480,7 @@ img {
 .edit-label-blue {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
-    color: #A6A6A6;
+    color: #201f1f !important;
     margin-bottom: 10px;
     display: block;
 }
@@ -1503,8 +1503,8 @@ img {
     width: 150px;
     height: 63px;
     background-color: #F5F3EF;
-    color: #00AC66;
-    border: 1px solid #00AC66;
+    color: #036e43;
+    border: 1px solid #036e43;
     border-radius: 10px;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
