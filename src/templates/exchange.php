@@ -8,7 +8,8 @@
                 <form action="index.php" method="GET">
                     <input type="hidden" name="action" value="exchange">
                     <div class="search-section">
-                        <img src="/Mission_tomtroc/public/img/min/search.png" alt=""><label for="search-input" class="visually-hidden">Rechercher un titre par son titre</label>
+                        <label for="search-input" class="visually-hidden">Rechercher un titre par son titre</label>
+                        <img src="/Mission_tomtroc/public/img/min/search.png" alt="">
                         <input type="text" name="search" id="search-input" placeholder="Rechercher un livre" value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
                     </div>
                 </form>
