@@ -1154,7 +1154,7 @@ img {
     /* Aligne parfaitement au milieu */
     display: flex;
     gap: 4px;
-    color: #A6A6A6;
+    color: #6f6b6b;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
@@ -1206,7 +1206,7 @@ img {
 .edit-label-light {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
-    color: #A6A6A6;
+    color: #201f1f;
     margin-bottom: 10px;
     display: block;
 }
@@ -1290,7 +1290,7 @@ img {
 .edit-btn-validate {
     width: 322px;
     height: 63px;
-    background-color: #00AC66;
+    background-color: #07643f;
     color: #FFFFFF;
     border: none;
     border-radius: 10px;
