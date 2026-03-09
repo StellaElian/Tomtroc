@@ -626,8 +626,8 @@ img {
 .books-grid {
     display: grid;
     /*crée un tableau invisible qui range les livres dans une case */
-    grid-template-columns: repeat(auto-fill, 200px);
-    /*formule pour ranger magiquement les livres en colonnes de 200px */
+    grid-template-columns: repeat(4, 200px);
+    /*formule pour focer passage de 3 à 4 colonnes de 200px  sur Chrome*/
     column-gap: 38px;
     /*espace horizntal entre les livres*/
     row-gap: 48px;
