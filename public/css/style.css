@@ -119,7 +119,7 @@ img {
     text-decoration: none;
     /* Haut 39px, Bas 71px pour l'espace de 199px total */
     margin: 39px 0 71px 0;
-    background-color: #0b614a;
+    background-color: #0e7d5f;
     color: #FFFFFF;
     border: none;
     cursor: pointer;
@@ -128,15 +128,15 @@ img {
 }
 
 .btn:hover {
-    background-color: #008f53;
+    background-color: #00AC66;
     border-color: #008f53;
 }
 
 /* BOUTON CONTOUR (Blanc/Transparent avec bord vert) */
 .btn-outline {
     background-color: transparent;
-    color: #0b614a;
-    border: 1px solid var(--green);
+    color: #0e7d5f;
+    border: 1px solid #0e7d5f;
 }
 
 .book:hover {
