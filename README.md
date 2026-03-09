@@ -19,8 +19,9 @@ Le projet est construit de zéro, sans framework externe, en respectant rigoureu
 * **Base de données :** MySQL (requêtes préparées via PDO)
 * **Architecture MVC & Sécurité :**
   * `public/` : Point d'entrée unique (`index.php`) et ressources statiques.
+  * **Accessibilité & Qualité** : Respect des normes WCAG 2.1 (vérifié via WAVE) pour garantir un contraste optimal et une navigation facilitée (labels, structure sémantique).
   * `controllers/`, `models/`, `views/`, `config/`, etc. : Sécurisés par des fichiers `.htaccess` bloquant tout accès direct HTTP.
-  * **GitHub :** Fichiers sensibles (`config.php`) et uploads utilisateurs ignorés via `.gitignore`.
+  * **GitHub** : Les fichiers sensibles (_config.php) sont normalement ignorés via .gitignore . Note : Pour les besoins de la soutenance et de la vérification tutorée, le fichier de configuration a été rendu accessible temporairement.
 
 ## 💻 Installation et configuration
 
@@ -36,7 +37,7 @@ Le projet est construit de zéro, sans framework externe, en respectant rigoureu
    - Insérer vos identifiants de connexion à la base de données.
 4. **Connexion test :**
    Pour tester la plateforme, vous pouvez utiliser le compte par défaut (si applicable) :
-   - Login : `juju1432@mail.com`
+   - Login : `nathalire@mail.com`
    - Mot de passe : `password` *(attention aux majuscules)*
 
 ## ⚠️ Problèmes courants et prérequis
