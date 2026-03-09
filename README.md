@@ -33,8 +33,7 @@ Le projet est construit de zéro, sans framework externe, en respectant rigoureu
    - Créez une base de données vide appelée `tomtroc`.
    - Importez le fichier `sql/tomtroc.sql` (ou le nom exact de votre fichier) dans cette base.
 3. **Configuration :**
-   - Renommez le fichier `_config.php` (dans le dossier `config`) en `config.php`.
-   - Éditez-le pour y insérer vos identifiants de connexion à la base de données.
+   - Insérer vos identifiants de connexion à la base de données.
 4. **Connexion test :**
    Pour tester la plateforme, vous pouvez utiliser le compte par défaut (si applicable) :
    - Login : `juju1432@mail.com`
