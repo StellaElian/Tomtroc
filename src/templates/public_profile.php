@@ -70,7 +70,7 @@
                                     <td class="col-title"><?= htmlspecialchars($book->getTitle()) ?></td>
                                     <td class="col-author"><?= htmlspecialchars($book->getAuthor()) ?></td>
                                     <td class="col-desc">
-                                        <?= htmlspecialchars($book->getDescription()) ?>...
+                                        <?= htmlspecialchars(mb_substr($book->getDescription(), 0, 150)) ?>...
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
