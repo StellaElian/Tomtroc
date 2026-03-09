@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class User extends AbstractEntity
 {
@@ -11,10 +11,11 @@ class User extends AbstractEntity
     // pseudo: ranger et afficher
     public function setPseudo(string $pseudo): void
     {
-       $this->pseudo = $pseudo;
+        $this->pseudo = $pseudo;
     }
 
-    public function getPseudo(): string {
+    public function getPseudo(): string
+    {
         return $this->pseudo;
     }
 
@@ -22,10 +23,11 @@ class User extends AbstractEntity
 
     public function setEmail(string $email): void
     {
-       $this->email = $email;
+        $this->email = $email;
     }
 
-    public function getEmail(): string {
+    public function getEmail(): string
+    {
         return $this->email;
     }
 
@@ -33,30 +35,33 @@ class User extends AbstractEntity
 
     public function setPassword(string $password): void
     {
-       $this->password = $password;
+        $this->password = $password;
     }
 
-    public function getPassword(): string {
+    public function getPassword(): string
+    {
         return $this->password;
     }
 
     // Avatar
     public function setAvatar(string $avatar): void
     {
-       $this->avatar = $avatar;
+        $this->avatar = $avatar;
     }
 
-    public function getAvatar(): string {
+    public function getAvatar(): string
+    {
         return $this->avatar;
     }
 
     //date création
     public function setCreatedAt(string $createdAt): void
     {
-       $this->createdAt = $createdAt;
+        $this->createdAt = $createdAt;
     }
 
-    public function getCreatedAt(): string {
+    public function getCreatedAt(): string
+    {
         return $this->createdAt;
     }
 }

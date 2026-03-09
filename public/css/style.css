@@ -119,7 +119,7 @@ img {
     text-decoration: none;
     /* Haut 39px, Bas 71px pour l'espace de 199px total */
     margin: 39px 0 71px 0;
-    background-color: #0b614a;  
+    background-color: #0b614a;
     color: #FFFFFF;
     border: none;
     cursor: pointer;
@@ -502,8 +502,10 @@ img {
 }
 
 .sign-submit-btn:hover {
-    background-color: #008f53; /* Un vert un peu plus foncé, comme tes autres boutons */
-    transition: all 0.3s ease; /* Rend l'animation douce */
+    background-color: #008f53;
+    /* Un vert un peu plus foncé, comme tes autres boutons */
+    transition: all 0.3s ease;
+    /* Rend l'animation douce */
 }
 
 .sign-ask a {
@@ -512,7 +514,7 @@ img {
 }
 
 .sign-ask a:hover {
-    color: var(--textGray); 
+    color: var(--textGray);
     text-decoration: none;
 }
 
@@ -561,8 +563,8 @@ img {
 
 .search-bar {
     position: relative;
-    width: 322px; 
-    height: 50px; 
+    width: 322px;
+    height: 50px;
     background: #FFFFFF;
     border: 1px solid #F0F0F0;
     border-radius: 6px;
@@ -577,10 +579,10 @@ img {
 
 .search-section img {
     position: absolute;
-    left: 12px; 
+    left: 12px;
     top: 16px;
-    width: 15.85px; 
-    height: 15.15px; 
+    width: 15.85px;
+    height: 15.15px;
 }
 
 /* L'input : prend tout le cadre, texte poussé après la loupe */
@@ -590,10 +592,11 @@ img {
     border: none;
     border-radius: 6px;
     padding-top: 16px;
-    padding-left: 40px; /* 12px (marge) + 16px (loupe) + 12px (espace) = 40px */
+    padding-left: 40px;
+    /* 12px (marge) + 16px (loupe) + 12px (espace) = 40px */
     font-family: 'Inter', sans-serif;
-    font-size: 14px; 
-    color: #000000; 
+    font-size: 14px;
+    color: #000000;
     outline: none;
     background: transparent;
 }
@@ -1382,7 +1385,7 @@ img {
 }
 
 .empty-state {
-    text-align:center; 
+    text-align: center;
     padding: 20px;
 }
 
@@ -1596,11 +1599,13 @@ img {
     color: #292929;
     /*Couper le texte trop long*/
     display: -webkit-box;
-    -webkit-line-clamp: 4; /*affiche max 4 lignes*/
+    -webkit-line-clamp: 4;
+    /*affiche max 4 lignes*/
     line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis; /*aoute les ... automatiquement */
+    text-overflow: ellipsis;
+    /*aoute les ... automatiquement */
 }
 
 /* --- Badges Disponibilité --- */
@@ -1758,7 +1763,8 @@ img {
 .unread-dot {
     width: 8px;
     height: 8px;
-    background-color: #00AC66; /* Le vert de ton bouton */
+    background-color: #00AC66;
+    /* Le vert de ton bouton */
     border-radius: 50%;
     display: inline-block;
     margin-left: 5px;
@@ -1839,8 +1845,8 @@ img {
 }
 
 .empty-msg {
-    padding: 10px; 
-    color: #A6A6A6; 
+    padding: 10px;
+    color: #A6A6A6;
     font-size: 14px;
     font-weight: 400;
     font-family: 'Inter', sans-serif;

@@ -55,6 +55,6 @@ class UserManager extends AbstractEntityManager
     public function deleteUser(int $id): void
     {
         $sql = "DELETE FROM users WHERE id = :id";
-        $this->db->query($sql, ["id"=> $id]);
+        $this->db->query($sql, ["id" => $id]);
     }
 }

@@ -21,7 +21,7 @@ if (isset($_SESSION['user_id'])) {
 
 $action = $_GET['action'] ?? $_POST['action'] ?? 'home';
 
-switch($action){
+switch ($action) {
     case 'home':
         $homeController->index();
         break;
@@ -37,28 +37,28 @@ switch($action){
     case 'connectUser': //Vérification password
         $userController->connect();
         break;
-    case 'profile' : //profil utilisateur
+    case 'profile': //profil utilisateur
         $userController->showProfile();
         break;
-    case 'updateProfile' :
+    case 'updateProfile':
         $userController->updateProfile();
         break;
-    case 'deleteAccount' :
+    case 'deleteAccount':
         $userController->deleteAccount();
         break;
-    case 'logout' :
+    case 'logout':
         $userController->logout();
         break;
-    case 'addBook' : //Affichage du formulaire
+    case 'addBook': //Affichage du formulaire
         $bookController->showAddBook();
         break;
-    case 'addBookPost' :  
+    case 'addBookPost':
         $bookController->addBookPost();
         break;
-    case 'deleteBook' :
+    case 'deleteBook':
         $bookController->deleteBook();
         break;
-    case 'editBook' :
+    case 'editBook':
         $bookController->showEditBook();
         break;
     case 'editBookPost':
@@ -67,25 +67,25 @@ switch($action){
     case 'exchange':
         $bookController->showCatalog();
         break;
-    case 'show_book' : //public utilisateur
-        if (isset($_GET['id']) && $_GET['id'] > 0){ 
+    case 'show_book': //public utilisateur
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
             $bookController->ShowBook($_GET['id']);
-        }else{
-           $bookController->showCatalog();
+        } else {
+            $bookController->showCatalog();
         }
         break;
-    case 'public_profile' : // pour que la redirection fonctionne 
-        if (isset($_GET['id']) && $_GET['id'] > 0){
+    case 'public_profile': // pour que la redirection fonctionne 
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
             // on demande d'afficher le  profil numéro..
-            $userController->showPublicProfile($_GET['id']); 
-        }else{
+            $userController->showPublicProfile($_GET['id']);
+        } else {
             $homeController->index();
         }
         break;
-    case 'messagerie' :
+    case 'messagerie':
         $messageController->showMessages();
         break;
-    case 'sendMessage' :
+    case 'sendMessage':
         $messageController->sendMessage();
         break;
     default:

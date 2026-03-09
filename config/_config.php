@@ -1,4 +1,4 @@
-<?php 
+<?php
 //sans ça, le site oublie tout à chaque fois 
 session_start();
 

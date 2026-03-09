@@ -29,17 +29,17 @@
                         <div class="nav-item">
                             <img src="img/min/icon_messagerie.svg" alt="icon">
                             <a href="index.php?action=messagerie">Messagerie</a>
-                            
-                                <?php
-                                $unreadCount = $_SESSION['unread_count'] ?? 0;
-                                // On vérifie si la session contient un chiffre > 0
-                                if ($unreadCount > 0): ?>
-                                    <div class="badge-wrapper">
-                                        <span class="badge-number"><?= htmlspecialchars($unreadCount)?></span>
-                                    </div>
-                                 <?php endif; ?>
-                            
-                            </div>
+
+                            <?php
+                            $unreadCount = $_SESSION['unread_count'] ?? 0;
+                            // On vérifie si la session contient un chiffre > 0
+                            if ($unreadCount > 0): ?>
+                                <div class="badge-wrapper">
+                                    <span class="badge-number"><?= htmlspecialchars($unreadCount) ?></span>
+                                </div>
+                            <?php endif; ?>
+
+                        </div>
 
                         <div class="nav-item">
                             <img src="img/min/icon_mon_compte.svg" alt="Logo mon compte">

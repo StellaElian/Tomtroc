@@ -152,7 +152,7 @@ class UserController
     }
 
     public function logout(): void
-    { 
+    {
         session_start();
         $_SESSION = []; // vide le tableau
         session_destroy();

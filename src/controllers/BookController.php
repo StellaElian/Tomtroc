@@ -64,12 +64,12 @@ class BookController
             // si le livre existe et s'il appartient à l'utilisateur connecté
             if ($book && $book->getUserId() == $_SESSION['user_id']) {
                 //nettoyage image 
-                $imageName = $book->getImage(); 
-               
-                if ($imageName !== 'Book_default.png'){
+                $imageName = $book->getImage();
+
+                if ($imageName !== 'Book_default.png') {
                     $imagePath = IMG_BOOKS_PATH . '/' . $imageName;
 
-                    if(file_exists($imagePath)) {
+                    if (file_exists($imagePath)) {
                         unlink($imagePath); //Supprime le fichier du disque
                     }
                 }
@@ -82,18 +82,18 @@ class BookController
 
     public function showEditBook(): void
     {
-        if(!Utils::isUserConnected()) {
+        if (!Utils::isUserConnected()) {
             Utils::redirect('login');
         }
         // Récupérer l'Id
         $id = $_GET['id'] ?? null;
-        if (!$id){
+        if (!$id) {
             Utils::redirect('profile');
         }
         //Récupération le livre
         $bookManager = new BookManager();
         $book = $bookManager->getBookById($id);
-        if (!$book || $book->getUserId() !== $_SESSION['user_id']){
+        if (!$book || $book->getUserId() !== $_SESSION['user_id']) {
             Utils::redirect('profile');
         }
         require_once '../src/templates/edit_book.php';
@@ -101,18 +101,18 @@ class BookController
 
     public function editBookPost(): void
     {
-        if(!Utils::isUserConnected()) {
+        if (!Utils::isUserConnected()) {
             Utils::redirect('login');
         }
         //On recupère l'id du livre qu'on veut modifier
         $id = $_GET['id'] ?? null;
-        if (!$id){
+        if (!$id) {
             Utils::redirect('profile');
         }
         $bookManager = new BookManager();
         $book = $bookManager->getBookById($id);
         // livre appartient à l utilisateur?
-        if (!$book || $book->getUserId() !== $_SESSION['user_id']){
+        if (!$book || $book->getUserId() !== $_SESSION['user_id']) {
             Utils::redirect('profile');
         }
         if (empty($_POST['title']) || empty($_POST['author']) || empty($_POST['description']) || empty(['disponible'])) {
@@ -121,15 +121,15 @@ class BookController
             return;
         }
         // GESTION DE L'IMAGE ..Par défaut, on garde l'ancienne image
-        $fileName = $book->getImage(); 
+        $fileName = $book->getImage();
 
         // Est-ce qu'une NOUVELLE image a été envoyée ?
         if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
-            
+
             // A. On prépare la nouvelle image
             $extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
             $newFileName = uniqid('img_') . '.' . $extension;
-            
+
             // B. On la déplace dans le dossier
             move_uploaded_file(
                 $_FILES['image']['tmp_name'],
@@ -166,7 +166,7 @@ class BookController
     {
         $bookManager = new BookManager();
         // Y'a t'il une recherche dans l'url ?
-        if(isset($_GET['search']) && !empty($_GET['search']))  {
+        if (isset($_GET['search']) && !empty($_GET['search'])) {
             $books = $bookManager->getBooksBySearch($_GET['search']);
         } else {
             $books = $bookManager->getAllBooks();
@@ -178,12 +178,12 @@ class BookController
     {
         $bookManager = new BookManager();
         $book = $bookManager->getBookById($id);
-        
-        if($book) {
+
+        if ($book) {
             $userManager = new UserManager();
             $seller = $userManager->getUserById($book->getUserId());
             require_once "../src/templates/show_book.php";
-        }else {
+        } else {
             Utils::redirect("exchange");
         }
     }

@@ -27,7 +27,7 @@ class MessageController
 
         // On parcourt chaque conversation pour AJOUTER le pseudo et l'avatar manquants
         foreach ($conversations as $key => $conv) {
-            
+
             // Qui est l'autre personne ?
             if ($conv['user1_id'] == $userId) {
                 $otherId = $conv['user2_id'];
@@ -53,7 +53,7 @@ class MessageController
         //Gestion de la conversation sélectionnée
         $selectedConversationId = null;
         $messages = [];
-        $otherUserPseudo = ""; 
+        $otherUserPseudo = "";
         $otherUserAvatar = "";
 
         if (isset($_GET['id'])) {
@@ -64,7 +64,7 @@ class MessageController
 
         if ($selectedConversationId) {
             $messages = $messageManager->getMessagesByConversationId($selectedConversationId);
-            
+
             // On retrouve les infos qu'on vient de calculer pour les afficher 
             foreach ($conversations as $conv) {
                 if ($conv['id'] == $selectedConversationId) {
@@ -78,7 +78,7 @@ class MessageController
             $messageManager->markAsRead($selectedConversationId, $userId);
         }
         $_SESSION['unread_count'] = $messageManager->countUnreadMessages($userId);
-        
+
         require_once '../src/templates/messagerie.php';
     }
 

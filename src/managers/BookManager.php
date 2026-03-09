@@ -110,8 +110,8 @@ class BookManager extends AbstractEntityManager
              FROM books b
              INNER JOIN users u ON b.user_id = u.id
              WHERE b.title LIKE :search
-             ORDER BY b.id DESC"; 
-        $query = $this->db->query($sql, ['search' => '%' . $search .'%']); // peu importe ce qu'il y'a avant ou après
+             ORDER BY b.id DESC";
+        $query = $this->db->query($sql, ['search' => '%' . $search . '%']); // peu importe ce qu'il y'a avant ou après
         $books = [];
         if ($query) {
             while ($data = $query->fetch()) {
